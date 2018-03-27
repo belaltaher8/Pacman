@@ -61,11 +61,11 @@ module Pacman(resetn,
 	ps2_fsm my_ps2_fsm(ps2_key_pressed, clock, ~resetn, ps2_key_data, debounced_ps2);
 	
 	// lcd controller
-	lcd mylcd(clock, ~resetn, 1'b1, ps2_out, lcd_data, lcd_rw, lcd_en, lcd_rs, lcd_on, lcd_blon);
+	//lcd mylcd(clock, ~resetn, 1'b1, ps2_out, lcd_data, lcd_rw, lcd_en, lcd_rs, lcd_on, lcd_blon);
 	
 	// example for sending ps2 data to the first two seven segment displays
-	Hexadecimal_To_Seven_Segment hex1(ps2_out[3:0], seg1);
-	Hexadecimal_To_Seven_Segment hex2(ps2_out[7:4], seg2);
+	Hexadecimal_To_Seven_Segment hex1(debounced_ps2[3:0], seg1);
+	Hexadecimal_To_Seven_Segment hex2(debounced_ps2[7:4], seg2);
 	
 	// the other seven segment displays are currently set to 0
 	Hexadecimal_To_Seven_Segment hex3(4'b0, seg3);
@@ -75,7 +75,7 @@ module Pacman(resetn,
 	Hexadecimal_To_Seven_Segment hex7(4'b0, seg7);
 	Hexadecimal_To_Seven_Segment hex8(4'b0, seg8);
 	
-	// some LEDs that you could use for debugging if you wanted
+	// FPGA LED outputs
 	assign leds = 8'b00101011;
 		
 	// VGA
