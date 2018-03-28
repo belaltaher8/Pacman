@@ -51,7 +51,7 @@ module skeleton(resetn,
 	//assign clock = inclock;
 	
 	// your processor
-	//processor skeleton(clock, ~resetn, /*ps2_key_pressed, ps2_out, lcd_write_en, lcd_write_data, debug_data_in, debug_addr*/);
+	processor proc_skeleton(clock, ~resetn, /*ps2_key_pressed, ps2_out, lcd_write_en, lcd_write_data, debug_data_in, debug_addr*/);
 	
 	// keyboard controller
 	PS2_Interface myps2(clock, resetn, ps2_clock, ps2_data, ps2_key_data, ps2_key_pressed, ps2_out);
@@ -61,7 +61,7 @@ module skeleton(resetn,
 	ps2_fsm my_ps2_fsm(ps2_key_pressed, clock, ~resetn, ps2_key_data, debounced_ps2);
 	
 	// lcd controller
-	//lcd mylcd(clock, ~resetn, 1'b1, ps2_out, lcd_data, lcd_rw, lcd_en, lcd_rs, lcd_on, lcd_blon);
+	lcd mylcd(clock, ~resetn, 1'b1, debounced_ps2, lcd_data, lcd_rw, lcd_en, lcd_rs, lcd_on, lcd_blon);
 	
 	// example for sending ps2 data to the first two seven segment displays
 	Hexadecimal_To_Seven_Segment hex1(debounced_ps2[3:0], seg1);
