@@ -1,0 +1,10 @@
+
+
+C:/Users/Student/Pacman/pll.v
+
+Mar 28 04PM:56:19>: Error in CNX file format.
+
+Error messages are listed in file
+C:/Users/Student/Pacman/pll.cnxerr.
+
+Can't create the custom megafunction variation file(s)

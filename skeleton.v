@@ -55,17 +55,18 @@ module skeleton(resetn,
 	
 	// keyboard controller
 	PS2_Interface myps2(clock, resetn, ps2_clock, ps2_data, ps2_key_data, ps2_key_pressed, ps2_out);
+    
 	
 	// keyboard debouncer
-	wire [7:0] debounced_ps2;
-	ps2_fsm my_ps2_fsm(ps2_key_pressed, clock, ~resetn, ps2_key_data, debounced_ps2);
+	//wire [7:0] debounced_ps2;
+	//ps2_fsm my_ps2_fsm(ps2_key_pressed, clock, ~resetn, ps2_key_data, debounced_ps2);
 	
 	// lcd controller
-	lcd mylcd(clock, ~resetn, 1'b1, debounced_ps2, lcd_data, lcd_rw, lcd_en, lcd_rs, lcd_on, lcd_blon);
+	lcd mylcd(clock, ~resetn, 1'b1, ps2_key_data, lcd_data, lcd_rw, lcd_en, lcd_rs, lcd_on, lcd_blon);
 	
 	// example for sending ps2 data to the first two seven segment displays
-	Hexadecimal_To_Seven_Segment hex1(debounced_ps2[3:0], seg1);
-	Hexadecimal_To_Seven_Segment hex2(debounced_ps2[7:4], seg2);
+	Hexadecimal_To_Seven_Segment hex1(ps2_key_data[3:0], seg1);
+	Hexadecimal_To_Seven_Segment hex2(ps2_key_data[7:4], seg2);
 	
 	// the other seven segment displays are currently set to 0
 	Hexadecimal_To_Seven_Segment hex3(4'b0, seg3);
@@ -79,7 +80,7 @@ module skeleton(resetn,
 	assign leds = 8'b00101011;
 		
 	// VGA
-	/*Reset_Delay			r0	(.iCLK(CLOCK_50),.oRESET(DLY_RST)	);
+	Reset_Delay			r0	(.iCLK(CLOCK_50),.oRESET(DLY_RST)	);
 	VGA_Audio_PLL 		p1	(.areset(~DLY_RST),.inclk0(CLOCK_50),.c0(VGA_CTRL_CLK),.c1(AUD_CTRL_CLK),.c2(VGA_CLK)	);
 	vga_controller vga_ins(.iRST_n(DLY_RST),
 								 .iVGA_CLK(VGA_CLK),
@@ -88,8 +89,9 @@ module skeleton(resetn,
 								 .oVS(VGA_VS),
 								 .b_data(VGA_B),
 								 .g_data(VGA_G),
-								 .r_data(VGA_R));
-	*/
+								 .r_data(VGA_R),
+                                 .ps2_key_data_in(ps2_key_data));
+	
 	
 	
 endmodule

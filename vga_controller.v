@@ -5,7 +5,11 @@ module vga_controller(iRST_n,
                       oVS,
                       b_data,
                       g_data,
-                      r_data);
+                      r_data,
+                      ps2_key_data_in);
+
+
+input [7:0] ps2_key_data_in;
 
 	
 input iRST_n;
@@ -22,6 +26,7 @@ reg [23:0] bgr_data;
 wire VGA_CLK_n;
 wire [7:0] index;
 wire [23:0] bgr_data_raw;
+reg  [23:0] color;
 wire cBLANK_n,cHS,cVS,rst;
 ////
 assign rst = ~iRST_n;
@@ -41,6 +46,7 @@ begin
   else if (cBLANK_n==1'b1)
      ADDR<=ADDR+1;
 end
+
 //////////////////////////
 //////INDEX addr.
 assign VGA_CLK_n = ~iVGA_CLK;
@@ -51,6 +57,70 @@ img_data	img_data_inst (
 	);
 	
 /////////////////////////
+
+
+
+
+
+
+//Creates register for the block and initializes value
+reg [9:0] xLoc;
+reg [8:0] yLoc;
+reg [9:0] width;
+reg [8:0] height;
+wire [9:0] xADDR;
+wire [8:0] yADDR; 
+reg [9:0] xADDRToCompare;
+reg [8:0] yADDRToCompare;
+
+reg [20:0] clockCounter;
+
+initial begin
+    xLoc <= 10'b0000000000;
+    yLoc <=  9'b000000000;
+    
+    width <=  10'b0000100000;
+    height <=  9'b000100000;
+    
+    clockCounter <= 21'd0;
+end
+
+addrConverter myAddrConverter(ADDR, VGA_CLK_n, xADDR, yADDR);
+
+ always@(posedge VGA_CLK_n) begin
+ 
+    clockCounter = clockCounter + 21'd1;
+    
+    if(xLoc == 10'd640)
+        xLoc = 10'd1;
+        
+    if (yLoc == 9'd480)
+        yLoc = 9'd1;
+ 
+    if(ps2_key_data_in == 7'h74 && clockCounter == 21'd0)
+        xLoc = xLoc + 1;
+    else if(ps2_key_data_in == 7'h75 && clockCounter == 21'd0)
+        yLoc = yLoc - 1;
+    else if(ps2_key_data_in == 7'h6b && clockCounter == 21'd0)
+        xLoc = xLoc - 1;
+    else if(ps2_key_data_in == 7'h72 && clockCounter == 21'd0)
+        yLoc = yLoc + 1;
+ 
+    xADDRToCompare <= xADDR;
+    yADDRToCompare <= yADDR;
+    
+    if( (xADDRToCompare > xLoc) && (xADDRToCompare < xLoc + width) && (yADDRToCompare > yLoc) && (yADDRToCompare < yLoc + height) )
+        color <= 23'b111111110000000000000000;
+        
+    else
+        color <= bgr_data_raw;   
+
+end
+
+
+
+
+
 //////Add switch-input logic here
 	
 //////Color table output
@@ -61,7 +131,8 @@ img_index	img_index_inst (
 	);	
 //////
 //////latch valid data at falling edge;
-always@(posedge VGA_CLK_n) bgr_data <= bgr_data_raw;
+
+always@(posedge VGA_CLK_n) bgr_data <= color;
 assign b_data = bgr_data[23:16];
 assign g_data = bgr_data[15:8];
 assign r_data = bgr_data[7:0]; 
@@ -77,9 +148,20 @@ end
 endmodule
  	
 
+module addrConverter(ADDR, VGA_CLK_n, xADDR, yADDR);
 
-
-
+    input [18:0] ADDR;
+    input VGA_CLK_n;
+   
+    output reg [9:0] xADDR;
+    output reg [8:0] yADDR;
+    
+    always@(posedge VGA_CLK_n) begin
+        yADDR <= ADDR / 18'd640;
+        xADDR <= ADDR % 18'd640;
+    end
+    
+endmodule
 
 
 
