@@ -42,19 +42,24 @@ module skeleton(resetn,
 	wire	[7:0]	 ps2_key_data;
 	wire			 ps2_key_pressed;
 	wire	[7:0]	 ps2_out;	
+    
+
 	
 	// clock divider (by 5, i.e., 10 MHz)
-	pll div(CLOCK_50,inclock);
+	//pll div(CLOCK_50,inclock);
 	assign clock = CLOCK_50;
 	
 	// UNCOMMENT FOLLOWING LINE AND COMMENT ABOVE LINE TO RUN AT 50 MHz
 	//assign clock = inclock;
 	
 	// your processor
-	processor proc_skeleton(clock, ~resetn, /*ps2_key_pressed, ps2_out, lcd_write_en, lcd_write_data, debug_data_in, debug_addr*/);
+    
+	proc_skeleton myProcSkeleton(clock, ~resetn, 11'b0, VGA_data /*ps2_key_pressed, ps2_out, lcd_write_en, lcd_write_data, debug_data_in, debug_addr*/);
 	
 	// keyboard controller
 	PS2_Interface myps2(clock, resetn, ps2_clock, ps2_data, ps2_key_data, ps2_key_pressed, ps2_out);
+    
+    
     
 	
 	// keyboard debouncer
@@ -81,7 +86,12 @@ module skeleton(resetn,
 		
 	// VGA
 	Reset_Delay			r0	(.iCLK(CLOCK_50),.oRESET(DLY_RST)	);
+    
 	VGA_Audio_PLL 		p1	(.areset(~DLY_RST),.inclk0(CLOCK_50),.c0(VGA_CTRL_CLK),.c1(AUD_CTRL_CLK),.c2(VGA_CLK)	);
+    
+    wire [11:0] VGA_address;
+    wire [31:0] VGA_data;
+    
 	vga_controller vga_ins(.iRST_n(DLY_RST),
 								 .iVGA_CLK(VGA_CLK),
 								 .oBLANK_n(VGA_BLANK),

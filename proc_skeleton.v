@@ -9,11 +9,17 @@
  * inspect which signals the processor tries to assert when.
  */
 
-module proc_skeleton(clock, reset
+module proc_skeleton(clock, reset, VGA_address_dmem, VGA_q_dmem
 					 //address_imem, q_imem, address_dmem, data, wren, q_dmem, ctrl_writeEnable, ctrl_writeReg, ctrl_readRegA, 
 					 //ctrl_readRegB, data_writeReg, data_readRegA, data_readRegB
 					 );
+  
+  
+  
     input clock, reset;
+    input [11:0] VGA_address_dmem;
+    output [31:0] VGA_q_dmem;
+    
 	 //test
 	 
     /** IMEM **/
@@ -32,11 +38,16 @@ module proc_skeleton(clock, reset
     wire wren;
     wire [31:0] q_dmem;
     dmem my_dmem(
-        .address    (address_dmem),       // address of data
-        .clock      (~clock),                  // may need to invert the clock
-        .data	    (data),    // data you want to write
-        .wren	    (wren),      // write enable
-        .q          (q_dmem)    // data from dmem
+        .address_a    (address_dmem),       // address of data
+        .address_b   (VGA_address_dmem),
+        .clock_a     (~clock),                  // may need to invert the clock
+        .clock_b    (clock),
+        .data_a	    (data),    // data you want to write
+        .data_b     (32'b0),
+        .wren_a	    (wren),      // write enable
+        .wren_b     (1'b0),
+        .q_a        (q_dmem),    // data from dmem
+        .q_b        (VGA_q_dmem)
     );
 
     /** REGFILE **/

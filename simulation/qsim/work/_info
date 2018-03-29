@@ -1,0 +1,52 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/Student/Pacman/simulation/qsim
+vVGA_clock_converter
+Z1 !s110 1522358050
+!i10b 1
+!s100 62h>moc;[`V[beb[?o_=Z1
+IQCTZoe@[N2Ll2KbHc<26:1
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1522358048
+8skeleton.vo
+Fskeleton.vo
+L0 32
+Z3 OV;L;10.4d;61
+r1
+!s85 0
+31
+Z4 !s108 1522358050.000000
+!s107 skeleton.vo|
+!s90 -work|work|skeleton.vo|
+!i113 1
+Z5 o-work work
+n@v@g@a_clock_converter
+vVGA_clock_converter_vlg_vec_tst
+R1
+!i10b 1
+!s100 Gnl`Ue57GY8M3dCGfAMg<1
+I;KJ5]n_18BmGHIDM]3Di[0
+R2
+R0
+w1522358044
+8Waveform4.vwf.vt
+FWaveform4.vwf.vt
+L0 30
+R3
+r1
+!s85 0
+31
+R4
+!s107 Waveform4.vwf.vt|
+!s90 -work|work|Waveform4.vwf.vt|
+!i113 1
+R5
+n@v@g@a_clock_converter_vlg_vec_tst

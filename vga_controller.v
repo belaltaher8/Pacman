@@ -11,7 +11,7 @@ module vga_controller(iRST_n,
 
 input [7:0] ps2_key_data_in;
 
-	
+
 input iRST_n;
 input iVGA_CLK;
 output reg oBLANK_n;
@@ -73,7 +73,7 @@ wire [8:0] yADDR;
 reg [9:0] xADDRToCompare;
 reg [8:0] yADDRToCompare;
 
-reg [20:0] clockCounter;
+reg [31:0] clockCounter;
 
 initial begin
     xLoc <= 10'b0000000000;
@@ -82,29 +82,37 @@ initial begin
     width <=  10'b0000100000;
     height <=  9'b000100000;
     
-    clockCounter <= 21'd0;
+    clockCounter <= 32'd0;
+    
 end
 
 addrConverter myAddrConverter(ADDR, VGA_CLK_n, xADDR, yADDR);
 
  always@(posedge VGA_CLK_n) begin
  
-    clockCounter = clockCounter + 21'd1;
     
-    if(xLoc == 10'd640)
-        xLoc = 10'd1;
-        
-    if (yLoc == 9'd480)
-        yLoc = 9'd1;
- 
-    if(ps2_key_data_in == 7'h74 && clockCounter == 21'd0)
+    if(ps2_key_data_in == 7'h74 && clockCounter == 32'd2000000) begin
         xLoc = xLoc + 1;
-    else if(ps2_key_data_in == 7'h75 && clockCounter == 21'd0)
+
+    end
+    else if(ps2_key_data_in == 7'h75 && clockCounter == 32'd2000000) begin
         yLoc = yLoc - 1;
-    else if(ps2_key_data_in == 7'h6b && clockCounter == 21'd0)
+
+    end
+    else if(ps2_key_data_in == 7'h6b && clockCounter == 32'd2000000) begin
         xLoc = xLoc - 1;
-    else if(ps2_key_data_in == 7'h72 && clockCounter == 21'd0)
+
+    end
+    else if(ps2_key_data_in == 7'h72 && clockCounter == 32'd2000000) begin
         yLoc = yLoc + 1;
+
+    end  
+    
+    if(clockCounter == 32'd2000000)
+        clockCounter <= 32'd0;
+    else
+        clockCounter <= clockCounter + 32'd1;
+ 
  
     xADDRToCompare <= xADDR;
     yADDRToCompare <= yADDR;
@@ -132,7 +140,7 @@ img_index	img_index_inst (
 //////
 //////latch valid data at falling edge;
 
-always@(posedge VGA_CLK_n) bgr_data <= color;
+always@(posedge iVGA_CLK) bgr_data <= color;
 assign b_data = bgr_data[23:16];
 assign g_data = bgr_data[15:8];
 assign r_data = bgr_data[7:0]; 
