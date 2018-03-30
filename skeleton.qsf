@@ -293,4 +293,5 @@ set_location_assignment PIN_AD26 -to sw6
 set_location_assignment PIN_AB26 -to sw7
 set_global_assignment -name VECTOR_WAVEFORM_FILE output_files/Waveform5.vwf
 set_global_assignment -name VECTOR_WAVEFORM_FILE output_files/Waveform6.vwf
+set_global_assignment -name MIF_FILE image_data.mif
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
