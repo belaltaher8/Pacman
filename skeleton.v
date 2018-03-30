@@ -3,6 +3,7 @@ module skeleton(resetn,
 	debug_data_in, debug_addr, leds, 						// extra debugging ports
 	lcd_data, lcd_rw, lcd_en, lcd_rs, lcd_on, lcd_blon,// LCD info
 	seg1, seg2, seg3, seg4, seg5, seg6, seg7, seg8,		// seven segements
+    sw0, sw1, sw2, sw3, sw4, sw5, sw6, sw7,              //switches
 	VGA_CLK,   														//	VGA Clock
 	VGA_HS,															//	VGA H_SYNC
 	VGA_VS,															//	VGA V_SYNC
@@ -43,7 +44,9 @@ module skeleton(resetn,
 	wire			 ps2_key_pressed;
 	wire	[7:0]	 ps2_out;	
     
-
+    ////////////////////////    Switches     //////////////////////////
+    input sw0, sw1, sw2, sw3, sw4, sw5, sw6, sw7;
+   
 	
 	// clock divider (by 5, i.e., 10 MHz)
 	//pll div(CLOCK_50,inclock);
@@ -54,12 +57,10 @@ module skeleton(resetn,
 	
 	// your processor
     
-	proc_skeleton myProcSkeleton(clock, ~resetn, 11'b0, VGA_data /*ps2_key_pressed, ps2_out, lcd_write_en, lcd_write_data, debug_data_in, debug_addr*/);
+	proc_skeleton myProcSkeleton(clock, ~resetn, 11'b0, VGA_data, ps2_key_pressed, ps2_out /*lcd_write_en, lcd_write_data, debug_data_in, debug_addr*/);
 	
 	// keyboard controller
 	PS2_Interface myps2(clock, resetn, ps2_clock, ps2_data, ps2_key_data, ps2_key_pressed, ps2_out);
-    
-    
     
 	
 	// keyboard debouncer
@@ -82,7 +83,7 @@ module skeleton(resetn,
 	Hexadecimal_To_Seven_Segment hex8(4'b0, seg8);
 	
 	// FPGA LED outputs
-	assign leds = 8'b00101011;
+	assign leds = {sw7, sw6, sw5, sw4, sw3, sw2, sw1, sw0};
 		
 	// VGA
 	Reset_Delay			r0	(.iCLK(CLOCK_50),.oRESET(DLY_RST)	);
@@ -101,7 +102,6 @@ module skeleton(resetn,
 								 .g_data(VGA_G),
 								 .r_data(VGA_R),
                                  .ps2_key_data_in(ps2_key_data));
-	
 	
 	
 endmodule

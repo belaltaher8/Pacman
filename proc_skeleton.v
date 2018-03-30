@@ -9,15 +9,15 @@
  * inspect which signals the processor tries to assert when.
  */
 
-module proc_skeleton(clock, reset, VGA_address_dmem, VGA_q_dmem
+module proc_skeleton(clock, reset, VGA_address_dmem, VGA_q_dmem, ps2_key_pressed, ps2_out
 					 //address_imem, q_imem, address_dmem, data, wren, q_dmem, ctrl_writeEnable, ctrl_writeReg, ctrl_readRegA, 
 					 //ctrl_readRegB, data_writeReg, data_readRegA, data_readRegB
 					 );
   
   
-  
-    input clock, reset;
+    input clock, reset, ps2_key_pressed;
     input [11:0] VGA_address_dmem;
+	input [7:0]	 ps2_out;	
     output [31:0] VGA_q_dmem;
     
 	 //test
@@ -53,7 +53,7 @@ module proc_skeleton(clock, reset, VGA_address_dmem, VGA_q_dmem
     /** REGFILE **/
     wire ctrl_writeEnable;
     wire [4:0] ctrl_writeReg, ctrl_readRegA, ctrl_readRegB;
-    wire [31:0] data_writeReg;
+    wire [31:0] data_writeReg, proc_data_in, proc_data_out;
     wire [31:0] data_readRegA, data_readRegB;
     regfile my_regfile(
         ~clock,
@@ -79,9 +79,9 @@ module proc_skeleton(clock, reset, VGA_address_dmem, VGA_q_dmem
 
         // Dmem
         address_dmem,                   // O: The address of the data to get or put from/to dmem
-        data,                           // O: The data to write to dmem
+        proc_data_out,                  // O: The data to write to dmem
         wren,                           // O: Write enable for dmem
-        q_dmem,                         // I: The data from dmem
+        proc_data_in,                   // I: The data from dmem/keyboard
 
         // Regfile
         ctrl_writeEnable,               // O: Write enable for regfile
@@ -94,5 +94,48 @@ module proc_skeleton(clock, reset, VGA_address_dmem, VGA_q_dmem
 		  
 		  //test
     );
+    
+    
+    //* This code is George's solution, involving an abstract extension to the DMEM (Virtual Memory)
+    //* 4100+ is for loading information from Virtual Memory, 4200+ is for storing information to Virtual Memory
+    
+    //lw mux
+    tri_state32 lw0 ({24'd0, ps2_out}, ~(isKeyboardLoad), proc_data_in);
+    
+    wire isKeyboardLoad;
+    isEqual_32 lw1 (address_dmem, 32'd4100, isKeyboardLoad);
+    tri_state32 lw1a ({24'd0, ps2_out}, isKeyboardLoad, proc_data_in);
+    
+    //sw/lw mux
+    tri_state32 sw0a (data, ~(isP0x || isP0y || isP0v), proc_data_out);
+    tri_state32 sw0b (data, ~(isP0x || isP0y || isP0v), proc_data_in);
+    
+    //Characters Data
+    reg [31:0] player0_x, player0_y, player0_vel;
+    
+    wire isP0x;
+    isEqual_32 sw1 (address_dmem, 32'd4200, isP0x);
+    tri_state32 sw1a (player0_x, isP0x, proc_data_out);
+    tri_state32 sw1b (player0_x, isP0x, proc_data_in);
+    
+    wire isP0y;
+    isEqual_32 sw2 (address_dmem, 32'd4201, isP0y);
+    tri_state32 sw2a (player0_y, isP0y, proc_data_out);
+    tri_state32 sw2b (player0_y, isP0y, proc_data_in);
+    
+    wire isP0v;
+    isEqual_32 sw3 (address_dmem, 32'd4202, isP0v);
+    tri_state32 sw3a (player0_vel, isP0v, proc_data_out);
+    tri_state32 sw3b (player0_vel, isP0v, proc_data_in);
+    
+    
+    //Player Instantiation
+    initial begin
+        player0_x = 32'd240;
+        player0_y = 32'd240;
+        player0_vel = 32'd0;
+	end
+    
+
 
 endmodule

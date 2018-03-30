@@ -1,5 +1,5 @@
 Analysis & Synthesis report for skeleton
-Thu Mar 29 19:15:33 2018
+Thu Mar 29 20:51:56 2018
 Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Standard Edition
 
 
@@ -48,110 +48,116 @@ Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Standard Edition
  40. Port Connectivity Checks: "Hexadecimal_To_Seven_Segment:hex3"
  41. Port Connectivity Checks: "lcd:mylcd"
  42. Port Connectivity Checks: "PS2_Interface:myps2|PS2_Controller:PS2"
- 43. Port Connectivity Checks: "PS2_Interface:myps2"
- 44. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|writeback:WriteBack|tri_state32:comb_48"
- 45. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|writeback:WriteBack|tri_state5:comb_37"
- 46. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|writeback:WriteBack|tri_state5:comb_36"
- 47. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|M_W:m_w"
- 48. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|X_M:x_m"
- 49. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|tri_state32:tri_9"
- 50. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|tri_state32:tri_8"
- 51. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|tri_state32:tri_3"
- 52. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|tri_state32:tri_6"
- 53. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|tri_state32:tri_2"
- 54. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|tri_state32:tri_11"
- 55. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|tri_state32:tri_10"
- 56. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|alu:ALU_PC_add"
- 57. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|alu:ALU_B"
- 58. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|tri_state:tri_8"
- 59. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|tri_state:tri_7"
- 60. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|tri_state32:tri_6"
- 61. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|div:divider|alu:invert_result"
- 62. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|div:divider|isEqual_6:comb_142"
- 63. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|div:divider|div_control:div|alu:iter_alu"
- 64. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|div:divider|div_control:div|isEqual_6:comb_10"
- 65. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|div:divider|div_control:div|dflipflop:iter_blks[5]"
- 66. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|div:divider|div_control:div|dflipflop:iter_blks[4]"
- 67. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|div:divider|div_control:div|dflipflop:iter_blks[3]"
- 68. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|div:divider|div_control:div|dflipflop:iter_blks[2]"
- 69. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|div:divider|div_control:div|dflipflop:iter_blks[1]"
- 70. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|div:divider|div_control:div|dflipflop:iter_blks[0]"
- 71. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|div:divider|sla64_1:sla"
- 72. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|div:divider|alu:adder"
- 73. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|div:divider|alu:invert_dividedend"
- 74. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|div:divider|alu:invert_divider"
- 75. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|mult:multiplier|alu:invert_result"
- 76. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|mult:multiplier|isEqual_5:comb_73"
- 77. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|mult:multiplier|mult_control:control|dflipflop:lowest_bit"
- 78. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|mult:multiplier|mult_control:control|alu:iter_alu"
- 79. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|mult:multiplier|mult_control:control|isEqual_5:comb_17"
- 80. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|mult:multiplier|mult_control:control|dflipflop:iter_blks[4]"
- 81. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|mult:multiplier|mult_control:control|dflipflop:iter_blks[3]"
- 82. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|mult:multiplier|mult_control:control|dflipflop:iter_blks[2]"
- 83. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|mult:multiplier|mult_control:control|dflipflop:iter_blks[1]"
- 84. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|mult:multiplier|mult_control:control|dflipflop:iter_blks[0]"
- 85. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|mult:multiplier|alu:adder"
- 86. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|mult:multiplier|sla_1:sla|mux4_1:mux"
- 87. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|mult:multiplier|alu:invert_multiplier"
- 88. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc"
- 89. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|alu:ALU_I"
- 90. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|alu:ALU_R"
- 91. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|D_X:d_x"
- 92. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|decode:Decode|instr_decoder:ID|isEqual_5:comb_86"
- 93. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|decode:Decode|instr_decoder:ID|isEqual_5:comb_85"
- 94. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|decode:Decode|instr_decoder:ID|isEqual_5:comb_84"
- 95. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|decode:Decode|instr_decoder:ID|isEqual_5:comb_83"
- 96. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|decode:Decode|instr_decoder:ID|isEqual_5:comb_82"
- 97. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|decode:Decode|instr_decoder:ID|isEqual_5:comb_81"
- 98. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|decode:Decode|instr_decoder:ID|isEqual_5:comb_80"
- 99. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|decode:Decode|instr_decoder:ID|isEqual_5:comb_79"
-100. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|decode:Decode|instr_decoder:ID|isEqual_5:comb_78"
-101. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|decode:Decode|instr_decoder:ID|isEqual_5:comb_76"
-102. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|decode:Decode|instr_decoder:ID|isEqual_5:comb_74"
-103. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|decode:Decode|instr_decoder:ID|isEqual_5:comb_72"
-104. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|decode:Decode|instr_decoder:ID|isEqual_5:comb_70"
-105. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|decode:Decode|instr_decoder:ID|isEqual_5:comb_68"
-106. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|decode:Decode|instr_decoder:ID|isEqual_5:comb_66"
-107. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|decode:Decode|instr_decoder:ID|isEqual_5:comb_64"
-108. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|decode:Decode|instr_decoder:ID|isEqual_5:comb_63"
-109. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|decode:Decode|instr_decoder:ID|isEqual_5:comb_61"
-110. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|decode:Decode|instr_decoder:ID|isEqual_5:comb_60"
-111. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|fetch:Fetch|alu:ALU|sum_32:sum_op|mux2_1:mux3_1"
-112. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|fetch:Fetch|alu:ALU|sum_32:sum_op|mux2_1:mux3_0"
-113. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|fetch:Fetch|alu:ALU|sum_32:sum_op|sum_8:sum3_1"
-114. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|fetch:Fetch|alu:ALU|sum_32:sum_op|sum_8:sum3_0"
-115. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|fetch:Fetch|alu:ALU|sum_32:sum_op|mux2_1:mux2_1"
-116. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|fetch:Fetch|alu:ALU|sum_32:sum_op|mux2_1:mux2_0"
-117. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|fetch:Fetch|alu:ALU|sum_32:sum_op|sum_8:sum2_1"
-118. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|fetch:Fetch|alu:ALU|sum_32:sum_op|sum_8:sum2_0"
-119. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|fetch:Fetch|alu:ALU|sum_32:sum_op|mux2_1:mux1_1"
-120. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|fetch:Fetch|alu:ALU|sum_32:sum_op|mux2_1:mux1_0"
-121. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|fetch:Fetch|alu:ALU|sum_32:sum_op|sum_8:sum1_1"
-122. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|fetch:Fetch|alu:ALU|sum_32:sum_op|sum_8:sum1_0"
-123. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|fetch:Fetch|alu:ALU|sum_32:sum_op|sum_8:sum0|mux2_1:mux1"
-124. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|fetch:Fetch|alu:ALU|sum_32:sum_op|sum_8:sum0|mux2_1:mux0"
-125. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|fetch:Fetch|alu:ALU|sum_32:sum_op|sum_8:sum0|sum_4la:sum1_1"
-126. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|fetch:Fetch|alu:ALU|sum_32:sum_op|sum_8:sum0|sum_4la:sum1_0"
-127. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|fetch:Fetch|alu:ALU|sum_32:sum_op|sum_8:sum0"
-128. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|fetch:Fetch|alu:ALU|sum_32:sum_op"
-129. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|fetch:Fetch|alu:ALU|mux8_1:opcode_mux"
-130. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|fetch:Fetch|alu:ALU"
-131. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|bypassControl:BC|isEqual_5:comb_99"
-132. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|bypassControl:BC|isEqual_5:comb_88"
-133. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|bypassControl:BC|tri_state5:comb_75"
-134. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|bypassControl:BC|tri_state5:comb_74"
-135. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|bypassControl:BC|tri_state5:comb_63"
-136. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|bypassControl:BC|isEqual_5:comb_32"
-137. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|bypassControl:BC|isEqual_5:comb_3"
-138. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|bypassControl:BC"
-139. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register0"
-140. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|dmem:my_dmem"
-141. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|imem:my_imem"
-142. Port Connectivity Checks: "proc_skeleton:myProcSkeleton"
-143. Post-Synthesis Netlist Statistics for Top Partition
-144. Elapsed Time Per Partition
-145. Analysis & Synthesis Messages
-146. Analysis & Synthesis Suppressed Messages
+ 43. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|isEqual_32:sw3"
+ 44. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|isEqual_32:sw2"
+ 45. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|isEqual_32:sw1"
+ 46. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|tri_state32:lw1a"
+ 47. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|isEqual_32:lw1"
+ 48. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|tri_state32:lw0"
+ 49. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|writeback:WriteBack|tri_state32:comb_48"
+ 50. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|writeback:WriteBack|tri_state5:comb_37"
+ 51. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|writeback:WriteBack|tri_state5:comb_36"
+ 52. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|M_W:m_w"
+ 53. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|X_M:x_m"
+ 54. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|tri_state32:tri_9"
+ 55. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|tri_state32:tri_8"
+ 56. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|tri_state32:tri_3"
+ 57. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|tri_state32:tri_6"
+ 58. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|tri_state32:tri_2"
+ 59. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|tri_state32:tri_11"
+ 60. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|tri_state32:tri_10"
+ 61. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|alu:ALU_PC_add"
+ 62. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|alu:ALU_B"
+ 63. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|tri_state:tri_8"
+ 64. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|tri_state:tri_7"
+ 65. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|tri_state32:tri_6"
+ 66. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|div:divider|alu:invert_result"
+ 67. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|div:divider|isEqual_6:comb_142"
+ 68. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|div:divider|div_control:div|alu:iter_alu"
+ 69. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|div:divider|div_control:div|isEqual_6:comb_10"
+ 70. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|div:divider|div_control:div|dflipflop:iter_blks[5]"
+ 71. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|div:divider|div_control:div|dflipflop:iter_blks[4]"
+ 72. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|div:divider|div_control:div|dflipflop:iter_blks[3]"
+ 73. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|div:divider|div_control:div|dflipflop:iter_blks[2]"
+ 74. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|div:divider|div_control:div|dflipflop:iter_blks[1]"
+ 75. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|div:divider|div_control:div|dflipflop:iter_blks[0]"
+ 76. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|div:divider|sla64_1:sla"
+ 77. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|div:divider|alu:adder"
+ 78. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|div:divider|alu:invert_dividedend"
+ 79. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|div:divider|alu:invert_divider"
+ 80. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|mult:multiplier|alu:invert_result"
+ 81. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|mult:multiplier|isEqual_5:comb_73"
+ 82. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|mult:multiplier|mult_control:control|dflipflop:lowest_bit"
+ 83. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|mult:multiplier|mult_control:control|alu:iter_alu"
+ 84. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|mult:multiplier|mult_control:control|isEqual_5:comb_17"
+ 85. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|mult:multiplier|mult_control:control|dflipflop:iter_blks[4]"
+ 86. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|mult:multiplier|mult_control:control|dflipflop:iter_blks[3]"
+ 87. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|mult:multiplier|mult_control:control|dflipflop:iter_blks[2]"
+ 88. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|mult:multiplier|mult_control:control|dflipflop:iter_blks[1]"
+ 89. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|mult:multiplier|mult_control:control|dflipflop:iter_blks[0]"
+ 90. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|mult:multiplier|alu:adder"
+ 91. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|mult:multiplier|sla_1:sla|mux4_1:mux"
+ 92. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc|multdiv:MD|mult:multiplier|alu:invert_multiplier"
+ 93. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|multdiv_cycles:mdc"
+ 94. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|alu:ALU_I"
+ 95. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|execute:Execute|alu:ALU_R"
+ 96. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|D_X:d_x"
+ 97. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|decode:Decode|instr_decoder:ID|isEqual_5:comb_86"
+ 98. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|decode:Decode|instr_decoder:ID|isEqual_5:comb_85"
+ 99. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|decode:Decode|instr_decoder:ID|isEqual_5:comb_84"
+100. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|decode:Decode|instr_decoder:ID|isEqual_5:comb_83"
+101. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|decode:Decode|instr_decoder:ID|isEqual_5:comb_82"
+102. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|decode:Decode|instr_decoder:ID|isEqual_5:comb_81"
+103. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|decode:Decode|instr_decoder:ID|isEqual_5:comb_80"
+104. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|decode:Decode|instr_decoder:ID|isEqual_5:comb_79"
+105. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|decode:Decode|instr_decoder:ID|isEqual_5:comb_78"
+106. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|decode:Decode|instr_decoder:ID|isEqual_5:comb_76"
+107. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|decode:Decode|instr_decoder:ID|isEqual_5:comb_74"
+108. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|decode:Decode|instr_decoder:ID|isEqual_5:comb_72"
+109. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|decode:Decode|instr_decoder:ID|isEqual_5:comb_70"
+110. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|decode:Decode|instr_decoder:ID|isEqual_5:comb_68"
+111. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|decode:Decode|instr_decoder:ID|isEqual_5:comb_66"
+112. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|decode:Decode|instr_decoder:ID|isEqual_5:comb_64"
+113. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|decode:Decode|instr_decoder:ID|isEqual_5:comb_63"
+114. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|decode:Decode|instr_decoder:ID|isEqual_5:comb_61"
+115. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|decode:Decode|instr_decoder:ID|isEqual_5:comb_60"
+116. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|fetch:Fetch|alu:ALU|sum_32:sum_op|mux2_1:mux3_1"
+117. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|fetch:Fetch|alu:ALU|sum_32:sum_op|mux2_1:mux3_0"
+118. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|fetch:Fetch|alu:ALU|sum_32:sum_op|sum_8:sum3_1"
+119. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|fetch:Fetch|alu:ALU|sum_32:sum_op|sum_8:sum3_0"
+120. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|fetch:Fetch|alu:ALU|sum_32:sum_op|mux2_1:mux2_1"
+121. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|fetch:Fetch|alu:ALU|sum_32:sum_op|mux2_1:mux2_0"
+122. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|fetch:Fetch|alu:ALU|sum_32:sum_op|sum_8:sum2_1"
+123. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|fetch:Fetch|alu:ALU|sum_32:sum_op|sum_8:sum2_0"
+124. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|fetch:Fetch|alu:ALU|sum_32:sum_op|mux2_1:mux1_1"
+125. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|fetch:Fetch|alu:ALU|sum_32:sum_op|mux2_1:mux1_0"
+126. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|fetch:Fetch|alu:ALU|sum_32:sum_op|sum_8:sum1_1"
+127. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|fetch:Fetch|alu:ALU|sum_32:sum_op|sum_8:sum1_0"
+128. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|fetch:Fetch|alu:ALU|sum_32:sum_op|sum_8:sum0|mux2_1:mux1"
+129. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|fetch:Fetch|alu:ALU|sum_32:sum_op|sum_8:sum0|mux2_1:mux0"
+130. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|fetch:Fetch|alu:ALU|sum_32:sum_op|sum_8:sum0|sum_4la:sum1_1"
+131. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|fetch:Fetch|alu:ALU|sum_32:sum_op|sum_8:sum0|sum_4la:sum1_0"
+132. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|fetch:Fetch|alu:ALU|sum_32:sum_op|sum_8:sum0"
+133. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|fetch:Fetch|alu:ALU|sum_32:sum_op"
+134. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|fetch:Fetch|alu:ALU|mux8_1:opcode_mux"
+135. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|fetch:Fetch|alu:ALU"
+136. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|bypassControl:BC|isEqual_5:comb_99"
+137. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|bypassControl:BC|isEqual_5:comb_88"
+138. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|bypassControl:BC|tri_state5:comb_75"
+139. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|bypassControl:BC|tri_state5:comb_74"
+140. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|bypassControl:BC|tri_state5:comb_63"
+141. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|bypassControl:BC|isEqual_5:comb_32"
+142. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|bypassControl:BC|isEqual_5:comb_3"
+143. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor|bypassControl:BC"
+144. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor"
+145. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register0"
+146. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|dmem:my_dmem"
+147. Port Connectivity Checks: "proc_skeleton:myProcSkeleton|imem:my_imem"
+148. Port Connectivity Checks: "proc_skeleton:myProcSkeleton"
+149. Post-Synthesis Netlist Statistics for Top Partition
+150. Elapsed Time Per Partition
+151. Analysis & Synthesis Messages
+152. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -178,7 +184,7 @@ agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Mar 29 19:15:33 2018           ;
+; Analysis & Synthesis Status        ; Successful - Thu Mar 29 20:51:55 2018           ;
 ; Quartus Prime Version              ; 16.0.0 Build 211 04/27/2016 SJ Standard Edition ;
 ; Revision Name                      ; skeleton                                        ;
 ; Top-level Entity Name              ; skeleton                                        ;
@@ -187,7 +193,7 @@ agreement for further details.
 ;     Total combinational functions  ; 1,388                                           ;
 ;     Dedicated logic registers      ; 518                                             ;
 ; Total registers                    ; 518                                             ;
-; Total pins                         ; 154                                             ;
+; Total pins                         ; 162                                             ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 2,463,744                                       ;
 ; Embedded Multiplier 9-bit elements ; 0                                               ;
@@ -350,6 +356,7 @@ agreement for further details.
 ; mult.v                           ; yes             ; User Verilog HDL File            ; C:/Users/Student/Pacman/mult.v                                       ;         ;
 ; memory.v                         ; yes             ; User Verilog HDL File            ; C:/Users/Student/Pacman/memory.v                                     ;         ;
 ; M_W.v                            ; yes             ; User Verilog HDL File            ; C:/Users/Student/Pacman/M_W.v                                        ;         ;
+; isEqual_32.v                     ; yes             ; User Verilog HDL File            ; C:/Users/Student/Pacman/isEqual_32.v                                 ;         ;
 ; isEqual_6.v                      ; yes             ; User Verilog HDL File            ; C:/Users/Student/Pacman/isEqual_6.v                                  ;         ;
 ; isEqual_5.v                      ; yes             ; User Verilog HDL File            ; C:/Users/Student/Pacman/isEqual_5.v                                  ;         ;
 ; instr_decoder.v                  ; yes             ; User Verilog HDL File            ; C:/Users/Student/Pacman/instr_decoder.v                              ;         ;
@@ -442,7 +449,7 @@ agreement for further details.
 ;     -- Dedicated logic registers            ; 518                                            ;
 ;     -- I/O registers                        ; 0                                              ;
 ;                                             ;                                                ;
-; I/O pins                                    ; 154                                            ;
+; I/O pins                                    ; 162                                            ;
 ; Total memory bits                           ; 2463744                                        ;
 ;                                             ;                                                ;
 ; Embedded Multiplier 9-bit elements          ; 0                                              ;
@@ -452,8 +459,8 @@ agreement for further details.
 ;                                             ;                                                ;
 ; Maximum fan-out node                        ; VGA_Audio_PLL:p1|altpll:altpll_component|_clk0 ;
 ; Maximum fan-out                             ; 519                                            ;
-; Total fan-out                               ; 10994                                          ;
-; Average fan-out                             ; 4.32                                           ;
+; Total fan-out                               ; 11010                                          ;
+; Average fan-out                             ; 4.30                                           ;
 +---------------------------------------------+------------------------------------------------+
 
 
@@ -462,7 +469,7 @@ agreement for further details.
 +----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------+--------------+
 ; Compilation Hierarchy Node                   ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                            ; Entity Name                  ; Library Name ;
 +----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------+--------------+
-; |skeleton                                    ; 1388 (0)          ; 518 (0)      ; 2463744     ; 0            ; 0       ; 0         ; 154  ; 0            ; |skeleton                                                                                                                                                      ; skeleton                     ; work         ;
+; |skeleton                                    ; 1388 (0)          ; 518 (0)      ; 2463744     ; 0            ; 0       ; 0         ; 162  ; 0            ; |skeleton                                                                                                                                                      ; skeleton                     ; work         ;
 ;    |Hexadecimal_To_Seven_Segment:hex1|       ; 8 (8)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|Hexadecimal_To_Seven_Segment:hex1                                                                                                                    ; Hexadecimal_To_Seven_Segment ; work         ;
 ;    |Hexadecimal_To_Seven_Segment:hex2|       ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|Hexadecimal_To_Seven_Segment:hex2                                                                                                                    ; Hexadecimal_To_Seven_Segment ; work         ;
 ;    |PS2_Interface:myps2|                     ; 32 (0)            ; 30 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|PS2_Interface:myps2                                                                                                                                  ; PS2_Interface                ; work         ;
@@ -565,6 +572,7 @@ Encoding Type:  One-Hot
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+
 ; Register name                                                                                                                                                       ; Reason for Removal                                                                                          ;
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+
+; proc_skeleton:myProcSkeleton|processor:my_processor|X_M:x_m|dflipflop:dffs_is[8]|q_int                                                                              ; Lost fanout                                                                                                 ;
 ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register0|dff_module:DFF_generate[31].DFF|q_int                                                     ; Stuck at GND due to stuck port data_in                                                                      ;
 ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register0|dff_module:DFF_generate[30].DFF|q_int                                                     ; Stuck at GND due to stuck port data_in                                                                      ;
 ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register0|dff_module:DFF_generate[29].DFF|q_int                                                     ; Stuck at GND due to stuck port data_in                                                                      ;
@@ -597,6 +605,7 @@ Encoding Type:  One-Hot
 ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register0|dff_module:DFF_generate[2].DFF|q_int                                                      ; Stuck at GND due to stuck port data_in                                                                      ;
 ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register0|dff_module:DFF_generate[1].DFF|q_int                                                      ; Stuck at GND due to stuck port data_in                                                                      ;
 ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register0|dff_module:DFF_generate[0].DFF|q_int                                                      ; Stuck at GND due to stuck port data_in                                                                      ;
+; PS2_Interface:myps2|last_data_received[0..7]                                                                                                                        ; Lost fanout                                                                                                 ;
 ; PS2_Interface:myps2|PS2_Controller:PS2|idle_counter[0..7]                                                                                                           ; Lost fanout                                                                                                 ;
 ; proc_skeleton:myProcSkeleton|processor:my_processor|M_W:m_w|dflipflop:dffs_is[17]|q_int                                                                             ; Lost fanout                                                                                                 ;
 ; proc_skeleton:myProcSkeleton|processor:my_processor|M_W:m_w|dflipflop:dffs_is[16]|q_int                                                                             ; Lost fanout                                                                                                 ;
@@ -715,7 +724,6 @@ Encoding Type:  One-Hot
 ; proc_skeleton:myProcSkeleton|processor:my_processor|X_M:x_m|dflipflop:dffs_is[11]|q_int                                                                             ; Lost fanout                                                                                                 ;
 ; proc_skeleton:myProcSkeleton|processor:my_processor|X_M:x_m|dflipflop:dffs_is[10]|q_int                                                                             ; Lost fanout                                                                                                 ;
 ; proc_skeleton:myProcSkeleton|processor:my_processor|X_M:x_m|dflipflop:dffs_is[9]|q_int                                                                              ; Lost fanout                                                                                                 ;
-; proc_skeleton:myProcSkeleton|processor:my_processor|X_M:x_m|dflipflop:dffs_is[8]|q_int                                                                              ; Lost fanout                                                                                                 ;
 ; proc_skeleton:myProcSkeleton|processor:my_processor|X_M:x_m|dflipflop:dffs_is[7]|q_int                                                                              ; Lost fanout                                                                                                 ;
 ; proc_skeleton:myProcSkeleton|processor:my_processor|X_M:x_m|dflipflop:dffs_is[3]|q_int                                                                              ; Lost fanout                                                                                                 ;
 ; proc_skeleton:myProcSkeleton|processor:my_processor|X_M:x_m|dflipflop:dffs_is[0]|q_int                                                                              ; Lost fanout                                                                                                 ;
@@ -751,38 +759,6 @@ Encoding Type:  One-Hot
 ; proc_skeleton:myProcSkeleton|processor:my_processor|X_M:x_m|dflipflop:dffs_rd[2]|q_int                                                                              ; Lost fanout                                                                                                 ;
 ; proc_skeleton:myProcSkeleton|processor:my_processor|X_M:x_m|dflipflop:dffs_rd[1]|q_int                                                                              ; Lost fanout                                                                                                 ;
 ; proc_skeleton:myProcSkeleton|processor:my_processor|X_M:x_m|dflipflop:dffs_rd[0]|q_int                                                                              ; Lost fanout                                                                                                 ;
-; proc_skeleton:myProcSkeleton|processor:my_processor|X_M:x_m|dflipflop:dffs_red[31]|q_int                                                                            ; Lost fanout                                                                                                 ;
-; proc_skeleton:myProcSkeleton|processor:my_processor|X_M:x_m|dflipflop:dffs_red[30]|q_int                                                                            ; Lost fanout                                                                                                 ;
-; proc_skeleton:myProcSkeleton|processor:my_processor|X_M:x_m|dflipflop:dffs_red[29]|q_int                                                                            ; Lost fanout                                                                                                 ;
-; proc_skeleton:myProcSkeleton|processor:my_processor|X_M:x_m|dflipflop:dffs_red[28]|q_int                                                                            ; Lost fanout                                                                                                 ;
-; proc_skeleton:myProcSkeleton|processor:my_processor|X_M:x_m|dflipflop:dffs_red[27]|q_int                                                                            ; Lost fanout                                                                                                 ;
-; proc_skeleton:myProcSkeleton|processor:my_processor|X_M:x_m|dflipflop:dffs_red[26]|q_int                                                                            ; Lost fanout                                                                                                 ;
-; proc_skeleton:myProcSkeleton|processor:my_processor|X_M:x_m|dflipflop:dffs_red[25]|q_int                                                                            ; Lost fanout                                                                                                 ;
-; proc_skeleton:myProcSkeleton|processor:my_processor|X_M:x_m|dflipflop:dffs_red[24]|q_int                                                                            ; Lost fanout                                                                                                 ;
-; proc_skeleton:myProcSkeleton|processor:my_processor|X_M:x_m|dflipflop:dffs_red[23]|q_int                                                                            ; Lost fanout                                                                                                 ;
-; proc_skeleton:myProcSkeleton|processor:my_processor|X_M:x_m|dflipflop:dffs_red[22]|q_int                                                                            ; Lost fanout                                                                                                 ;
-; proc_skeleton:myProcSkeleton|processor:my_processor|X_M:x_m|dflipflop:dffs_red[21]|q_int                                                                            ; Lost fanout                                                                                                 ;
-; proc_skeleton:myProcSkeleton|processor:my_processor|X_M:x_m|dflipflop:dffs_red[20]|q_int                                                                            ; Lost fanout                                                                                                 ;
-; proc_skeleton:myProcSkeleton|processor:my_processor|X_M:x_m|dflipflop:dffs_red[19]|q_int                                                                            ; Lost fanout                                                                                                 ;
-; proc_skeleton:myProcSkeleton|processor:my_processor|X_M:x_m|dflipflop:dffs_red[18]|q_int                                                                            ; Lost fanout                                                                                                 ;
-; proc_skeleton:myProcSkeleton|processor:my_processor|X_M:x_m|dflipflop:dffs_red[17]|q_int                                                                            ; Lost fanout                                                                                                 ;
-; proc_skeleton:myProcSkeleton|processor:my_processor|X_M:x_m|dflipflop:dffs_red[16]|q_int                                                                            ; Lost fanout                                                                                                 ;
-; proc_skeleton:myProcSkeleton|processor:my_processor|X_M:x_m|dflipflop:dffs_red[15]|q_int                                                                            ; Lost fanout                                                                                                 ;
-; proc_skeleton:myProcSkeleton|processor:my_processor|X_M:x_m|dflipflop:dffs_red[14]|q_int                                                                            ; Lost fanout                                                                                                 ;
-; proc_skeleton:myProcSkeleton|processor:my_processor|X_M:x_m|dflipflop:dffs_red[13]|q_int                                                                            ; Lost fanout                                                                                                 ;
-; proc_skeleton:myProcSkeleton|processor:my_processor|X_M:x_m|dflipflop:dffs_red[12]|q_int                                                                            ; Lost fanout                                                                                                 ;
-; proc_skeleton:myProcSkeleton|processor:my_processor|X_M:x_m|dflipflop:dffs_red[11]|q_int                                                                            ; Lost fanout                                                                                                 ;
-; proc_skeleton:myProcSkeleton|processor:my_processor|X_M:x_m|dflipflop:dffs_red[10]|q_int                                                                            ; Lost fanout                                                                                                 ;
-; proc_skeleton:myProcSkeleton|processor:my_processor|X_M:x_m|dflipflop:dffs_red[9]|q_int                                                                             ; Lost fanout                                                                                                 ;
-; proc_skeleton:myProcSkeleton|processor:my_processor|X_M:x_m|dflipflop:dffs_red[8]|q_int                                                                             ; Lost fanout                                                                                                 ;
-; proc_skeleton:myProcSkeleton|processor:my_processor|X_M:x_m|dflipflop:dffs_red[7]|q_int                                                                             ; Lost fanout                                                                                                 ;
-; proc_skeleton:myProcSkeleton|processor:my_processor|X_M:x_m|dflipflop:dffs_red[6]|q_int                                                                             ; Lost fanout                                                                                                 ;
-; proc_skeleton:myProcSkeleton|processor:my_processor|X_M:x_m|dflipflop:dffs_red[5]|q_int                                                                             ; Lost fanout                                                                                                 ;
-; proc_skeleton:myProcSkeleton|processor:my_processor|X_M:x_m|dflipflop:dffs_red[4]|q_int                                                                             ; Lost fanout                                                                                                 ;
-; proc_skeleton:myProcSkeleton|processor:my_processor|X_M:x_m|dflipflop:dffs_red[3]|q_int                                                                             ; Lost fanout                                                                                                 ;
-; proc_skeleton:myProcSkeleton|processor:my_processor|X_M:x_m|dflipflop:dffs_red[2]|q_int                                                                             ; Lost fanout                                                                                                 ;
-; proc_skeleton:myProcSkeleton|processor:my_processor|X_M:x_m|dflipflop:dffs_red[1]|q_int                                                                             ; Lost fanout                                                                                                 ;
-; proc_skeleton:myProcSkeleton|processor:my_processor|X_M:x_m|dflipflop:dffs_red[0]|q_int                                                                             ; Lost fanout                                                                                                 ;
 ; proc_skeleton:myProcSkeleton|processor:my_processor|X_M:x_m|dflipflop:dffs_exec[31]|q_int                                                                           ; Lost fanout                                                                                                 ;
 ; proc_skeleton:myProcSkeleton|processor:my_processor|X_M:x_m|dflipflop:dffs_exec[30]|q_int                                                                           ; Lost fanout                                                                                                 ;
 ; proc_skeleton:myProcSkeleton|processor:my_processor|X_M:x_m|dflipflop:dffs_exec[29]|q_int                                                                           ; Lost fanout                                                                                                 ;
@@ -2317,7 +2293,7 @@ Encoding Type:  One-Hot
 ; PS2_Interface:myps2|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|error_communication_timed_out                                                      ; Stuck at GND due to stuck port data_in                                                                      ;
 ; PS2_Interface:myps2|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|ps2_command[8]                                                                     ; Lost fanout                                                                                                 ;
 ; PS2_Interface:myps2|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|s_ps2_transmitter.PS2_STATE_0_IDLE                                                 ; Lost fanout                                                                                                 ;
-; Total Number of Removed Registers = 1871                                                                                                                            ;                                                                                                             ;
+; Total Number of Removed Registers = 1847                                                                                                                            ;                                                                                                             ;
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+
 
 
@@ -2377,18 +2353,30 @@ Encoding Type:  One-Hot
 ;                                                                                                                                       ;                           ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register3|dff_module:DFF_generate[31].DFF|q_int,                   ;
 ;                                                                                                                                       ;                           ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register2|dff_module:DFF_generate[31].DFF|q_int,                   ;
 ;                                                                                                                                       ;                           ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register1|dff_module:DFF_generate[31].DFF|q_int                    ;
+; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register0|dff_module:DFF_generate[29].DFF|q_int                       ; Stuck at GND              ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register6|dff_module:DFF_generate[29].DFF|q_int,                   ;
+;                                                                                                                                       ; due to stuck port data_in ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register5|dff_module:DFF_generate[29].DFF|q_int,                   ;
+;                                                                                                                                       ;                           ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register4|dff_module:DFF_generate[29].DFF|q_int,                   ;
+;                                                                                                                                       ;                           ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register3|dff_module:DFF_generate[29].DFF|q_int,                   ;
+;                                                                                                                                       ;                           ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register2|dff_module:DFF_generate[29].DFF|q_int,                   ;
+;                                                                                                                                       ;                           ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register1|dff_module:DFF_generate[29].DFF|q_int                    ;
+; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register0|dff_module:DFF_generate[28].DFF|q_int                       ; Stuck at GND              ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register6|dff_module:DFF_generate[28].DFF|q_int,                   ;
+;                                                                                                                                       ; due to stuck port data_in ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register5|dff_module:DFF_generate[28].DFF|q_int,                   ;
+;                                                                                                                                       ;                           ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register4|dff_module:DFF_generate[28].DFF|q_int,                   ;
+;                                                                                                                                       ;                           ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register3|dff_module:DFF_generate[28].DFF|q_int,                   ;
+;                                                                                                                                       ;                           ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register2|dff_module:DFF_generate[28].DFF|q_int,                   ;
+;                                                                                                                                       ;                           ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register1|dff_module:DFF_generate[28].DFF|q_int                    ;
 ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register0|dff_module:DFF_generate[27].DFF|q_int                       ; Stuck at GND              ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register6|dff_module:DFF_generate[27].DFF|q_int,                   ;
 ;                                                                                                                                       ; due to stuck port data_in ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register5|dff_module:DFF_generate[27].DFF|q_int,                   ;
 ;                                                                                                                                       ;                           ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register4|dff_module:DFF_generate[27].DFF|q_int,                   ;
 ;                                                                                                                                       ;                           ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register3|dff_module:DFF_generate[27].DFF|q_int,                   ;
 ;                                                                                                                                       ;                           ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register2|dff_module:DFF_generate[27].DFF|q_int,                   ;
 ;                                                                                                                                       ;                           ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register1|dff_module:DFF_generate[27].DFF|q_int                    ;
-; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register0|dff_module:DFF_generate[26].DFF|q_int                       ; Stuck at GND              ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register6|dff_module:DFF_generate[26].DFF|q_int,                   ;
-;                                                                                                                                       ; due to stuck port data_in ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register5|dff_module:DFF_generate[26].DFF|q_int,                   ;
-;                                                                                                                                       ;                           ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register4|dff_module:DFF_generate[26].DFF|q_int,                   ;
-;                                                                                                                                       ;                           ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register3|dff_module:DFF_generate[26].DFF|q_int,                   ;
-;                                                                                                                                       ;                           ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register2|dff_module:DFF_generate[26].DFF|q_int,                   ;
-;                                                                                                                                       ;                           ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register1|dff_module:DFF_generate[26].DFF|q_int                    ;
+; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register0|dff_module:DFF_generate[20].DFF|q_int                       ; Stuck at GND              ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register6|dff_module:DFF_generate[20].DFF|q_int,                   ;
+;                                                                                                                                       ; due to stuck port data_in ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register5|dff_module:DFF_generate[20].DFF|q_int,                   ;
+;                                                                                                                                       ;                           ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register4|dff_module:DFF_generate[20].DFF|q_int,                   ;
+;                                                                                                                                       ;                           ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register3|dff_module:DFF_generate[20].DFF|q_int,                   ;
+;                                                                                                                                       ;                           ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register2|dff_module:DFF_generate[20].DFF|q_int,                   ;
+;                                                                                                                                       ;                           ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register1|dff_module:DFF_generate[20].DFF|q_int                    ;
 ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register0|dff_module:DFF_generate[25].DFF|q_int                       ; Stuck at GND              ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register6|dff_module:DFF_generate[25].DFF|q_int,                   ;
 ;                                                                                                                                       ; due to stuck port data_in ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register5|dff_module:DFF_generate[25].DFF|q_int,                   ;
 ;                                                                                                                                       ;                           ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register4|dff_module:DFF_generate[25].DFF|q_int,                   ;
@@ -2419,12 +2407,6 @@ Encoding Type:  One-Hot
 ;                                                                                                                                       ;                           ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register3|dff_module:DFF_generate[21].DFF|q_int,                   ;
 ;                                                                                                                                       ;                           ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register2|dff_module:DFF_generate[21].DFF|q_int,                   ;
 ;                                                                                                                                       ;                           ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register1|dff_module:DFF_generate[21].DFF|q_int                    ;
-; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register0|dff_module:DFF_generate[20].DFF|q_int                       ; Stuck at GND              ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register6|dff_module:DFF_generate[20].DFF|q_int,                   ;
-;                                                                                                                                       ; due to stuck port data_in ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register5|dff_module:DFF_generate[20].DFF|q_int,                   ;
-;                                                                                                                                       ;                           ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register4|dff_module:DFF_generate[20].DFF|q_int,                   ;
-;                                                                                                                                       ;                           ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register3|dff_module:DFF_generate[20].DFF|q_int,                   ;
-;                                                                                                                                       ;                           ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register2|dff_module:DFF_generate[20].DFF|q_int,                   ;
-;                                                                                                                                       ;                           ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register1|dff_module:DFF_generate[20].DFF|q_int                    ;
 ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register0|dff_module:DFF_generate[19].DFF|q_int                       ; Stuck at GND              ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register6|dff_module:DFF_generate[19].DFF|q_int,                   ;
 ;                                                                                                                                       ; due to stuck port data_in ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register5|dff_module:DFF_generate[19].DFF|q_int,                   ;
 ;                                                                                                                                       ;                           ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register4|dff_module:DFF_generate[19].DFF|q_int,                   ;
@@ -2545,28 +2527,24 @@ Encoding Type:  One-Hot
 ;                                                                                                                                       ;                           ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register3|dff_module:DFF_generate[0].DFF|q_int,                    ;
 ;                                                                                                                                       ;                           ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register2|dff_module:DFF_generate[0].DFF|q_int,                    ;
 ;                                                                                                                                       ;                           ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register1|dff_module:DFF_generate[0].DFF|q_int                     ;
+; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register0|dff_module:DFF_generate[26].DFF|q_int                       ; Stuck at GND              ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register6|dff_module:DFF_generate[26].DFF|q_int,                   ;
+;                                                                                                                                       ; due to stuck port data_in ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register5|dff_module:DFF_generate[26].DFF|q_int,                   ;
+;                                                                                                                                       ;                           ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register4|dff_module:DFF_generate[26].DFF|q_int,                   ;
+;                                                                                                                                       ;                           ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register3|dff_module:DFF_generate[26].DFF|q_int,                   ;
+;                                                                                                                                       ;                           ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register2|dff_module:DFF_generate[26].DFF|q_int,                   ;
+;                                                                                                                                       ;                           ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register1|dff_module:DFF_generate[26].DFF|q_int                    ;
 ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register0|dff_module:DFF_generate[30].DFF|q_int                       ; Stuck at GND              ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register6|dff_module:DFF_generate[30].DFF|q_int,                   ;
 ;                                                                                                                                       ; due to stuck port data_in ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register5|dff_module:DFF_generate[30].DFF|q_int,                   ;
 ;                                                                                                                                       ;                           ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register4|dff_module:DFF_generate[30].DFF|q_int,                   ;
 ;                                                                                                                                       ;                           ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register3|dff_module:DFF_generate[30].DFF|q_int,                   ;
 ;                                                                                                                                       ;                           ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register2|dff_module:DFF_generate[30].DFF|q_int,                   ;
 ;                                                                                                                                       ;                           ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register1|dff_module:DFF_generate[30].DFF|q_int                    ;
-; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register0|dff_module:DFF_generate[29].DFF|q_int                       ; Stuck at GND              ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register6|dff_module:DFF_generate[29].DFF|q_int,                   ;
-;                                                                                                                                       ; due to stuck port data_in ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register5|dff_module:DFF_generate[29].DFF|q_int,                   ;
-;                                                                                                                                       ;                           ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register4|dff_module:DFF_generate[29].DFF|q_int,                   ;
-;                                                                                                                                       ;                           ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register3|dff_module:DFF_generate[29].DFF|q_int,                   ;
-;                                                                                                                                       ;                           ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register2|dff_module:DFF_generate[29].DFF|q_int,                   ;
-;                                                                                                                                       ;                           ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register1|dff_module:DFF_generate[29].DFF|q_int                    ;
-; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register0|dff_module:DFF_generate[28].DFF|q_int                       ; Stuck at GND              ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register6|dff_module:DFF_generate[28].DFF|q_int,                   ;
-;                                                                                                                                       ; due to stuck port data_in ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register5|dff_module:DFF_generate[28].DFF|q_int,                   ;
-;                                                                                                                                       ;                           ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register4|dff_module:DFF_generate[28].DFF|q_int,                   ;
-;                                                                                                                                       ;                           ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register3|dff_module:DFF_generate[28].DFF|q_int,                   ;
-;                                                                                                                                       ;                           ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register2|dff_module:DFF_generate[28].DFF|q_int,                   ;
-;                                                                                                                                       ;                           ; proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register1|dff_module:DFF_generate[28].DFF|q_int                    ;
 ; PS2_Interface:myps2|PS2_Controller:PS2|idle_counter[3]                                                                                ; Lost Fanouts              ; PS2_Interface:myps2|PS2_Controller:PS2|idle_counter[4],                                                                            ;
 ;                                                                                                                                       ;                           ; PS2_Interface:myps2|PS2_Controller:PS2|idle_counter[5],                                                                            ;
 ;                                                                                                                                       ;                           ; PS2_Interface:myps2|PS2_Controller:PS2|idle_counter[6],                                                                            ;
 ;                                                                                                                                       ;                           ; PS2_Interface:myps2|PS2_Controller:PS2|idle_counter[7]                                                                             ;
+; lcd:mylcd|line2[11][7]                                                                                                                ; Stuck at GND              ; lcd:mylcd|line1[11][7]                                                                                                             ;
+;                                                                                                                                       ; due to stuck port data_in ;                                                                                                                                    ;
 ; lcd:mylcd|line2[8][7]                                                                                                                 ; Stuck at GND              ; lcd:mylcd|line1[8][7]                                                                                                              ;
 ;                                                                                                                                       ; due to stuck port data_in ;                                                                                                                                    ;
 ; lcd:mylcd|line2[9][7]                                                                                                                 ; Stuck at GND              ; lcd:mylcd|line1[9][7]                                                                                                              ;
@@ -2577,6 +2555,7 @@ Encoding Type:  One-Hot
 ;                                                                                                                                       ; due to stuck port data_in ;                                                                                                                                    ;
 ; lcd:mylcd|line2[12][7]                                                                                                                ; Stuck at GND              ; lcd:mylcd|line1[12][7]                                                                                                             ;
 ;                                                                                                                                       ; due to stuck port data_in ;                                                                                                                                    ;
+; proc_skeleton:myProcSkeleton|processor:my_processor|X_M:x_m|dflipflop:dffs_is[8]|q_int                                                ; Lost Fanouts              ; proc_skeleton:myProcSkeleton|processor:my_processor|D_X:d_x|dflipflop:dffs_is[8]|q_int                                             ;
 ; lcd:mylcd|line2[2][7]                                                                                                                 ; Stuck at GND              ; lcd:mylcd|line1[2][7]                                                                                                              ;
 ;                                                                                                                                       ; due to stuck port data_in ;                                                                                                                                    ;
 ; lcd:mylcd|line2[3][7]                                                                                                                 ; Stuck at GND              ; lcd:mylcd|line1[3][7]                                                                                                              ;
@@ -2593,11 +2572,9 @@ Encoding Type:  One-Hot
 ;                                                                                                                                       ; due to stuck port data_in ;                                                                                                                                    ;
 ; lcd:mylcd|line2[5][7]                                                                                                                 ; Stuck at GND              ; lcd:mylcd|line1[5][7]                                                                                                              ;
 ;                                                                                                                                       ; due to stuck port data_in ;                                                                                                                                    ;
-; lcd:mylcd|line2[10][7]                                                                                                                ; Stuck at GND              ; lcd:mylcd|line1[10][7]                                                                                                             ;
-;                                                                                                                                       ; due to stuck port data_in ;                                                                                                                                    ;
 ; PS2_Interface:myps2|PS2_Controller:PS2|s_ps2_transceiver.PS2_STATE_3_END_TRANSFER                                                     ; Stuck at GND              ; PS2_Interface:myps2|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In|s_ps2_receiver.PS2_STATE_1_WAIT_FOR_DATA                  ;
 ;                                                                                                                                       ; due to stuck port data_in ;                                                                                                                                    ;
-; lcd:mylcd|line2[11][7]                                                                                                                ; Stuck at GND              ; lcd:mylcd|line1[11][7]                                                                                                             ;
+; lcd:mylcd|line2[10][7]                                                                                                                ; Stuck at GND              ; lcd:mylcd|line1[10][7]                                                                                                             ;
 ;                                                                                                                                       ; due to stuck port data_in ;                                                                                                                                    ;
 ; lcd:mylcd|line2[7][7]                                                                                                                 ; Stuck at GND              ; lcd:mylcd|line1[7][7]                                                                                                              ;
 ;                                                                                                                                       ; due to stuck port data_in ;                                                                                                                                    ;
@@ -3605,14 +3582,87 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "PS2_Interface:myps2"                                                                              ;
-+--------------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port               ; Type   ; Severity ; Details                                                                             ;
-+--------------------+--------+----------+-------------------------------------------------------------------------------------+
-; ps2_key_pressed    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; last_data_received ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+--------------------+--------+----------+-------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "proc_skeleton:myProcSkeleton|isEqual_32:sw3"                                                                                                          ;
++-------------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port        ; Type  ; Severity ; Details                                                                                                                                         ;
++-------------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+; in0         ; Input ; Warning  ; Input port expression (12 bits) is smaller than the input port (32 bits) it drives.  Extra input bit(s) "in0[31..12]" will be connected to GND. ;
+; in1[6..5]   ; Input ; Info     ; Stuck at VCC                                                                                                                                    ;
+; in1[31..13] ; Input ; Info     ; Stuck at GND                                                                                                                                    ;
+; in1[11..7]  ; Input ; Info     ; Stuck at GND                                                                                                                                    ;
+; in1[12]     ; Input ; Info     ; Stuck at VCC                                                                                                                                    ;
+; in1[4]      ; Input ; Info     ; Stuck at GND                                                                                                                                    ;
+; in1[3]      ; Input ; Info     ; Stuck at VCC                                                                                                                                    ;
+; in1[2]      ; Input ; Info     ; Stuck at GND                                                                                                                                    ;
+; in1[1]      ; Input ; Info     ; Stuck at VCC                                                                                                                                    ;
+; in1[0]      ; Input ; Info     ; Stuck at GND                                                                                                                                    ;
++-------------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "proc_skeleton:myProcSkeleton|isEqual_32:sw2"                                                                                                          ;
++-------------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port        ; Type  ; Severity ; Details                                                                                                                                         ;
++-------------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+; in0         ; Input ; Warning  ; Input port expression (12 bits) is smaller than the input port (32 bits) it drives.  Extra input bit(s) "in0[31..12]" will be connected to GND. ;
+; in1[6..5]   ; Input ; Info     ; Stuck at VCC                                                                                                                                    ;
+; in1[31..13] ; Input ; Info     ; Stuck at GND                                                                                                                                    ;
+; in1[11..7]  ; Input ; Info     ; Stuck at GND                                                                                                                                    ;
+; in1[2..1]   ; Input ; Info     ; Stuck at GND                                                                                                                                    ;
+; in1[12]     ; Input ; Info     ; Stuck at VCC                                                                                                                                    ;
+; in1[4]      ; Input ; Info     ; Stuck at GND                                                                                                                                    ;
+; in1[3]      ; Input ; Info     ; Stuck at VCC                                                                                                                                    ;
+; in1[0]      ; Input ; Info     ; Stuck at VCC                                                                                                                                    ;
++-------------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "proc_skeleton:myProcSkeleton|isEqual_32:sw1"                                                                                                          ;
++-------------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port        ; Type  ; Severity ; Details                                                                                                                                         ;
++-------------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+; in0         ; Input ; Warning  ; Input port expression (12 bits) is smaller than the input port (32 bits) it drives.  Extra input bit(s) "in0[31..12]" will be connected to GND. ;
+; in1[6..5]   ; Input ; Info     ; Stuck at VCC                                                                                                                                    ;
+; in1[31..13] ; Input ; Info     ; Stuck at GND                                                                                                                                    ;
+; in1[11..7]  ; Input ; Info     ; Stuck at GND                                                                                                                                    ;
+; in1[2..0]   ; Input ; Info     ; Stuck at GND                                                                                                                                    ;
+; in1[12]     ; Input ; Info     ; Stuck at VCC                                                                                                                                    ;
+; in1[4]      ; Input ; Info     ; Stuck at GND                                                                                                                                    ;
+; in1[3]      ; Input ; Info     ; Stuck at VCC                                                                                                                                    ;
++-------------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------+
+; Port Connectivity Checks: "proc_skeleton:myProcSkeleton|tri_state32:lw1a" ;
++-----------+-------+----------+--------------------------------------------+
+; Port      ; Type  ; Severity ; Details                                    ;
++-----------+-------+----------+--------------------------------------------+
+; in[31..8] ; Input ; Info     ; Stuck at GND                               ;
++-----------+-------+----------+--------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "proc_skeleton:myProcSkeleton|isEqual_32:lw1"                                                                                                          ;
++-------------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port        ; Type  ; Severity ; Details                                                                                                                                         ;
++-------------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+; in0         ; Input ; Warning  ; Input port expression (12 bits) is smaller than the input port (32 bits) it drives.  Extra input bit(s) "in0[31..12]" will be connected to GND. ;
+; in1[31..13] ; Input ; Info     ; Stuck at GND                                                                                                                                    ;
+; in1[11..3]  ; Input ; Info     ; Stuck at GND                                                                                                                                    ;
+; in1[1..0]   ; Input ; Info     ; Stuck at GND                                                                                                                                    ;
+; in1[12]     ; Input ; Info     ; Stuck at VCC                                                                                                                                    ;
+; in1[2]      ; Input ; Info     ; Stuck at VCC                                                                                                                                    ;
++-------------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------+
+; Port Connectivity Checks: "proc_skeleton:myProcSkeleton|tri_state32:lw0" ;
++-----------+-------+----------+-------------------------------------------+
+; Port      ; Type  ; Severity ; Details                                   ;
++-----------+-------+----------+-------------------------------------------+
+; in[31..8] ; Input ; Info     ; Stuck at GND                              ;
++-----------+-------+----------+-------------------------------------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------+
@@ -4651,6 +4701,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------+
 
 
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "proc_skeleton:myProcSkeleton|processor:my_processor"                                ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; data ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
 +-------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "proc_skeleton:myProcSkeleton|regfile:my_regfile|register_module:register0" ;
 +---------+-------+----------+--------------------------------------------------------------------------+
@@ -4661,14 +4720,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 +---------+-------+----------+--------------------------------------------------------------------------+
 
 
-+-----------------------------------------------------------------------+
-; Port Connectivity Checks: "proc_skeleton:myProcSkeleton|dmem:my_dmem" ;
-+--------+-------+----------+-------------------------------------------+
-; Port   ; Type  ; Severity ; Details                                   ;
-+--------+-------+----------+-------------------------------------------+
-; data_b ; Input ; Info     ; Stuck at GND                              ;
-; wren_b ; Input ; Info     ; Stuck at GND                              ;
-+--------+-------+----------+-------------------------------------------+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "proc_skeleton:myProcSkeleton|dmem:my_dmem"                                            ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; data_b ; Input  ; Info     ; Stuck at GND                                                                        ;
+; wren_b ; Input  ; Info     ; Stuck at GND                                                                        ;
+; q_a    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------------------------+
@@ -4696,7 +4756,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 154                         ;
+; boundary_port         ; 162                         ;
 ; cycloneiii_ff         ; 518                         ;
 ;     CLR               ; 45                          ;
 ;     CLR SCLR          ; 19                          ;
@@ -4720,7 +4780,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; cycloneiii_ram_block  ; 328                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 23.90                       ;
-; Average LUT depth     ; 8.10                        ;
+; Average LUT depth     ; 8.07                        ;
 +-----------------------+-----------------------------+
 
 
@@ -4739,7 +4799,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.0.0 Build 211 04/27/2016 SJ Standard Edition
-    Info: Processing started: Thu Mar 29 19:15:05 2018
+    Info: Processing started: Thu Mar 29 20:51:28 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off skeleton -c skeleton
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -4984,9 +5044,9 @@ Warning (10236): Verilog HDL Implicit Net warning at execute.v(92): created impl
 Warning (10236): Verilog HDL Implicit Net warning at div.v(59): created implicit net for "adder_in_upper" File: C:/Users/Student/Pacman/div.v Line: 59
 Warning (10236): Verilog HDL Implicit Net warning at div.v(60): created implicit net for "adder_in_lower" File: C:/Users/Student/Pacman/div.v Line: 60
 Warning (10236): Verilog HDL Implicit Net warning at bypassControl.v(66): created implicit net for "isSu_xmb" File: C:/Users/Student/Pacman/bypassControl.v Line: 66
-Warning (10236): Verilog HDL Implicit Net warning at skeleton.v(88): created implicit net for "DLY_RST" File: C:/Users/Student/Pacman/skeleton.v Line: 88
-Warning (10236): Verilog HDL Implicit Net warning at skeleton.v(90): created implicit net for "VGA_CTRL_CLK" File: C:/Users/Student/Pacman/skeleton.v Line: 90
-Warning (10236): Verilog HDL Implicit Net warning at skeleton.v(90): created implicit net for "AUD_CTRL_CLK" File: C:/Users/Student/Pacman/skeleton.v Line: 90
+Warning (10236): Verilog HDL Implicit Net warning at skeleton.v(89): created implicit net for "DLY_RST" File: C:/Users/Student/Pacman/skeleton.v Line: 89
+Warning (10236): Verilog HDL Implicit Net warning at skeleton.v(91): created implicit net for "VGA_CTRL_CLK" File: C:/Users/Student/Pacman/skeleton.v Line: 91
+Warning (10236): Verilog HDL Implicit Net warning at skeleton.v(91): created implicit net for "AUD_CTRL_CLK" File: C:/Users/Student/Pacman/skeleton.v Line: 91
 Warning (10236): Verilog HDL Implicit Net warning at processor.v(186): created implicit net for "rs_xm" File: C:/Users/Student/Pacman/processor.v Line: 186
 Warning (10236): Verilog HDL Implicit Net warning at processor.v(186): created implicit net for "rt_xm" File: C:/Users/Student/Pacman/processor.v Line: 186
 Warning (10236): Verilog HDL Implicit Net warning at processor.v(187): created implicit net for "rs_mw" File: C:/Users/Student/Pacman/processor.v Line: 187
@@ -5070,10 +5130,10 @@ Critical Warning (10846): Verilog HDL Instantiation warning at processor.v(438):
 Critical Warning (10846): Verilog HDL Instantiation warning at processor.v(439): instance has no name File: C:/Users/Student/Pacman/processor.v Line: 439
 Critical Warning (10846): Verilog HDL Instantiation warning at processor.v(440): instance has no name File: C:/Users/Student/Pacman/processor.v Line: 440
 Info (12127): Elaborating entity "skeleton" for the top level hierarchy
-Warning (10034): Output port "debug_data_in" at skeleton.v(35) has no driver File: C:/Users/Student/Pacman/skeleton.v Line: 35
-Warning (10034): Output port "debug_addr" at skeleton.v(36) has no driver File: C:/Users/Student/Pacman/skeleton.v Line: 36
-Warning (10034): Output port "VGA_SYNC" at skeleton.v(21) has no driver File: C:/Users/Student/Pacman/skeleton.v Line: 21
-Info (12128): Elaborating entity "proc_skeleton" for hierarchy "proc_skeleton:myProcSkeleton" File: C:/Users/Student/Pacman/skeleton.v Line: 57
+Warning (10034): Output port "debug_data_in" at skeleton.v(36) has no driver File: C:/Users/Student/Pacman/skeleton.v Line: 36
+Warning (10034): Output port "debug_addr" at skeleton.v(37) has no driver File: C:/Users/Student/Pacman/skeleton.v Line: 37
+Warning (10034): Output port "VGA_SYNC" at skeleton.v(22) has no driver File: C:/Users/Student/Pacman/skeleton.v Line: 22
+Info (12128): Elaborating entity "proc_skeleton" for hierarchy "proc_skeleton:myProcSkeleton" File: C:/Users/Student/Pacman/skeleton.v Line: 60
 Info (12128): Elaborating entity "imem" for hierarchy "proc_skeleton:myProcSkeleton|imem:my_imem" File: C:/Users/Student/Pacman/proc_skeleton.v Line: 33
 Info (12128): Elaborating entity "altsyncram" for hierarchy "proc_skeleton:myProcSkeleton|imem:my_imem|altsyncram:altsyncram_component" File: C:/Users/Student/Pacman/imem.v Line: 85
 Info (12130): Elaborated megafunction instantiation "proc_skeleton:myProcSkeleton|imem:my_imem|altsyncram:altsyncram_component" File: C:/Users/Student/Pacman/imem.v Line: 85
@@ -5217,15 +5277,16 @@ Info (12128): Elaborating entity "M_W" for hierarchy "proc_skeleton:myProcSkelet
 Info (12128): Elaborating entity "writeback" for hierarchy "proc_skeleton:myProcSkeleton|processor:my_processor|writeback:WriteBack" File: C:/Users/Student/Pacman/processor.v Line: 704
 Warning (10036): Verilog HDL or VHDL warning at writeback.v(25): object "exc_reg2write" assigned a value but never read File: C:/Users/Student/Pacman/writeback.v Line: 25
 Warning (10230): Verilog HDL assignment warning at writeback.v(25): truncated value with size 5 to match size of target (1) File: C:/Users/Student/Pacman/writeback.v Line: 25
-Info (12128): Elaborating entity "PS2_Interface" for hierarchy "PS2_Interface:myps2" File: C:/Users/Student/Pacman/skeleton.v Line: 60
+Info (12128): Elaborating entity "isEqual_32" for hierarchy "proc_skeleton:myProcSkeleton|isEqual_32:lw1" File: C:/Users/Student/Pacman/proc_skeleton.v Line: 106
+Info (12128): Elaborating entity "PS2_Interface" for hierarchy "PS2_Interface:myps2" File: C:/Users/Student/Pacman/skeleton.v Line: 63
 Info (12128): Elaborating entity "PS2_Controller" for hierarchy "PS2_Interface:myps2|PS2_Controller:PS2" File: C:/Users/Student/Pacman/PS2_Interface.v Line: 26
 Info (12128): Elaborating entity "Altera_UP_PS2_Data_In" for hierarchy "PS2_Interface:myps2|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In" File: C:/Users/Student/Pacman/PS2_Controller.v Line: 248
 Info (12128): Elaborating entity "Altera_UP_PS2_Command_Out" for hierarchy "PS2_Interface:myps2|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out" File: C:/Users/Student/Pacman/PS2_Controller.v Line: 268
-Info (12128): Elaborating entity "lcd" for hierarchy "lcd:mylcd" File: C:/Users/Student/Pacman/skeleton.v Line: 70
-Info (12128): Elaborating entity "Hexadecimal_To_Seven_Segment" for hierarchy "Hexadecimal_To_Seven_Segment:hex1" File: C:/Users/Student/Pacman/skeleton.v Line: 73
-Info (12128): Elaborating entity "Reset_Delay" for hierarchy "Reset_Delay:r0" File: C:/Users/Student/Pacman/skeleton.v Line: 88
+Info (12128): Elaborating entity "lcd" for hierarchy "lcd:mylcd" File: C:/Users/Student/Pacman/skeleton.v Line: 71
+Info (12128): Elaborating entity "Hexadecimal_To_Seven_Segment" for hierarchy "Hexadecimal_To_Seven_Segment:hex1" File: C:/Users/Student/Pacman/skeleton.v Line: 74
+Info (12128): Elaborating entity "Reset_Delay" for hierarchy "Reset_Delay:r0" File: C:/Users/Student/Pacman/skeleton.v Line: 89
 Warning (10230): Verilog HDL assignment warning at Reset_Delay.v(10): truncated value with size 32 to match size of target (20) File: C:/Users/Student/Pacman/Reset_Delay.v Line: 10
-Info (12128): Elaborating entity "VGA_Audio_PLL" for hierarchy "VGA_Audio_PLL:p1" File: C:/Users/Student/Pacman/skeleton.v Line: 90
+Info (12128): Elaborating entity "VGA_Audio_PLL" for hierarchy "VGA_Audio_PLL:p1" File: C:/Users/Student/Pacman/skeleton.v Line: 91
 Info (12128): Elaborating entity "altpll" for hierarchy "VGA_Audio_PLL:p1|altpll:altpll_component" File: C:/Users/Student/Pacman/VGA_Audio_PLL.v Line: 107
 Info (12130): Elaborated megafunction instantiation "VGA_Audio_PLL:p1|altpll:altpll_component" File: C:/Users/Student/Pacman/VGA_Audio_PLL.v Line: 107
 Info (12133): Instantiated megafunction "VGA_Audio_PLL:p1|altpll:altpll_component" with the following parameter: File: C:/Users/Student/Pacman/VGA_Audio_PLL.v Line: 107
@@ -5287,7 +5348,7 @@ Info (12133): Instantiated megafunction "VGA_Audio_PLL:p1|altpll:altpll_componen
     Info (12134): Parameter "port_extclk1" = "PORT_UNUSED"
     Info (12134): Parameter "port_extclk2" = "PORT_UNUSED"
     Info (12134): Parameter "port_extclk3" = "PORT_UNUSED"
-Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_controller:vga_ins" File: C:/Users/Student/Pacman/skeleton.v Line: 103
+Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_controller:vga_ins" File: C:/Users/Student/Pacman/skeleton.v Line: 104
 Warning (10230): Verilog HDL assignment warning at vga_controller.v(47): truncated value with size 32 to match size of target (19) File: C:/Users/Student/Pacman/vga_controller.v Line: 47
 Warning (10230): Verilog HDL assignment warning at vga_controller.v(95): truncated value with size 32 to match size of target (10) File: C:/Users/Student/Pacman/vga_controller.v Line: 95
 Warning (10230): Verilog HDL assignment warning at vga_controller.v(99): truncated value with size 32 to match size of target (9) File: C:/Users/Student/Pacman/vga_controller.v Line: 99
@@ -8377,6 +8438,135 @@ Warning (12011): Net is missing source, defaulting to GND
     Warning (12110): Net "proc_skeleton:myProcSkeleton|processor:my_processor|fetch:Fetch|alu:ALU|sum_32:sum_op|s_op3_1[10]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/sum_32.v Line: 13
     Warning (12110): Net "proc_skeleton:myProcSkeleton|processor:my_processor|fetch:Fetch|alu:ALU|sum_32:sum_op|s_op3_1[9]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/sum_32.v Line: 13
     Warning (12110): Net "proc_skeleton:myProcSkeleton|processor:my_processor|fetch:Fetch|alu:ALU|sum_32:sum_op|s_op3_1[8]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/sum_32.v Line: 13
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|data[31]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 37
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|data[30]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 37
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|data[29]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 37
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|data[28]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 37
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|data[27]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 37
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|data[26]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 37
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|data[25]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 37
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|data[24]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 37
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|data[23]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 37
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|data[22]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 37
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|data[21]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 37
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|data[20]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 37
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|data[19]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 37
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|data[18]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 37
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|data[17]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 37
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|data[16]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 37
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|data[15]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 37
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|data[14]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 37
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|data[13]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 37
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|data[12]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 37
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|data[11]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 37
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|data[10]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 37
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|data[9]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 37
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|data[8]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 37
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|data[7]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 37
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|data[6]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 37
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|data[5]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 37
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|data[4]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 37
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|data[3]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 37
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|data[2]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 37
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|data[1]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 37
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|data[0]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 37
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_x[31]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_x[30]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_x[29]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_x[28]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_x[27]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_x[26]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_x[25]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_x[24]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_x[23]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_x[22]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_x[21]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_x[20]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_x[19]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_x[18]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_x[17]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_x[16]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_x[15]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_x[14]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_x[13]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_x[12]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_x[11]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_x[10]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_x[9]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_x[8]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_x[7]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_x[6]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_x[5]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_x[4]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_x[3]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_x[2]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_x[1]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_x[0]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_y[31]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_y[30]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_y[29]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_y[28]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_y[27]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_y[26]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_y[25]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_y[24]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_y[23]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_y[22]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_y[21]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_y[20]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_y[19]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_y[18]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_y[17]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_y[16]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_y[15]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_y[14]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_y[13]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_y[12]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_y[11]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_y[10]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_y[9]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_y[8]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_y[7]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_y[6]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_y[5]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_y[4]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_y[3]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_y[2]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_y[1]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_y[0]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_vel[31]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_vel[30]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_vel[29]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_vel[28]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_vel[27]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_vel[26]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_vel[25]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_vel[24]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_vel[23]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_vel[22]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_vel[21]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_vel[20]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_vel[19]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_vel[18]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_vel[17]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_vel[16]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_vel[15]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_vel[14]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_vel[13]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_vel[12]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_vel[11]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_vel[10]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_vel[9]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_vel[8]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_vel[7]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_vel[6]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_vel[5]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_vel[4]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_vel[3]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_vel[2]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_vel[1]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
+    Warning (12110): Net "proc_skeleton:myProcSkeleton|player0_vel[0]" is missing source, defaulting to GND File: C:/Users/Student/Pacman/proc_skeleton.v Line: 114
 Warning (14284): Synthesized away the following node(s):
     Warning (14285): Synthesized away the following RAM node(s):
         Warning (14320): Synthesized away node "proc_skeleton:myProcSkeleton|dmem:my_dmem|altsyncram:altsyncram_component|altsyncram_kke2:auto_generated|q_a[0]" File: C:/Users/Student/Pacman/db/altsyncram_kke2.tdf Line: 42
@@ -8411,6 +8601,8 @@ Warning (14284): Synthesized away the following node(s):
         Warning (14320): Synthesized away node "proc_skeleton:myProcSkeleton|dmem:my_dmem|altsyncram:altsyncram_component|altsyncram_kke2:auto_generated|q_a[29]" File: C:/Users/Student/Pacman/db/altsyncram_kke2.tdf Line: 1231
         Warning (14320): Synthesized away node "proc_skeleton:myProcSkeleton|dmem:my_dmem|altsyncram:altsyncram_component|altsyncram_kke2:auto_generated|q_a[30]" File: C:/Users/Student/Pacman/db/altsyncram_kke2.tdf Line: 1272
         Warning (14320): Synthesized away node "proc_skeleton:myProcSkeleton|dmem:my_dmem|altsyncram:altsyncram_component|altsyncram_kke2:auto_generated|q_a[31]" File: C:/Users/Student/Pacman/db/altsyncram_kke2.tdf Line: 1313
+Warning (14284): Synthesized away the following node(s):
+    Warning (14285): Synthesized away the following RAM node(s):
         Warning (14320): Synthesized away node "proc_skeleton:myProcSkeleton|imem:my_imem|altsyncram:altsyncram_component|altsyncram_ehc1:auto_generated|q_a[0]" File: C:/Users/Student/Pacman/db/altsyncram_ehc1.tdf Line: 36
         Warning (14320): Synthesized away node "proc_skeleton:myProcSkeleton|imem:my_imem|altsyncram:altsyncram_component|altsyncram_ehc1:auto_generated|q_a[1]" File: C:/Users/Student/Pacman/db/altsyncram_ehc1.tdf Line: 57
         Warning (14320): Synthesized away node "proc_skeleton:myProcSkeleton|imem:my_imem|altsyncram:altsyncram_component|altsyncram_ehc1:auto_generated|q_a[2]" File: C:/Users/Student/Pacman/db/altsyncram_ehc1.tdf Line: 78
@@ -8470,125 +8662,117 @@ Info (12133): Instantiated megafunction "vga_controller:vga_ins|addrConverter:my
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_ikm.tdf
     Info (12023): Found entity 1: lpm_divide_ikm File: C:/Users/Student/Pacman/db/lpm_divide_ikm.tdf Line: 25
-Warning (12241): 22 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (12241): 26 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (13000): Registers with preset signals will power-up high File: C:/Users/Student/Pacman/lcd.sv Line: 48
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "debug_data_in[0]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
-    Warning (13410): Pin "debug_data_in[1]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
-    Warning (13410): Pin "debug_data_in[2]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
-    Warning (13410): Pin "debug_data_in[3]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
-    Warning (13410): Pin "debug_data_in[4]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
-    Warning (13410): Pin "debug_data_in[5]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
-    Warning (13410): Pin "debug_data_in[6]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
-    Warning (13410): Pin "debug_data_in[7]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
-    Warning (13410): Pin "debug_data_in[8]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
-    Warning (13410): Pin "debug_data_in[9]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
-    Warning (13410): Pin "debug_data_in[10]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
-    Warning (13410): Pin "debug_data_in[11]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
-    Warning (13410): Pin "debug_data_in[12]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
-    Warning (13410): Pin "debug_data_in[13]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
-    Warning (13410): Pin "debug_data_in[14]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
-    Warning (13410): Pin "debug_data_in[15]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
-    Warning (13410): Pin "debug_data_in[16]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
-    Warning (13410): Pin "debug_data_in[17]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
-    Warning (13410): Pin "debug_data_in[18]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
-    Warning (13410): Pin "debug_data_in[19]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
-    Warning (13410): Pin "debug_data_in[20]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
-    Warning (13410): Pin "debug_data_in[21]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
-    Warning (13410): Pin "debug_data_in[22]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
-    Warning (13410): Pin "debug_data_in[23]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
-    Warning (13410): Pin "debug_data_in[24]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
-    Warning (13410): Pin "debug_data_in[25]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
-    Warning (13410): Pin "debug_data_in[26]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
-    Warning (13410): Pin "debug_data_in[27]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
-    Warning (13410): Pin "debug_data_in[28]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
-    Warning (13410): Pin "debug_data_in[29]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
-    Warning (13410): Pin "debug_data_in[30]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
-    Warning (13410): Pin "debug_data_in[31]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
-    Warning (13410): Pin "debug_addr[0]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 36
-    Warning (13410): Pin "debug_addr[1]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 36
-    Warning (13410): Pin "debug_addr[2]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 36
-    Warning (13410): Pin "debug_addr[3]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 36
-    Warning (13410): Pin "debug_addr[4]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 36
-    Warning (13410): Pin "debug_addr[5]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 36
-    Warning (13410): Pin "debug_addr[6]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 36
-    Warning (13410): Pin "debug_addr[7]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 36
-    Warning (13410): Pin "debug_addr[8]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 36
-    Warning (13410): Pin "debug_addr[9]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 36
-    Warning (13410): Pin "debug_addr[10]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 36
-    Warning (13410): Pin "debug_addr[11]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 36
-    Warning (13410): Pin "leds[0]" is stuck at VCC File: C:/Users/Student/Pacman/skeleton.v Line: 33
-    Warning (13410): Pin "leds[1]" is stuck at VCC File: C:/Users/Student/Pacman/skeleton.v Line: 33
-    Warning (13410): Pin "leds[2]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 33
-    Warning (13410): Pin "leds[3]" is stuck at VCC File: C:/Users/Student/Pacman/skeleton.v Line: 33
-    Warning (13410): Pin "leds[4]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 33
-    Warning (13410): Pin "leds[5]" is stuck at VCC File: C:/Users/Student/Pacman/skeleton.v Line: 33
-    Warning (13410): Pin "leds[6]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 33
-    Warning (13410): Pin "leds[7]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 33
-    Warning (13410): Pin "lcd_rw" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 32
-    Warning (13410): Pin "lcd_on" is stuck at VCC File: C:/Users/Student/Pacman/skeleton.v Line: 32
-    Warning (13410): Pin "lcd_blon" is stuck at VCC File: C:/Users/Student/Pacman/skeleton.v Line: 32
-    Warning (13410): Pin "seg3[0]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 34
-    Warning (13410): Pin "seg3[1]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 34
-    Warning (13410): Pin "seg3[2]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 34
-    Warning (13410): Pin "seg3[3]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 34
-    Warning (13410): Pin "seg3[4]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 34
-    Warning (13410): Pin "seg3[5]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 34
-    Warning (13410): Pin "seg3[6]" is stuck at VCC File: C:/Users/Student/Pacman/skeleton.v Line: 34
-    Warning (13410): Pin "seg4[0]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 34
-    Warning (13410): Pin "seg4[1]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 34
-    Warning (13410): Pin "seg4[2]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 34
-    Warning (13410): Pin "seg4[3]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 34
-    Warning (13410): Pin "seg4[4]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 34
-    Warning (13410): Pin "seg4[5]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 34
-    Warning (13410): Pin "seg4[6]" is stuck at VCC File: C:/Users/Student/Pacman/skeleton.v Line: 34
-    Warning (13410): Pin "seg5[0]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 34
-    Warning (13410): Pin "seg5[1]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 34
-    Warning (13410): Pin "seg5[2]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 34
-    Warning (13410): Pin "seg5[3]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 34
-    Warning (13410): Pin "seg5[4]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 34
-    Warning (13410): Pin "seg5[5]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 34
-    Warning (13410): Pin "seg5[6]" is stuck at VCC File: C:/Users/Student/Pacman/skeleton.v Line: 34
-    Warning (13410): Pin "seg6[0]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 34
-    Warning (13410): Pin "seg6[1]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 34
-    Warning (13410): Pin "seg6[2]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 34
-    Warning (13410): Pin "seg6[3]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 34
-    Warning (13410): Pin "seg6[4]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 34
-    Warning (13410): Pin "seg6[5]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 34
-    Warning (13410): Pin "seg6[6]" is stuck at VCC File: C:/Users/Student/Pacman/skeleton.v Line: 34
-    Warning (13410): Pin "seg7[0]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 34
-    Warning (13410): Pin "seg7[1]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 34
-    Warning (13410): Pin "seg7[2]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 34
-    Warning (13410): Pin "seg7[3]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 34
-    Warning (13410): Pin "seg7[4]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 34
-    Warning (13410): Pin "seg7[5]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 34
-    Warning (13410): Pin "seg7[6]" is stuck at VCC File: C:/Users/Student/Pacman/skeleton.v Line: 34
-    Warning (13410): Pin "seg8[0]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 34
-    Warning (13410): Pin "seg8[1]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 34
-    Warning (13410): Pin "seg8[2]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 34
-    Warning (13410): Pin "seg8[3]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 34
-    Warning (13410): Pin "seg8[4]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 34
-    Warning (13410): Pin "seg8[5]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 34
-    Warning (13410): Pin "seg8[6]" is stuck at VCC File: C:/Users/Student/Pacman/skeleton.v Line: 34
-    Warning (13410): Pin "VGA_SYNC" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 21
+    Warning (13410): Pin "debug_data_in[0]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 36
+    Warning (13410): Pin "debug_data_in[1]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 36
+    Warning (13410): Pin "debug_data_in[2]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 36
+    Warning (13410): Pin "debug_data_in[3]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 36
+    Warning (13410): Pin "debug_data_in[4]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 36
+    Warning (13410): Pin "debug_data_in[5]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 36
+    Warning (13410): Pin "debug_data_in[6]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 36
+    Warning (13410): Pin "debug_data_in[7]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 36
+    Warning (13410): Pin "debug_data_in[8]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 36
+    Warning (13410): Pin "debug_data_in[9]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 36
+    Warning (13410): Pin "debug_data_in[10]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 36
+    Warning (13410): Pin "debug_data_in[11]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 36
+    Warning (13410): Pin "debug_data_in[12]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 36
+    Warning (13410): Pin "debug_data_in[13]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 36
+    Warning (13410): Pin "debug_data_in[14]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 36
+    Warning (13410): Pin "debug_data_in[15]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 36
+    Warning (13410): Pin "debug_data_in[16]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 36
+    Warning (13410): Pin "debug_data_in[17]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 36
+    Warning (13410): Pin "debug_data_in[18]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 36
+    Warning (13410): Pin "debug_data_in[19]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 36
+    Warning (13410): Pin "debug_data_in[20]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 36
+    Warning (13410): Pin "debug_data_in[21]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 36
+    Warning (13410): Pin "debug_data_in[22]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 36
+    Warning (13410): Pin "debug_data_in[23]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 36
+    Warning (13410): Pin "debug_data_in[24]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 36
+    Warning (13410): Pin "debug_data_in[25]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 36
+    Warning (13410): Pin "debug_data_in[26]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 36
+    Warning (13410): Pin "debug_data_in[27]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 36
+    Warning (13410): Pin "debug_data_in[28]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 36
+    Warning (13410): Pin "debug_data_in[29]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 36
+    Warning (13410): Pin "debug_data_in[30]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 36
+    Warning (13410): Pin "debug_data_in[31]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 36
+    Warning (13410): Pin "debug_addr[0]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 37
+    Warning (13410): Pin "debug_addr[1]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 37
+    Warning (13410): Pin "debug_addr[2]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 37
+    Warning (13410): Pin "debug_addr[3]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 37
+    Warning (13410): Pin "debug_addr[4]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 37
+    Warning (13410): Pin "debug_addr[5]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 37
+    Warning (13410): Pin "debug_addr[6]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 37
+    Warning (13410): Pin "debug_addr[7]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 37
+    Warning (13410): Pin "debug_addr[8]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 37
+    Warning (13410): Pin "debug_addr[9]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 37
+    Warning (13410): Pin "debug_addr[10]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 37
+    Warning (13410): Pin "debug_addr[11]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 37
+    Warning (13410): Pin "lcd_rw" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 33
+    Warning (13410): Pin "lcd_on" is stuck at VCC File: C:/Users/Student/Pacman/skeleton.v Line: 33
+    Warning (13410): Pin "lcd_blon" is stuck at VCC File: C:/Users/Student/Pacman/skeleton.v Line: 33
+    Warning (13410): Pin "seg3[0]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
+    Warning (13410): Pin "seg3[1]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
+    Warning (13410): Pin "seg3[2]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
+    Warning (13410): Pin "seg3[3]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
+    Warning (13410): Pin "seg3[4]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
+    Warning (13410): Pin "seg3[5]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
+    Warning (13410): Pin "seg3[6]" is stuck at VCC File: C:/Users/Student/Pacman/skeleton.v Line: 35
+    Warning (13410): Pin "seg4[0]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
+    Warning (13410): Pin "seg4[1]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
+    Warning (13410): Pin "seg4[2]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
+    Warning (13410): Pin "seg4[3]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
+    Warning (13410): Pin "seg4[4]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
+    Warning (13410): Pin "seg4[5]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
+    Warning (13410): Pin "seg4[6]" is stuck at VCC File: C:/Users/Student/Pacman/skeleton.v Line: 35
+    Warning (13410): Pin "seg5[0]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
+    Warning (13410): Pin "seg5[1]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
+    Warning (13410): Pin "seg5[2]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
+    Warning (13410): Pin "seg5[3]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
+    Warning (13410): Pin "seg5[4]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
+    Warning (13410): Pin "seg5[5]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
+    Warning (13410): Pin "seg5[6]" is stuck at VCC File: C:/Users/Student/Pacman/skeleton.v Line: 35
+    Warning (13410): Pin "seg6[0]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
+    Warning (13410): Pin "seg6[1]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
+    Warning (13410): Pin "seg6[2]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
+    Warning (13410): Pin "seg6[3]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
+    Warning (13410): Pin "seg6[4]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
+    Warning (13410): Pin "seg6[5]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
+    Warning (13410): Pin "seg6[6]" is stuck at VCC File: C:/Users/Student/Pacman/skeleton.v Line: 35
+    Warning (13410): Pin "seg7[0]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
+    Warning (13410): Pin "seg7[1]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
+    Warning (13410): Pin "seg7[2]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
+    Warning (13410): Pin "seg7[3]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
+    Warning (13410): Pin "seg7[4]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
+    Warning (13410): Pin "seg7[5]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
+    Warning (13410): Pin "seg7[6]" is stuck at VCC File: C:/Users/Student/Pacman/skeleton.v Line: 35
+    Warning (13410): Pin "seg8[0]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
+    Warning (13410): Pin "seg8[1]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
+    Warning (13410): Pin "seg8[2]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
+    Warning (13410): Pin "seg8[3]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
+    Warning (13410): Pin "seg8[4]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
+    Warning (13410): Pin "seg8[5]" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 35
+    Warning (13410): Pin "seg8[6]" is stuck at VCC File: C:/Users/Student/Pacman/skeleton.v Line: 35
+    Warning (13410): Pin "VGA_SYNC" is stuck at GND File: C:/Users/Student/Pacman/skeleton.v Line: 22
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 1672 registers lost all their fanouts during netlist optimizations.
+Info (17049): 1648 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/Student/Pacman/output_files/skeleton.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
 Warning (15897): PLL "VGA_Audio_PLL:p1|altpll:altpll_component|pll" has parameter compensate_clock set to clock0 but port CLK[0] is not connected File: c:/altera/16.0/quartus/libraries/megafunctions/altpll.tdf Line: 921
 Warning (15899): PLL "VGA_Audio_PLL:p1|altpll:altpll_component|pll" has parameters clk0_multiply_by and clk0_divide_by specified but port CLK[0] is not connected File: c:/altera/16.0/quartus/libraries/megafunctions/altpll.tdf Line: 921
-Info (21057): Implemented 2080 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 2 input pins
+Info (21057): Implemented 2088 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 10 input pins
     Info (21059): Implemented 150 output pins
     Info (21060): Implemented 2 bidirectional pins
     Info (21061): Implemented 1597 logic cells
     Info (21064): Implemented 328 RAM segments
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 3365 warnings
-    Info: Peak virtual memory: 1099 megabytes
-    Info: Processing ended: Thu Mar 29 19:15:33 2018
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 3488 warnings
+    Info: Peak virtual memory: 1104 megabytes
+    Info: Processing ended: Thu Mar 29 20:51:56 2018
     Info: Elapsed time: 00:00:28
     Info: Total CPU time (on all processors): 00:00:38
 
