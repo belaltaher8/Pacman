@@ -12,7 +12,8 @@ module skeleton(resetn,
 	VGA_R,   														//	VGA Red[9:0]
 	VGA_G,	 														//	VGA Green[9:0]
 	VGA_B,															//	VGA Blue[9:0]
-	CLOCK_50);  													// 50 MHz clock
+	CLOCK_50,
+    isKeyboardLoad, q_imem, address_dmem, data);  													// 50 MHz clock
 		
 	////////////////////////	VGA	////////////////////////////
 	output			VGA_CLK;   				//	VGA Clock
@@ -56,8 +57,11 @@ module skeleton(resetn,
 	//assign clock = inclock;
 	
 	// your processor
+    output wire isKeyboardLoad;
+    output [12:0] address_dmem;
+    output [31:0] data, q_imem;
     
-	proc_skeleton myProcSkeleton(clock, ~resetn, 11'b0, VGA_data, ps2_key_pressed, ps2_out /*lcd_write_en, lcd_write_data, debug_data_in, debug_addr*/);
+	proc_skeleton myProcSkeleton(clock, ~resetn, ps2_key_pressed, ps2_out, isKeyboardLoad, q_imem, address_dmem, data /*lcd_write_en, lcd_write_data, debug_data_in, debug_addr*/);
 	
 	// keyboard controller
 	PS2_Interface myps2(clock, resetn, ps2_clock, ps2_data, ps2_key_data, ps2_key_pressed, ps2_out);
@@ -83,7 +87,7 @@ module skeleton(resetn,
 	Hexadecimal_To_Seven_Segment hex8(4'b0, seg8);
 	
 	// FPGA LED outputs
-	assign leds = {sw7, sw6, sw5, sw4, sw3, sw2, sw1, sw0};
+	assign leds = {sw7, sw6, sw5, sw4, sw3, sw2, sw1, isKeyboardLoad};
 		
 	// VGA
 	Reset_Delay			r0	(.iCLK(CLOCK_50),.oRESET(DLY_RST)	);
