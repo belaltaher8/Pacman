@@ -6,4 +6,4 @@ Info (10281): Verilog HDL Declaration information at bypassControl.v(20): object
 Info (10281): Verilog HDL Declaration information at bypassControl.v(20): object "write2alu1_b" differs only in case from object "write2alu1_B" in the same scope File: C:/Users/Student/Pacman/bypassControl.v Line: 20
 Info (10281): Verilog HDL Declaration information at bypassControl.v(20): object "exec_out_xm2alu0_b" differs only in case from object "exec_out_xm2alu0_B" in the same scope File: C:/Users/Student/Pacman/bypassControl.v Line: 20
 Info (10281): Verilog HDL Declaration information at bypassControl.v(20): object "exec_out_xm2alu1_b" differs only in case from object "exec_out_xm2alu1_B" in the same scope File: C:/Users/Student/Pacman/bypassControl.v Line: 20
-Warning (10268): Verilog HDL information at vga_controller.v(91): always construct contains both blocking and non-blocking assignments File: C:/Users/Student/Pacman/vga_controller.v Line: 91
+Warning (10268): Verilog HDL information at vga_controller.v(94): always construct contains both blocking and non-blocking assignments File: C:/Users/Student/Pacman/vga_controller.v Line: 94

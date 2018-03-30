@@ -10,10 +10,11 @@
  */
 
 module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
+                    player0_x, player0_y, player0_vel,
                     //address_imem, q_imem, address_dmem, data, wren, q_dmem, ctrl_writeEnable, ctrl_writeReg, ctrl_readRegA, 
 					//ctrl_readRegB, data_writeReg, data_readRegA, data_readRegB
                     //test
-                     isKeyboardLoad, q_imem, address_dmem, data
+                     isKeyboardLoad, q_imem, address_dmem, data, proc_data_in
 					 
 					 );
                      
@@ -35,13 +36,13 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
     );
 
     /** DMEM **/
-    output [11:0] address_dmem;
+    output [16:0] address_dmem;
     output [31:0] data;
     wire wren;
     wire real_wren;
     wire [31:0] q_dmem;
     dmem my_dmem(
-        .address_a    (address_dmem),       // address of data
+        .address_a    (address_dmem[11:0]),       // address of data
         .address_b   (12'd0),
         .clock_a     (~clock),                  // may need to invert the clock
         .clock_b    (clock),
@@ -53,14 +54,14 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
         .q_b        ()
     );
     
-    assign real_wren = (address_dmem < 12'd4096) ? wren : 1'b0;
+    assign real_wren = (address_dmem < 17'd4096) ? wren : 1'b0;
 
     /** REGFILE **/
     wire ctrl_writeEnable;
     wire [4:0] ctrl_writeReg, ctrl_readRegA, ctrl_readRegB;
     wire [31:0] data_writeReg;
     wire [31:0] data_readRegA, data_readRegB;
-    reg [31:0] proc_data_in;
+    output reg [31:0] proc_data_in;
     regfile my_regfile(
         ~clock,
         ctrl_writeEnable,
@@ -107,30 +108,30 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
     
     
     //Characters Data
-    reg [31:0] player0_x, player0_y, player0_vel;
+    output reg [31:0] player0_x, player0_y, player0_vel;
     output reg isKeyboardLoad;
     
     always @(posedge clock) begin
-        if(address_dmem <= 12'd4095 && wren == 1'b0)
+        if(address_dmem <= 17'd4095 && wren == 1'b0)
             proc_data_in <= q_dmem;
             
-        if (address_dmem == 12'd4100 && wren == 1'b0) begin
+        if (address_dmem == 17'd4100 && wren == 1'b0) begin
             proc_data_in <= {{24'd0, ps2_out}};
             isKeyboardLoad <= 1'b1;
         end
-        else if (address_dmem == 12'd4200) begin
+        else if (address_dmem == 17'd4200) begin
             if(wren == 1'b1)
                 player0_x <= data;
             else
                 proc_data_in <= player0_x;
             end
-        else if (address_dmem == 12'd4201) begin
+        else if (address_dmem == 17'd4201) begin
             if(wren == 1'b1)
                 player0_y <= data;
             else
                 proc_data_in <= player0_y;
             end
-        else if (address_dmem == 12'd4202) begin
+        else if (address_dmem == 17'd4202) begin
             if(wren == 1'b1)
                 player0_vel <= data;
             else

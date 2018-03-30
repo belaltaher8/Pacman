@@ -6,10 +6,13 @@ module vga_controller(iRST_n,
                       b_data,
                       g_data,
                       r_data,
-                      ps2_key_data_in);
+                      ps2_key_data_in,
+                      player0_x, player0_y, player0_vel, proc_data_in);
 
 
 input [7:0] ps2_key_data_in;
+
+input [31:0] player0_x, player0_y, player0_vel, proc_data_in;
 
 
 input iRST_n;

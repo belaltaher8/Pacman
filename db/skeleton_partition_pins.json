@@ -132,6 +132,62 @@
 					"strict" : false
 				},
 				{
+					"name" : "seg7[0]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7[1]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7[2]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7[3]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7[4]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7[5]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7[6]",
+					"strict" : false
+				},
+				{
+					"name" : "seg8[0]",
+					"strict" : false
+				},
+				{
+					"name" : "seg8[1]",
+					"strict" : false
+				},
+				{
+					"name" : "seg8[2]",
+					"strict" : false
+				},
+				{
+					"name" : "seg8[3]",
+					"strict" : false
+				},
+				{
+					"name" : "seg8[4]",
+					"strict" : false
+				},
+				{
+					"name" : "seg8[5]",
+					"strict" : false
+				},
+				{
+					"name" : "seg8[6]",
+					"strict" : false
+				},
+				{
 					"name" : "VGA_HS",
 					"strict" : false
 				},
@@ -417,6 +473,26 @@
 				},
 				{
 					"name" : "address_dmem[11]",
+					"strict" : false
+				},
+				{
+					"name" : "address_dmem[12]",
+					"strict" : false
+				},
+				{
+					"name" : "address_dmem[13]",
+					"strict" : false
+				},
+				{
+					"name" : "address_dmem[14]",
+					"strict" : false
+				},
+				{
+					"name" : "address_dmem[15]",
+					"strict" : false
+				},
+				{
+					"name" : "address_dmem[16]",
 					"strict" : false
 				},
 				{

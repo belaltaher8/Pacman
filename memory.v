@@ -19,14 +19,14 @@ module memory(
 		   isJal, isJr, isBex, isSetx;
 			
 	output [31:0] exec_out_m, mem_out_m, data;
-	output [11:0] address_dmem;
+	output [16:0] address_dmem;
    output wren, exception_m;
 	output [4:0] rd_m;
 	output [26:0] target_m;
 	output isAdd_out, isAddi_out, isSub_out, isAnd_out, isOr_out, isSll_out, isSra_out, isMul_out, isDiv_out, 
 			 isSw_out, isLw_out, isJ_out, isBne_out, isBlt_out, isJal_out, isJr_out, isBex_out, isSetx_out;
 	
-	assign address_dmem = exec_out_xm[11:0];
+	assign address_dmem = exec_out_xm[16:0];
 	assign data = rd_out1_xm;
 	assign exec_out_m = exec_out_xm;
 	assign mem_out_m = q_dmem;
