@@ -7,12 +7,12 @@ module vga_controller(iRST_n,
                       g_data,
                       r_data,
                       ps2_key_data_in,
-                      player0_x, player0_y, player0_vel, proc_data_in);
+                      player0_x, player0_y);
 
 
 input [7:0] ps2_key_data_in;
 
-input [31:0] player0_x, player0_y, player0_vel, proc_data_in;
+input [31:0] player0_x, player0_y;
 
 
 input iRST_n;
@@ -94,9 +94,11 @@ addrConverter myAddrConverter(ADDR, VGA_CLK_n, xADDR, yADDR);
  always@(posedge VGA_CLK_n) begin
  
     
-    if(ps2_key_data_in == 7'h74 && clockCounter == 32'd2000000) begin
-        xLoc = xLoc + 1;
-
+   if(clockCounter == 32'd1999999) begin
+        xLoc <= player0_x[9:0];
+        yLoc <= player0_y[8:0];
+    end
+    /*
     end
     else if(ps2_key_data_in == 7'h75 && clockCounter == 32'd2000000) begin
         yLoc = yLoc - 1;
@@ -108,13 +110,13 @@ addrConverter myAddrConverter(ADDR, VGA_CLK_n, xADDR, yADDR);
     end
     else if(ps2_key_data_in == 7'h72 && clockCounter == 32'd2000000) begin
         yLoc = yLoc + 1;
-
-    end  
+    end */ 
     
     if(clockCounter == 32'd2000000)
         clockCounter <= 32'd0;
     else
         clockCounter <= clockCounter + 32'd1;
+        
  
  
     xADDRToCompare <= xADDR;

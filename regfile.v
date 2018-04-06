@@ -3,7 +3,7 @@ module regfile (
     ctrl_writeEnable,
     ctrl_reset, ctrl_writeReg,
     ctrl_readRegA, ctrl_readRegB, data_writeReg,
-    data_readRegA, data_readRegB
+    data_readRegA, data_readRegB, reg1, reg2
 );
 
    input clock, ctrl_writeEnable, ctrl_reset;
@@ -13,8 +13,12 @@ module regfile (
    output [31:0] data_readRegA, data_readRegB;
 	//I THINK YOU MIGHT HAVE TO SWITCH THE ORDER OF THE REGS TO ENSURE BITS ARE IN THE RIGHT DIRECTION
 	wire output_ena;
+    
+    output wire [31:0] reg1;
+    output wire [31:0] reg2;
+    
 	wire [31:0] dec_to_reg;
-	wire [31:0] reg0, reg1, reg2, reg3, reg4, reg5, reg6, reg7,
+	wire [31:0] reg0, reg3, reg4, reg5, reg6, reg7,
 					reg8, reg9, reg10, reg11, reg12, reg13, reg14, reg15, 
 					reg16, reg17, reg18, reg19, reg20, reg21, reg22, reg23,
 					reg24, reg25, reg26, reg27, reg28, reg29, reg30, reg31;

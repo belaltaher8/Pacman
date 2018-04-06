@@ -10,11 +10,11 @@
  */
 
 module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
-                    player0_x, player0_y, player0_vel,
+                    player0_x, player0_y,
                     //address_imem, q_imem, address_dmem, data, wren, q_dmem, ctrl_writeEnable, ctrl_writeReg, ctrl_readRegA, 
 					//ctrl_readRegB, data_writeReg, data_readRegA, data_readRegB
                     //test
-                     isKeyboardLoad, q_imem, address_dmem, data, proc_data_in
+                     isKeyboardLoad, q_imem, address_dmem, data, proc_data_in, upSig, rightSig, downSig, leftSig, reg1, reg2
 					 
 					 );
                      
@@ -22,6 +22,7 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
   
     input clock, reset, ps2_key_pressed;
 	input [7:0]	 ps2_out;	
+    input leftSig, rightSig, upSig, downSig;
     
 	 //test
 	 
@@ -62,6 +63,9 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
     wire [31:0] data_writeReg;
     wire [31:0] data_readRegA, data_readRegB;
     output reg [31:0] proc_data_in;
+    
+    output [31:0] reg1, reg2;
+    
     regfile my_regfile(
         ~clock,
         ctrl_writeEnable,
@@ -71,7 +75,7 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
         ctrl_readRegB,
         data_writeReg,
         data_readRegA,
-        data_readRegB
+        data_readRegB, reg1, reg2
     );
 
     /** PROCESSOR **/
@@ -108,39 +112,106 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
     
     
     //Characters Data
-    output reg [31:0] player0_x, player0_y, player0_vel;
+    output reg [31:0] player0_x, player0_y;
     output reg isKeyboardLoad;
     
+    // On positive edge of the clock cycle
     always @(posedge clock) begin
-        if(address_dmem <= 17'd4095 && wren == 1'b0)
+       
+        
+        
+        // 1 means up
+        if(address_dmem == 17'd4100 && upSig == 1'b1 && downSig == 1'b0 && leftSig == 1'b0 && rightSig == 1'b0) begin
+            proc_data_in <= 32'd1;
+        end
+        
+        // 2 means right 
+        else if (address_dmem == 17'd4100 && upSig == 1'b0 && downSig == 1'b0 && leftSig == 1'b0 && rightSig == 1'b1) begin
+            proc_data_in <= 32'd2;
+        end
+        
+        // 3 means down
+        else if (address_dmem == 17'd4100 && upSig == 1'b0 && downSig == 1'b1 && leftSig == 1'b0 && rightSig == 1'b0) begin
+            proc_data_in <= 32'd3;
+        end
+        
+        // 4 means left
+        else if (address_dmem == 17'd4100 && upSig == 1'b0 && downSig == 1'b0 && leftSig == 1'b1 && rightSig == 1'b0) begin
+            proc_data_in <= 32'd4;
+        end
+        
+        else if (address_dmem == 17'd4100 && upSig == 1'b0 && downSig == 1'b0 && leftSig == 1'b0 && rightSig == 1'b0) begin
+            proc_data_in <= 32'd0;
+        end
+        
+        
+        else if(address_dmem == 17'd4200 && wren == 1'b0) begin
+            proc_data_in <= player0_x;
+        end
+        
+        else if(address_dmem == 17'd4201 && wren == 1'b0) begin
+            proc_data_in <= player0_y;
+        end
+        
+        
+        
+        if (address_dmem == 17'd4200 && wren == 1'b1) begin
+            player0_x <= data;
+        end
+        
+        
+        if (address_dmem == 17'd4201 && wren == 1'b1) begin
+            player0_y <= data;
+        end
+
+        
+    end
+     
+     
+     
+    /*
+        //address_dmem condition checks if the address is a valid DMEM address
+        //wren condition checks if the command is a lw
+        if(address_dmem <= 17'd4095 && wren == 1'b0) begin
             proc_data_in <= q_dmem;
             
-        if (address_dmem == 17'd4100 && wren == 1'b0) begin
-            proc_data_in <= {{24'd0, ps2_out}};
-            isKeyboardLoad <= 1'b1;
         end
-        else if (address_dmem == 17'd4200) begin
-            if(wren == 1'b1)
-                player0_x <= data;
-            else
-                proc_data_in <= player0_x;
-            end
-        else if (address_dmem == 17'd4201) begin
-            if(wren == 1'b1)
-                player0_y <= data;
-            else
-                proc_data_in <= player0_y;
-            end
-        else if (address_dmem == 17'd4202) begin
-            if(wren == 1'b1)
-                player0_vel <= data;
-            else
-                proc_data_in <= player0_vel;
-            end
-        else
-            isKeyboardLoad <= 1'b0;
+      
+        //address_dmem condition checks if the address is the designated keyboard input address
+        //wren condition checks if the command is a lw    
+        else if (address_dmem == 17'd4100) begin
+            proc_data_in <= {{24'd0, ps2_out}};
+            //isKeyboardLoad <= 1'b1;
+        end
+        
+        //address_dmem condition checks if the address is the designated player x position address
+        else if (address_dmem == 17'd4200 // && wren == 1'b1) 
+                                                            ) begin
+            player0_x <= data;
+            isKeyboardLoad <= 1'b1;
+            //NOTE TO RILEY: it reaches this condition only when i take out the BNE command from our processor so that makes me feel like
+            //               its branching over this when its not supposed to, we should ask George or Ken what the actual output 
+            //               of the PS2 is so we know what to actually compare it to
+        end   
+        
+        else if (address_dmem == 17'd4200 && wren == 1'b0) begin
+            proc_data_in <= player0_x;
+            // isKeyboardLoad <= 1'b1;
+        end
             
-    end
+        //address_dmem condition checks if the address is the designated player y position address    
+        else if (address_dmem == 17'd4201 && wren == 1'b1) begin
+            player0_y <= data;
+            
+        end        
+        
+        else if (address_dmem == 17'd4201 && wren == 1'b0) begin
+            proc_data_in <= player0_y;
+            
+        end */
+            
+//        else
+//            isKeyboardLoad <= 1'b0;
     
     //if issues put in final else statement to cover all other cases 
     
@@ -149,7 +220,6 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
     initial begin
         player0_x = 32'd240;
         player0_y = 32'd240;
-        player0_vel = 32'd0;
         
         isKeyboardLoad = 1'b0;
 	end

@@ -60,7 +60,7 @@ module skeleton(resetn,
     output wire isKeyboardLoad;
     output [16:0] address_dmem;
     output [31:0] data, q_imem;
-    wire [31:0] player0_x, player0_y, player0_vel, proc_data_in;
+    wire [31:0] player0_x, player0_y, proc_data_in, reg1, reg2;
     
 	proc_skeleton myProcSkeleton(
                                  .clock(clock), 
@@ -69,12 +69,17 @@ module skeleton(resetn,
                                  .ps2_out(ps2_out), 
                                  .player0_x(player0_x), 
                                  .player0_y(player0_y), 
-                                 .player0_vel(player0_vel), 
                                  .isKeyboardLoad(isKeyboardLoad), 
                                  .q_imem(q_imem), 
                                  .address_dmem(address_dmem), 
                                  .data(data),
-                                 .proc_data_in(proc_data_in)
+                                 .proc_data_in(proc_data_in),
+                                 .upSig(sw1),
+                                 .rightSig(sw2),
+                                 .downSig(sw3),
+                                 .leftSig(sw4),
+                                 .reg1(reg1),
+                                 .reg2(reg2)
                                  /*lcd_write_en, lcd_write_data, debug_data_in, debug_addr*/
                                  );
 	
@@ -87,19 +92,19 @@ module skeleton(resetn,
 	//ps2_fsm my_ps2_fsm(ps2_key_pressed, clock, ~resetn, ps2_key_data, debounced_ps2);
 	
 	// lcd controller
-	lcd mylcd(clock, ~resetn, 1'b1, proc_data_in[7:0], lcd_data, lcd_rw, lcd_en, lcd_rs, lcd_on, lcd_blon);
+	lcd mylcd(clock, ~resetn, 1'b1, player0_x[7:0], lcd_data, lcd_rw, lcd_en, lcd_rs, lcd_on, lcd_blon);
 	
 	// example for sending ps2 data to the first two seven segment displays
-	Hexadecimal_To_Seven_Segment hex1(ps2_key_data[3:0], seg1);
-	Hexadecimal_To_Seven_Segment hex2(ps2_key_data[7:4], seg2);
+	Hexadecimal_To_Seven_Segment hex1(reg1[3:0], seg1);
+	Hexadecimal_To_Seven_Segment hex2(reg1[7:4], seg2);
 	
 	// the other seven segment displays are currently set to 0
 	Hexadecimal_To_Seven_Segment hex3(4'b0, seg3);
 	Hexadecimal_To_Seven_Segment hex4(4'b0, seg4);
-	Hexadecimal_To_Seven_Segment hex5(4'b0, seg5);
-	Hexadecimal_To_Seven_Segment hex6(4'b0, seg6);
-	Hexadecimal_To_Seven_Segment hex7(proc_data_in[3:0], seg7);
-	Hexadecimal_To_Seven_Segment hex8(proc_data_in[7:4], seg8);
+	Hexadecimal_To_Seven_Segment hex5(player0_y[3:0]);
+	Hexadecimal_To_Seven_Segment hex6(player0_y[7:4]);
+	Hexadecimal_To_Seven_Segment hex7(player0_x[3:0], seg7);
+	Hexadecimal_To_Seven_Segment hex8(player0_x[7:4], seg8);
 	
 	// FPGA LED outputs
 	assign leds = {sw7, sw6, sw5, sw4, sw3, sw2, sw1, isKeyboardLoad};
@@ -122,9 +127,7 @@ module skeleton(resetn,
 								 .r_data(VGA_R),
                                  .ps2_key_data_in(ps2_key_data),
                                  .player0_x(player0_x), 
-                                 .player0_y(player0_y), 
-                                 .player0_vel(player0_vel),
-                                 .proc_data_in(proc_data_in)
+                                 .player0_y(player0_y)
                                  );
 	
 	
