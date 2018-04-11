@@ -1,5 +1,5 @@
 MIF/HEX Update report for skeleton
-Wed Apr 11 18:23:42 2018
+Wed Apr 11 19:36:44 2018
 Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Standard Edition
 
 
@@ -36,7 +36,7 @@ agreement for further details.
 +---------------------------------------------------------------+
 ; MIF/HEX Update Summary                                        ;
 +-----------------------+---------------------------------------+
-; MIF/HEX Update Status ; Successful - Wed Apr 11 18:23:42 2018 ;
+; MIF/HEX Update Status ; Successful - Wed Apr 11 19:36:44 2018 ;
 ; Revision Name         ; skeleton                              ;
 ; Top-level Entity Name ; skeleton                              ;
 ; Family                ; Cyclone IV E                          ;
@@ -61,7 +61,7 @@ agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime MIF/HEX Update
     Info: Version 16.0.0 Build 211 04/27/2016 SJ Standard Edition
-    Info: Processing started: Wed Apr 11 18:23:35 2018
+    Info: Processing started: Wed Apr 11 19:36:37 2018
 Info: Command: quartus_cdb skeleton -c skeleton --update_mif
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (39024): Processed the following Memory Initialization File(s)
@@ -69,8 +69,8 @@ Info (39024): Processed the following Memory Initialization File(s)
     Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/ym84/Pacman/image_data.mif File: C:/Users/Student/Desktop/ym84/Pacman/image_data.mif Line: 0
     Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/ym84/Pacman/imem.mif File: C:/Users/Student/Desktop/ym84/Pacman/imem.mif Line: 0
 Info: Quartus Prime MIF/HEX Update was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 1039 megabytes
-    Info: Processing ended: Wed Apr 11 18:23:42 2018
+    Info: Peak virtual memory: 1043 megabytes
+    Info: Processing ended: Wed Apr 11 19:36:44 2018
     Info: Elapsed time: 00:00:07
     Info: Total CPU time (on all processors): 00:00:04
 
