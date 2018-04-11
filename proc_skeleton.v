@@ -14,7 +14,7 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
                     //address_imem, q_imem, address_dmem, data, wren, q_dmem, ctrl_writeEnable, ctrl_writeReg, ctrl_readRegA, 
 					//ctrl_readRegB, data_writeReg, data_readRegA, data_readRegB
                     //test
-                     isKeyboardLoad, q_imem, address_dmem, data, proc_data_in, upSig, rightSig, downSig, leftSig, reg1, reg2
+                     isKeyboardLoad, q_imem, address_dmem, proc_data_in, upSig, rightSig, downSig, leftSig, reg1, reg2
 					 
 					 );
                      
@@ -38,18 +38,18 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
 
     /** DMEM **/
     output [16:0] address_dmem;
-    output [31:0] data;
+    wire [31:0] data;
     wire wren;
     wire real_wren;
     wire [31:0] q_dmem;
     dmem my_dmem(
-        .address_a    (address_dmem[11:0]),       // address of data
-        .address_b   (12'd0),
-        .clock_a     (~clock),                  // may need to invert the clock
+        .address_a  (address_dmem[11:0]),       // address of data
+        .address_b  (12'd0),
+        .clock_a    (~clock),                  // may need to invert the clock
         .clock_b    (clock),
-        .data_a	    (data),    // data you want to write
+        .data_a	  (data),    // data you want to write
         .data_b     (32'b0),
-        .wren_a	    (real_wren),      // write enable
+        .wren_a	  (real_wren),      // write enable
         .wren_b     (1'b0),
         .q_a        (q_dmem),    // data from dmem
         .q_b        ()
@@ -116,7 +116,7 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
     output reg isKeyboardLoad;
     
     // On positive edge of the clock cycle
-    always @(posedge clock) begin
+    always @(negedge clock) begin
        
         
         
@@ -144,7 +144,6 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
             proc_data_in <= 32'd0;
         end
         
-        
         else if(address_dmem == 17'd4200 && wren == 1'b0) begin
             proc_data_in <= player0_x;
         end
@@ -152,21 +151,25 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
         else if(address_dmem == 17'd4201 && wren == 1'b0) begin
             proc_data_in <= player0_y;
         end
+		  
+	     
+
         
-        
-        
-        if (address_dmem == 17'd4200 && wren == 1'b1) begin
-            player0_x <= data;
-        end
-        
-        
-        if (address_dmem == 17'd4201 && wren == 1'b1) begin
-            player0_y <= data;
-        end
 
         
     end
+	 
+	 always @(negedge clock) begin
+	 	  if (address_dmem == 17'd4200 && wren == 1'b1) begin
+            player0_x <= data;
+        end
+	 end
      
+	 always @(negedge clock) begin
+        if (address_dmem == 17'd4201 && wren == 1'b1) begin
+            player0_y <= data;
+        end
+	 end
      
      
     /*

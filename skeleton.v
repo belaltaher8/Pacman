@@ -72,7 +72,6 @@ module skeleton(resetn,
                                  .isKeyboardLoad(isKeyboardLoad), 
                                  .q_imem(q_imem), 
                                  .address_dmem(address_dmem), 
-                                 .data(data),
                                  .proc_data_in(proc_data_in),
                                  .upSig(sw1),
                                  .rightSig(sw2),
@@ -101,8 +100,8 @@ module skeleton(resetn,
 	// the other seven segment displays are currently set to 0
 	Hexadecimal_To_Seven_Segment hex3(4'b0, seg3);
 	Hexadecimal_To_Seven_Segment hex4(4'b0, seg4);
-	Hexadecimal_To_Seven_Segment hex5(player0_y[3:0]);
-	Hexadecimal_To_Seven_Segment hex6(player0_y[7:4]);
+	Hexadecimal_To_Seven_Segment hex5(player0_y[3:0], seg5);
+	Hexadecimal_To_Seven_Segment hex6(player0_y[7:4], seg6);
 	Hexadecimal_To_Seven_Segment hex7(player0_x[3:0], seg7);
 	Hexadecimal_To_Seven_Segment hex8(player0_x[7:4], seg8);
 	
