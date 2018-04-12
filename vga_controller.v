@@ -85,7 +85,7 @@ initial begin
     width <=  10'b0000100000;
     height <=  9'b000100000;
     
-    clockCounter <= 32'd0;
+   // clockCounter <= 32'd0;
     
 end
 
@@ -94,10 +94,10 @@ addrConverter myAddrConverter(ADDR, VGA_CLK_n, xADDR, yADDR);
  always@(posedge VGA_CLK_n) begin
  
     
-   if(clockCounter == 32'd1999999) begin
+   //if(clockCounter == 32'd1999999) begin
         xLoc <= player0_x[9:0];
         yLoc <= player0_y[8:0];
-    end
+    //end
     /*
     end
     else if(ps2_key_data_in == 7'h75 && clockCounter == 32'd2000000) begin
@@ -112,10 +112,10 @@ addrConverter myAddrConverter(ADDR, VGA_CLK_n, xADDR, yADDR);
         yLoc = yLoc + 1;
     end */ 
     
-    if(clockCounter == 32'd2000000)
-        clockCounter <= 32'd0;
-    else
-        clockCounter <= clockCounter + 32'd1;
+   // if(clockCounter == 32'd2000000)
+   //     clockCounter <= 32'd0;
+   // else
+   //     clockCounter <= clockCounter + 32'd1;
         
  
  
