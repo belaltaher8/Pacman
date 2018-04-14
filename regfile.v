@@ -3,7 +3,7 @@ module regfile (
     ctrl_writeEnable,
     ctrl_reset, ctrl_writeReg,
     ctrl_readRegA, ctrl_readRegB, data_writeReg,
-    data_readRegA, data_readRegB, reg1, reg2
+    data_readRegA, data_readRegB, reg1
 );
 
    input clock, ctrl_writeEnable, ctrl_reset;
@@ -15,7 +15,6 @@ module regfile (
 	wire output_ena;
     
     output wire [31:0] reg1;
-    output wire [31:0] reg2;
     
 	wire [31:0] dec_to_reg;
 	wire [31:0] reg0, reg3, reg4, reg5, reg6, reg7,

@@ -60,7 +60,7 @@ module skeleton(resetn,
     output wire isKeyboardLoad;
     output [16:0] address_dmem;
     output [31:0] data, q_imem;
-    wire [31:0] player0_x, player0_y, proc_data_in, reg1, reg2;
+    wire [31:0] player0_x, player0_y, proc_data_in, reg1, powerup0_x, powerup0_y;
     
 	proc_skeleton myProcSkeleton(
                                  .clock(clock), 
@@ -78,7 +78,7 @@ module skeleton(resetn,
                                  .downSig(sw3),
                                  .leftSig(sw4),
                                  .reg1(reg1),
-                                 .reg2(reg2)
+											.powerup0_x(powerup0_x), .powerup0_y(powerup0_y)
                                  /*lcd_write_en, lcd_write_data, debug_data_in, debug_addr*/
                                  );
 	
@@ -126,7 +126,7 @@ module skeleton(resetn,
 								 .r_data(VGA_R),
                                  .ps2_key_data_in(ps2_key_data),
                                  .player0_x(player0_x), 
-                                 .player0_y(player0_y)
+                                 .player0_y(player0_y), .powerup0_x(powerup0_x), .powerup0_y(powerup0_y)
                                  );
 	
 	
