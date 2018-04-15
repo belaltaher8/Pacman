@@ -60,7 +60,7 @@ module skeleton(resetn,
     output wire isKeyboardLoad;
     output [16:0] address_dmem;
     output [31:0] data, q_imem;
-    wire [31:0] player0_x, player0_y, proc_data_in, reg1, powerup0_x, powerup0_y;
+    wire [31:0] player0_x, player0_y, proc_data_in, reg1, powerup0_x, powerup0_y, powerupDurationStageReg;
     
 	proc_skeleton myProcSkeleton(
                                  .clock(clock), 
@@ -78,7 +78,7 @@ module skeleton(resetn,
                                  .downSig(sw3),
                                  .leftSig(sw4),
                                  .reg1(reg1),
-											.powerup0_x(powerup0_x), .powerup0_y(powerup0_y)
+											.powerup0_x(powerup0_x), .powerup0_y(powerup0_y), .powerupDurationStageReg(powerupDurationStageReg)
                                  /*lcd_write_en, lcd_write_data, debug_data_in, debug_addr*/
                                  );
 	
@@ -98,8 +98,8 @@ module skeleton(resetn,
 	Hexadecimal_To_Seven_Segment hex2(reg1[7:4], seg2);
 	
 	// the other seven segment displays are currently set to 0
-	Hexadecimal_To_Seven_Segment hex3(4'b0, seg3);
-	Hexadecimal_To_Seven_Segment hex4(4'b0, seg4);
+	Hexadecimal_To_Seven_Segment hex3(powerupDurationStageReg[3:0], seg3);
+	Hexadecimal_To_Seven_Segment hex4(powerupDurationStageReg[7:4], seg4);
 	Hexadecimal_To_Seven_Segment hex5(player0_y[3:0], seg5);
 	Hexadecimal_To_Seven_Segment hex6(player0_y[7:4], seg6);
 	Hexadecimal_To_Seven_Segment hex7(player0_x[3:0], seg7);

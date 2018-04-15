@@ -14,7 +14,7 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
                     //address_imem, q_imem, address_dmem, data, wren, q_dmem, ctrl_writeEnable, ctrl_writeReg, ctrl_readRegA, 
 					//ctrl_readRegB, data_writeReg, data_readRegA, data_readRegB
                     //test
-                     isKeyboardLoad, q_imem, address_dmem, proc_data_in, upSig, rightSig, downSig, leftSig, reg1, powerup0_x, powerup0_y
+                     isKeyboardLoad, q_imem, address_dmem, proc_data_in, upSig, rightSig, downSig, leftSig, reg1, powerup0_x, powerup0_y, powerupDurationStageReg
 					 
 					 );
                      
@@ -112,8 +112,12 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
     
     //Characters Data
     output reg [31:0] player0_x, player0_y; 
+	 
 	 output reg [31:0] powerup0_x, powerup0_y;
+	 
 	 reg [31:0] powerupRegister;
+	 reg [31:0] powerupDurationReg;
+	 output reg [31:0] powerupDurationStageReg;
 	 
 	 wire [31:0] width, height;
 	 assign width = 32'd32;
@@ -175,7 +179,25 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
 					powerup0_x <= 32'b11111111111111111111111111111111;
 			      powerup0_y <= 32'b11111111111111111111111111111111;
 					powerupRegister <= 32'd1;
+					
+					powerupDurationStageReg <= 32'd1;
 		  end
+		  
+		  
+		  if(powerupDurationStageReg > 32'd0)
+				powerupDurationReg <= powerupDurationReg + 1;
+				
+		  if(powerupDurationReg == 32'd100000000) begin
+				powerupDurationStageReg <= powerupDurationStageReg + 1;
+				powerupDurationReg <= 32'd0;
+		  end
+				
+		  if(powerupDurationStageReg == 32'd8) begin
+				powerupDurationStageReg <= 32'd0;
+				powerupDurationReg <= 32'd0;
+				powerupRegister <= 32'd0;
+		   end
+
     end
 	 
 	 
@@ -202,6 +224,8 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
 		  powerup0_y <= 32'd300;
 		  
 		  powerupRegister <= 32'd0;
+		  powerupDurationReg <= 32'd0;
+		  powerupDurationStageReg <= 32'd0;
 		  
         isKeyboardLoad = 1'b0;
 	 end
