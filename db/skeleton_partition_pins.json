@@ -4,6 +4,10 @@
 			"name" : "Top",
 			"pins" : [
 				{
+					"name" : "leds[0]",
+					"strict" : false
+				},
+				{
 					"name" : "leds[1]",
 					"strict" : false
 				},
@@ -125,62 +129,6 @@
 				},
 				{
 					"name" : "seg2[6]",
-					"strict" : false
-				},
-				{
-					"name" : "seg3[0]",
-					"strict" : false
-				},
-				{
-					"name" : "seg3[1]",
-					"strict" : false
-				},
-				{
-					"name" : "seg3[2]",
-					"strict" : false
-				},
-				{
-					"name" : "seg3[3]",
-					"strict" : false
-				},
-				{
-					"name" : "seg3[4]",
-					"strict" : false
-				},
-				{
-					"name" : "seg3[5]",
-					"strict" : false
-				},
-				{
-					"name" : "seg3[6]",
-					"strict" : false
-				},
-				{
-					"name" : "seg4[0]",
-					"strict" : false
-				},
-				{
-					"name" : "seg4[1]",
-					"strict" : false
-				},
-				{
-					"name" : "seg4[2]",
-					"strict" : false
-				},
-				{
-					"name" : "seg4[3]",
-					"strict" : false
-				},
-				{
-					"name" : "seg4[4]",
-					"strict" : false
-				},
-				{
-					"name" : "seg4[5]",
-					"strict" : false
-				},
-				{
-					"name" : "seg4[6]",
 					"strict" : false
 				},
 				{
@@ -597,6 +545,10 @@
 				},
 				{
 					"name" : "address_dmem[16]",
+					"strict" : false
+				},
+				{
+					"name" : "sw0",
 					"strict" : false
 				},
 				{

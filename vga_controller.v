@@ -7,12 +7,12 @@ module vga_controller(iRST_n,
                       g_data,
                       r_data,
                       ps2_key_data_in,
-                      player0_x, player0_y, powerup0_x, powerup0_y);
+                      player0_x, player0_y, player1_x, player1_y, powerup0_x, powerup0_y);
 
 
 input [7:0] ps2_key_data_in;
 
-input [31:0] player0_x, player0_y; 
+input [31:0] player0_x, player0_y, player1_x, player1_y;
 input [31:0] powerup0_x, powerup0_y;
 
 
@@ -68,8 +68,12 @@ img_data	img_data_inst (
 
 
 //Creates register for the block and initializes value
-reg [9:0] xLoc;
-reg [8:0] yLoc;
+reg [9:0] xLoc0;
+reg [8:0] yLoc0;
+
+reg [9:0] xLoc1;
+reg [8:0] yLoc1;
+
 reg [9:0] width;
 reg [8:0] height;
 wire [9:0] xADDR;
@@ -77,21 +81,24 @@ wire [8:0] yADDR;
 reg [9:0] xADDRToCompare;
 reg [8:0] yADDRToCompare;
 
-reg [9:0] powerup1xLocToRender;
-reg [8:0] powerup1yLocToRender; 
+reg [9:0] powerup0xLocToRender;
+reg [8:0] powerup0yLocToRender; 
 
 reg [31:0] clockCounter;
 
 initial begin
-    xLoc <= 10'b0000000000;
-    yLoc <=  9'b000000000;
+    xLoc0 <= 10'b0000000000;
+    yLoc0 <=  9'b000000000;
+	 	 
+    xLoc1 <= 10'b0000000000;
+    yLoc1 <=  9'b000000000;
     
     width <=  10'b0000100000;
     height <=  9'b000100000;
 	 
 	 
-	 powerup1xLocToRender <= 10'b0000000000;
-	 powerup1yLocToRender <=  9'b000000000;
+	 powerup0xLocToRender <= 10'b0000000000;
+	 powerup0yLocToRender <=  9'b000000000;
     
     
 end
@@ -101,23 +108,30 @@ addrConverter myAddrConverterPlayer0(ADDR, VGA_CLK_n, xADDR, yADDR);
  always@(posedge VGA_CLK_n) begin
  
     //Updates player 0 location
-    xLoc <= player0_x[9:0];
-    yLoc <= player0_y[8:0];
+    xLoc0 <= player0_x[9:0];
+    yLoc0 <= player0_y[8:0];
+	 
+	 //Updates player 1 location
+	 xLoc1 <= player1_x[9:0];
+	 yLoc1 <= player1_y[8:0];
 		  
-	 //Checks to see if the powerup has been collected yet	  
-    powerup1xLocToRender <= powerup0_x[9:0];
-	 powerup1yLocToRender <= powerup0_y[8:0];
+	 //Updates powerup 0 location	  
+    powerup0xLocToRender <= powerup0_x[9:0];
+	 powerup0yLocToRender <= powerup0_y[8:0];
 
  
  
     xADDRToCompare <= xADDR;
     yADDRToCompare <= yADDR;
     
-    if(      (xADDRToCompare > xLoc) && (xADDRToCompare < xLoc + width) && (yADDRToCompare > yLoc) && (yADDRToCompare < yLoc + height) )
+    if((xADDRToCompare > xLoc0) && (xADDRToCompare < xLoc0 + width) && (yADDRToCompare > yLoc0) && (yADDRToCompare < yLoc0 + height) )
         color <= 23'b111111110000000000000000;
 		  
-    else if( (xADDRToCompare > powerup1xLocToRender) && (xADDRToCompare < powerup1xLocToRender + width) && (yADDRToCompare > powerup1yLocToRender) && (yADDRToCompare < powerup1yLocToRender + height) )
+    else if( (xADDRToCompare > powerup0xLocToRender) && (xADDRToCompare < powerup0xLocToRender + width) && (yADDRToCompare > powerup0yLocToRender) && (yADDRToCompare < powerup0yLocToRender + height) )
 		  color <= 23'b000000001111111100000000;
+		  
+    else if((xADDRToCompare > xLoc1) && (xADDRToCompare < xLoc1 + width) && (yADDRToCompare > yLoc1) && (yADDRToCompare < yLoc1 + height) )	  
+		  color <= 23'b000000000000000011111111;
 		  
     else
         color <= bgr_data_raw;  

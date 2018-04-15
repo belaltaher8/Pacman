@@ -13,7 +13,7 @@ module skeleton(resetn,
 	VGA_G,	 														//	VGA Green[9:0]
 	VGA_B,															//	VGA Blue[9:0]
 	CLOCK_50,
-    isKeyboardLoad, q_imem, address_dmem, data);  													// 50 MHz clock
+   q_imem, address_dmem, data);  													// 50 MHz clock
 		
 	////////////////////////	VGA	////////////////////////////
 	output			VGA_CLK;   				//	VGA Clock
@@ -57,10 +57,9 @@ module skeleton(resetn,
 	//assign clock = inclock;
 	
 	// your processor
-    output wire isKeyboardLoad;
     output [16:0] address_dmem;
     output [31:0] data, q_imem;
-    wire [31:0] player0_x, player0_y, proc_data_in, reg1, powerup0_x, powerup0_y, powerupDurationStageReg;
+    wire [31:0] player0_x, player0_y, player1_x, player1_y, proc_data_in, reg1, powerup0_x, powerup0_y;
     
 	proc_skeleton myProcSkeleton(
                                  .clock(clock), 
@@ -69,16 +68,21 @@ module skeleton(resetn,
                                  .ps2_out(ps2_out), 
                                  .player0_x(player0_x), 
                                  .player0_y(player0_y), 
-                                 .isKeyboardLoad(isKeyboardLoad), 
+											.player1_x(player1_x),
+											.player1_y(player1_y),
                                  .q_imem(q_imem), 
                                  .address_dmem(address_dmem), 
                                  .proc_data_in(proc_data_in),
-                                 .upSig(sw1),
-                                 .rightSig(sw2),
-                                 .downSig(sw3),
-                                 .leftSig(sw4),
+                                 .upSig(sw0),
+                                 .rightSig(sw1),
+                                 .downSig(sw2),
+                                 .leftSig(sw3),
+											.upSig2(sw4),
+											.rightSig2(sw5),
+											.downSig2(sw6),
+											.leftSig2(sw7),
                                  .reg1(reg1),
-											.powerup0_x(powerup0_x), .powerup0_y(powerup0_y), .powerupDurationStageReg(powerupDurationStageReg)
+											.powerup0_x(powerup0_x), .powerup0_y(powerup0_y)
                                  /*lcd_write_en, lcd_write_data, debug_data_in, debug_addr*/
                                  );
 	
@@ -98,15 +102,15 @@ module skeleton(resetn,
 	Hexadecimal_To_Seven_Segment hex2(reg1[7:4], seg2);
 	
 	// the other seven segment displays are currently set to 0
-	Hexadecimal_To_Seven_Segment hex3(powerupDurationStageReg[3:0], seg3);
-	Hexadecimal_To_Seven_Segment hex4(powerupDurationStageReg[7:4], seg4);
+	Hexadecimal_To_Seven_Segment hex3(4'd0, seg3);
+	Hexadecimal_To_Seven_Segment hex4(4'd0, seg4);
 	Hexadecimal_To_Seven_Segment hex5(player0_y[3:0], seg5);
 	Hexadecimal_To_Seven_Segment hex6(player0_y[7:4], seg6);
 	Hexadecimal_To_Seven_Segment hex7(player0_x[3:0], seg7);
 	Hexadecimal_To_Seven_Segment hex8(player0_x[7:4], seg8);
 	
 	// FPGA LED outputs
-	assign leds = {sw7, sw6, sw5, sw4, sw3, sw2, sw1, isKeyboardLoad};
+	assign leds = {sw7, sw6, sw5, sw4, sw3, sw2, sw1, sw0};
 		
 	// VGA
 	Reset_Delay			r0	(.iCLK(CLOCK_50),.oRESET(DLY_RST)	);
@@ -126,7 +130,9 @@ module skeleton(resetn,
 								 .r_data(VGA_R),
                                  .ps2_key_data_in(ps2_key_data),
                                  .player0_x(player0_x), 
-                                 .player0_y(player0_y), .powerup0_x(powerup0_x), .powerup0_y(powerup0_y)
+                                 .player0_y(player0_y), .powerup0_x(powerup0_x), .powerup0_y(powerup0_y),
+											.player1_x(player1_x),
+											.player1_y(player1_y)
                                  );
 	
 	
