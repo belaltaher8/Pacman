@@ -12,8 +12,7 @@ module skeleton(resetn,
 	VGA_R,   														//	VGA Red[9:0]
 	VGA_G,	 														//	VGA Green[9:0]
 	VGA_B,															//	VGA Blue[9:0]
-	CLOCK_50,
-   q_imem, address_dmem, data);  													// 50 MHz clock
+	CLOCK_50);  													// 50 MHz clock
 		
 	////////////////////////	VGA	////////////////////////////
 	output			VGA_CLK;   				//	VGA Clock
@@ -57,9 +56,9 @@ module skeleton(resetn,
 	//assign clock = inclock;
 	
 	// your processor
-    output [16:0] address_dmem;
-    output [31:0] data, q_imem;
-    wire [31:0] player0_x, player0_y, player1_x, player1_y, proc_data_in, reg1, powerup0_x, powerup0_y;
+    wire [31:0] player0_x, player0_y, player1_x, player1_y, reg1, powerup0_x, powerup0_y;
+	 wire [16:0] address_dmem;
+	 wire [31:0] q_dmem;
     
 	proc_skeleton myProcSkeleton(
                                  .clock(clock), 
@@ -70,10 +69,9 @@ module skeleton(resetn,
                                  .player0_y(player0_y), 
 											.player1_x(player1_x),
 											.player1_y(player1_y),
-                                 .q_imem(q_imem), 
-                                 .address_dmem(address_dmem), 
-                                 .proc_data_in(proc_data_in),
                                  .upSig(sw0),
+											.address_dmem(address_dmem),
+										 	.q_dmem(q_dmem),
                                  .rightSig(sw1),
                                  .downSig(sw2),
                                  .leftSig(sw3),

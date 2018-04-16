@@ -2,25 +2,25 @@
 # ** Warning: (vlib-34) Library already exists at "work".
 # 
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 16:57:38 on Mar 30,2018
+# Start time: 18:32:42 on Apr 16,2018
 # vlog -work work skeleton.vo 
 # -- Compiling module skeleton
 # 
 # Top level modules:
 # 	skeleton
-# End time: 16:57:40 on Mar 30,2018, Elapsed time: 0:00:02
+# End time: 18:32:44 on Apr 16,2018, Elapsed time: 0:00:02
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 16:57:40 on Mar 30,2018
-# vlog -work work Waveform6.vwf.vt 
+# Start time: 18:32:44 on Apr 16,2018
+# vlog -work work Waveform7.vwf.vt 
 # -- Compiling module skeleton_vlg_vec_tst
 # 
 # Top level modules:
 # 	skeleton_vlg_vec_tst
-# End time: 16:57:40 on Mar 30,2018, Elapsed time: 0:00:00
+# End time: 18:32:44 on Apr 16,2018, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vsim -novopt -c -t 1ps -L cycloneive_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate_ver -L altera_lnsim_ver work.skeleton_vlg_vec_tst -voptargs=""+acc"" 
-# Start time: 16:57:40 on Mar 30,2018
+# Start time: 18:32:44 on Apr 16,2018
 # Loading work.skeleton_vlg_vec_tst
 # Loading work.skeleton
 # Loading cycloneive_ver.cycloneive_io_obuf
@@ -38,11 +38,11 @@
 # Loading cycloneive_ver.cycloneive_n_cntr
 # Loading cycloneive_ver.cycloneive_scale_cntr
 # Loading altera_ver.PRIM_GDFF_LOW
-# ** Warning: Design size of 30321 statements exceeds ModelSim Altera Starter recommended capacity.
+# ** Warning: Design size of 30673 statements exceeds ModelSim Altera Starter recommended capacity.
 # Expect performance to be adversely affected.
 #  Note : Cycloneive PLL was reset
 # Time: 0  Instance: skeleton_vlg_vec_tst.i1.\p1|altpll_component|pll 
-# ** Note: $finish    : Waveform6.vwf.vt(127)
-#    Time: 1 us  Iteration: 0  Instance: /skeleton_vlg_vec_tst
-# End time: 16:57:57 on Mar 30,2018, Elapsed time: 0:00:17
+# ** Note: $finish    : Waveform7.vwf.vt(121)
+#    Time: 3 us  Iteration: 0  Instance: /skeleton_vlg_vec_tst
+# End time: 18:33:06 on Apr 16,2018, Elapsed time: 0:00:22
 # Errors: 0, Warnings: 1

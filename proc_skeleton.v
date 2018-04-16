@@ -10,11 +10,9 @@
  */
 
 module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
-                    player0_x, player0_y, player1_x, player1_y,
-                    //address_imem, q_imem, address_dmem, data, wren, q_dmem, ctrl_writeEnable, ctrl_writeReg, ctrl_readRegA, 
-					//ctrl_readRegB, data_writeReg, data_readRegA, data_readRegB
-                    //test
-                     q_imem, address_dmem, proc_data_in, 
+                    player0_x, player0_y, player1_x, player1_y, address_dmem, q_dmem,
+
+                     q_imem, 
 							upSig, rightSig, downSig, leftSig, upSig2, rightSig2, downSig2, leftSig2,
 							reg1, powerup0_x, powerup0_y
 					 
@@ -38,17 +36,18 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
     );
 
     /** DMEM **/
-    output [16:0] address_dmem;
+    output wire [16:0] address_dmem;
+	 
     wire [31:0] data;
     wire wren;
     wire real_wren;
-    wire [31:0] q_dmem;
+    output wire [31:0] q_dmem;
     dmem my_dmem(
         .address  (address_dmem[11:0]),       // address of data
-        .clock    (~clock),                  // may need to invert the clock
-        .data	  (data),    // data you want to write
-        .wren	  (real_wren),      // write enable
-        .q        (q_dmem),    // data from dmem
+        .clock    (~clock),                   // may need to invert the clock
+        .data	   (data),                     // data you want to write
+        .wren	   (real_wren),                // write enable
+        .q        (q_dmem),                   // data from dmem
     );
     
     assign real_wren = (address_dmem < 17'd4096) ? wren : 1'b0;
@@ -58,7 +57,7 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
     wire [4:0] ctrl_writeReg, ctrl_readRegA, ctrl_readRegB;
     wire [31:0] data_writeReg;
     wire [31:0] data_readRegA, data_readRegB;
-    output reg [31:0] proc_data_in;
+    reg [31:0] proc_data_in;
     
     output [31:0] reg1;
     
@@ -140,6 +139,7 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
 	 // 4204 -> Player 1 y location
 	 // 4205 -> Player 1 powerup
     always @(negedge clock) begin
+		
        
 		  //Default case (not accessing "dedicated" memory)
 		  if(address_dmem < 17'd4096) begin
@@ -148,7 +148,7 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
         
         // PLAYER 0 Functionality
         // 1 means up
-        if(address_dmem == 17'd4100 && upSig == 1'b1 && downSig == 1'b0 && leftSig == 1'b0 && rightSig == 1'b0) begin
+        else if(address_dmem == 17'd4100 && upSig == 1'b1 && downSig == 1'b0 && leftSig == 1'b0 && rightSig == 1'b0) begin
             proc_data_in <= 32'd1;
         end
         
@@ -259,7 +259,7 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
 			
 			
 			//Player 1 collision with Power-Up 0 (super speed)
-    /*    if(((player1_x +  width >= powerup0_x && player1_x + width <= powerup0_x + width) || 
+        if(((player1_x +  width >= powerup0_x && player1_x + width <= powerup0_x + width) || 
 			   (player1_x >= powerup0_x && player1_x <= powerup0_x + width)) &&
 			  ((player1_y +  height >= powerup0_y && player1_y + height <= powerup0_y + height) ||
 			   (player1_y >= powerup0_y && player1_y <= powerup0_y + height))) begin
@@ -284,7 +284,7 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
 				powerup1DurationStageReg <= 32'd0;
 				powerup1DurationReg <= 32'd0;
 				powerup1Register <= 32'd0;
-		   end		  */
+		   end		  
     end
 	 
 	 
@@ -294,7 +294,7 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
             player0_x <= data;
         end
 		  
-		  if (address_dmem == 17'd4202 && wren == 1'b1) begin
+		  if (address_dmem == 17'd4203 && wren == 1'b1) begin
             player1_x <= data;
         end
 	 end
@@ -304,7 +304,7 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
             player0_y <= data;
         end
 		  
-		  if (address_dmem == 17'd4203 && wren == 1'b1) begin
+		  if (address_dmem == 17'd4204 && wren == 1'b1) begin
             player1_y <= data;
         end
 	 end
@@ -313,7 +313,7 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
     //Player Instantiation
     initial begin
         player0_x <= 32'd240;
-        player0_y <= 32'd240;
+        player0_y <= 32'd250;
 		  
 		  player1_x <= 32'd100;
 		  player1_y <= 32'd100;
