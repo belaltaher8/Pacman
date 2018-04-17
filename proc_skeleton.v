@@ -14,7 +14,7 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
 
                      q_imem, 
 							upSig, rightSig, downSig, leftSig, upSig2, rightSig2, downSig2, leftSig2,
-							reg1, powerup0_x, powerup0_y
+							reg1, powerup0_x, powerup0_y, powerup1_x, powerup1_y
 					 
 					 );
                      
@@ -112,13 +112,13 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
 	 
 	 
 	 //Powerup 0 location
-	 output reg [31:0] powerup0_x, powerup0_y;
+	 output reg [31:0] powerup0_x, powerup0_y, powerup1_x, powerup1_y;
 	 
 	 
 	 //Powerup memory
-	 reg [31:0] powerup0Register, powerup1Register;
-	 reg [31:0] powerup0DurationReg, powerup1DurationReg;
-	 reg [31:0] powerup0DurationStageReg, powerup1DurationStageReg;
+	 reg [31:0] powerup0_player0Register, powerup0_player1Register;
+	 reg [31:0] powerup0_player0DurationReg, powerup0_player1DurationReg;
+	 reg [31:0] powerup0_player0DurationStageReg, powerup0_player1DurationStageReg;
 	 
 	 
 	 //Width and height
@@ -209,7 +209,7 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
         end
 		  
 		  else if(address_dmem == 17'd4202 && wren == 1'b0) begin
-				proc_data_in <= powerup0Register;
+				proc_data_in <= powerup0_player0Register;
 		  end
 		  
 		  
@@ -223,7 +223,7 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
         end
 		  
 		  else if(address_dmem == 17'd4205 && wren == 1'b0) begin
-				proc_data_in <= powerup1Register;
+				proc_data_in <= powerup0_player1Register;
 		  end
 		  
 
@@ -236,25 +236,25 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
 			   (player0_y >= powerup0_y && player0_y <= powerup0_y + height))) begin
 					powerup0_x <= 32'b11111111111111111111111111111111;
 			      powerup0_y <= 32'b11111111111111111111111111111111;
-					powerup0Register <= 32'd1;
+					powerup0_player0Register <= 32'd1;
 					
-					powerup0DurationStageReg <= 32'd1;
+					powerup0_player0DurationStageReg <= 32'd1;
 		  end
 		  
 		  
 		  //Player 0 powerup duration
-		  if(powerup0DurationStageReg > 32'd0)
-				powerup0DurationReg <= powerup0DurationReg + 1;
+		  if(powerup0_player0DurationStageReg > 32'd0)
+				powerup0_player0DurationReg <= powerup0_player0DurationReg + 1;
 				
-		  if(powerup0DurationReg == 32'd100000000) begin
-				powerup0DurationStageReg <= powerup0DurationStageReg + 1;
-				powerup0DurationReg <= 32'd0;
+		  if(powerup0_player0DurationReg == 32'd100000000) begin
+				powerup0_player0DurationStageReg <= powerup0_player0DurationStageReg + 1;
+				powerup0_player0DurationReg <= 32'd0;
 		  end
 				
-		  if(powerup0DurationStageReg == 32'd8) begin
-				powerup0DurationStageReg <= 32'd0;
-				powerup0DurationReg <= 32'd0;
-				powerup0Register <= 32'd0;
+		  if(powerup0_player0DurationStageReg == 32'd8) begin
+				powerup0_player0DurationStageReg <= 32'd0;
+				powerup0_player0DurationReg <= 32'd0;
+				powerup0_player0Register <= 32'd0;
 		   end
 			
 			
@@ -265,25 +265,25 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
 			   (player1_y >= powerup0_y && player1_y <= powerup0_y + height))) begin
 					powerup0_x <= 32'b11111111111111111111111111111111;
 			      powerup0_y <= 32'b11111111111111111111111111111111;
-					powerup1Register <= 32'd1;
+					powerup0_player1Register <= 32'd1;
 					
-					powerup1DurationStageReg <= 32'd1;
+					powerup0_player1DurationStageReg <= 32'd1;
 		  end
 		  
 		  
 		  //Player 1 powerup duration
-		  if(powerup1DurationStageReg > 32'd0)
-				powerup1DurationReg <= powerup1DurationReg + 1;
+		  if(powerup0_player1DurationStageReg > 32'd0)
+				powerup0_player1DurationReg <= powerup0_player1DurationReg + 1;
 				
-		  if(powerup1DurationReg == 32'd100000000) begin
-				powerup1DurationStageReg <= powerup1DurationStageReg + 1;
-				powerup1DurationReg <= 32'd0;
+		  if(powerup0_player1DurationReg == 32'd100000000) begin
+				powerup0_player1DurationStageReg <= powerup0_player1DurationStageReg + 1;
+				powerup0_player1DurationReg <= 32'd0;
 		  end
 				
-		  if(powerup1DurationStageReg == 32'd8) begin
-				powerup1DurationStageReg <= 32'd0;
-				powerup1DurationReg <= 32'd0;
-				powerup1Register <= 32'd0;
+		  if(powerup0_player1DurationStageReg == 32'd8) begin
+				powerup0_player1DurationStageReg <= 32'd0;
+				powerup0_player1DurationReg <= 32'd0;
+				powerup0_player1Register <= 32'd0;
 		   end		  
     end
 	 
@@ -321,13 +321,16 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
 		  powerup0_x <= 32'd300;
 		  powerup0_y <= 32'd300;
 		  
-		  powerup0Register <= 32'd0;
-		  powerup0DurationReg <= 32'd0;
-		  powerup0DurationStageReg <= 32'd0;
+		  powerup1_x <= 32'd400;
+		  powerup1_y <= 32'd400;
 		  
-		  powerup1Register <= 32'd0;
-		  powerup1DurationReg <= 32'd0;
-		  powerup1DurationStageReg <= 32'd0;
+		  powerup0_player0Register <= 32'd0;
+		  powerup0_player0DurationReg <= 32'd0;
+		  powerup0_player0DurationStageReg <= 32'd0;
+		  
+		  powerup0_player1Register <= 32'd0;
+		  powerup0_player1DurationReg <= 32'd0;
+		  powerup0_player1DurationStageReg <= 32'd0;
 		  
 	 end
     

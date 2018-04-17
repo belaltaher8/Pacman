@@ -56,7 +56,7 @@ module skeleton(resetn,
 	//assign clock = inclock;
 	
 	// your processor
-    wire [31:0] player0_x, player0_y, player1_x, player1_y, reg1, powerup0_x, powerup0_y;
+    wire [31:0] player0_x, player0_y, player1_x, player1_y, reg1, powerup0_x, powerup0_y, powerup1_x, powerup1_y;
 	 wire [16:0] address_dmem;
 	 wire [31:0] q_dmem;
     
@@ -80,7 +80,8 @@ module skeleton(resetn,
 											.downSig2(sw6),
 											.leftSig2(sw7),
                                  .reg1(reg1),
-											.powerup0_x(powerup0_x), .powerup0_y(powerup0_y)
+											.powerup0_x(powerup0_x), .powerup0_y(powerup0_y),
+											.powerup1_x(powerup1_x), .powerup1_y(powerup1_y)
                                  /*lcd_write_en, lcd_write_data, debug_data_in, debug_addr*/
                                  );
 	
@@ -128,7 +129,8 @@ module skeleton(resetn,
 								 .r_data(VGA_R),
                                  .ps2_key_data_in(ps2_key_data),
                                  .player0_x(player0_x), 
-                                 .player0_y(player0_y), .powerup0_x(powerup0_x), .powerup0_y(powerup0_y),
+                                 .player0_y(player0_y), .powerup0_x(powerup0_x), .powerup0_y(powerup0_y), 
+											.powerup1_x(powerup1_x), .powerup1_y(powerup1_y),
 											.player1_x(player1_x),
 											.player1_y(player1_y)
                                  );
