@@ -1,8 +1,8 @@
-Warning (10273): Verilog HDL warning at tri_state32.v(9): extended using "x" or "z" File: C:/Users/Student/Desktop/ym84/Pacman/tri_state32.v Line: 9
-Warning (10273): Verilog HDL warning at tri_state12.v(9): extended using "x" or "z" File: C:/Users/Student/Desktop/ym84/Pacman/tri_state12.v Line: 9
-Warning (10273): Verilog HDL warning at tri_state5.v(9): extended using "x" or "z" File: C:/Users/Student/Desktop/ym84/Pacman/tri_state5.v Line: 9
-Warning (10273): Verilog HDL warning at sla_1.v(9): extended using "x" or "z" File: C:/Users/Student/Desktop/ym84/Pacman/sla_1.v Line: 9
-Info (10281): Verilog HDL Declaration information at bypassControl.v(20): object "write2alu0_b" differs only in case from object "write2alu0_B" in the same scope File: C:/Users/Student/Desktop/ym84/Pacman/bypassControl.v Line: 20
-Info (10281): Verilog HDL Declaration information at bypassControl.v(20): object "write2alu1_b" differs only in case from object "write2alu1_B" in the same scope File: C:/Users/Student/Desktop/ym84/Pacman/bypassControl.v Line: 20
-Info (10281): Verilog HDL Declaration information at bypassControl.v(20): object "exec_out_xm2alu0_b" differs only in case from object "exec_out_xm2alu0_B" in the same scope File: C:/Users/Student/Desktop/ym84/Pacman/bypassControl.v Line: 20
-Info (10281): Verilog HDL Declaration information at bypassControl.v(20): object "exec_out_xm2alu1_b" differs only in case from object "exec_out_xm2alu1_B" in the same scope File: C:/Users/Student/Desktop/ym84/Pacman/bypassControl.v Line: 20
+Warning (10273): Verilog HDL warning at tri_state32.v(9): extended using "x" or "z" File: C:/Users/Student/Desktop/Pacman/tri_state32.v Line: 9
+Warning (10273): Verilog HDL warning at tri_state12.v(9): extended using "x" or "z" File: C:/Users/Student/Desktop/Pacman/tri_state12.v Line: 9
+Warning (10273): Verilog HDL warning at tri_state5.v(9): extended using "x" or "z" File: C:/Users/Student/Desktop/Pacman/tri_state5.v Line: 9
+Warning (10273): Verilog HDL warning at sla_1.v(9): extended using "x" or "z" File: C:/Users/Student/Desktop/Pacman/sla_1.v Line: 9
+Info (10281): Verilog HDL Declaration information at bypassControl.v(20): object "write2alu0_b" differs only in case from object "write2alu0_B" in the same scope File: C:/Users/Student/Desktop/Pacman/bypassControl.v Line: 20
+Info (10281): Verilog HDL Declaration information at bypassControl.v(20): object "write2alu1_b" differs only in case from object "write2alu1_B" in the same scope File: C:/Users/Student/Desktop/Pacman/bypassControl.v Line: 20
+Info (10281): Verilog HDL Declaration information at bypassControl.v(20): object "exec_out_xm2alu0_b" differs only in case from object "exec_out_xm2alu0_B" in the same scope File: C:/Users/Student/Desktop/Pacman/bypassControl.v Line: 20
+Info (10281): Verilog HDL Declaration information at bypassControl.v(20): object "exec_out_xm2alu1_b" differs only in case from object "exec_out_xm2alu1_B" in the same scope File: C:/Users/Student/Desktop/Pacman/bypassControl.v Line: 20

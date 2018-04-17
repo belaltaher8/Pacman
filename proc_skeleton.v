@@ -14,7 +14,7 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
 
                      q_imem, 
 							upSig, rightSig, downSig, leftSig, upSig2, rightSig2, downSig2, leftSig2,
-							reg1, powerup0_x, powerup0_y, powerup1_x, powerup1_y
+							reg1, powerup0_x, powerup0_y, powerup1_x, powerup1_y, powerup1_playerXRegister
 					 
 					 );
                      
@@ -119,6 +119,9 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
 	 reg [31:0] powerup0_player0Register, powerup0_player1Register;
 	 reg [31:0] powerup0_player0DurationReg, powerup0_player1DurationReg;
 	 reg [31:0] powerup0_player0DurationStageReg, powerup0_player1DurationStageReg;
+	 
+	 output reg [31:0] powerup1_playerXRegister;
+	 reg [31:0] powerup1_playerXDurationReg, powerup1_playerXDurationStageReg; 
 	 
 	 
 	 //Width and height
@@ -284,7 +287,50 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
 				powerup0_player1DurationStageReg <= 32'd0;
 				powerup0_player1DurationReg <= 32'd0;
 				powerup0_player1Register <= 32'd0;
-		   end		  
+		   end		
+			
+			
+			//Player 0 collision with Power-Up 1 (fake pellet)
+        if(((player0_x +  width >= powerup1_x && player0_x + width <= powerup1_x + width) || 
+			   (player0_x >= powerup1_x && player0_x <= powerup1_x + width)) &&
+			  ((player0_y +  height >= powerup1_y && player0_y + height <= powerup1_y + height) ||
+			   (player0_y >= powerup1_y && player0_y <= powerup1_y + height))) begin
+					powerup1_x <= 32'b11111111111111111111111111111111;
+			      powerup1_y <= 32'b11111111111111111111111111111111;
+					powerup1_playerXRegister <= 32'd1;
+					
+					powerup1_playerXDurationStageReg <= 32'd1;
+		  end	
+		  
+		  //Player 1 collision with Power-Up 1 (fake pellet)
+        if(((player1_x +  width >= powerup1_x && player1_x + width <= powerup1_x + width) || 
+			   (player1_x >= powerup1_x && player1_x <= powerup1_x + width)) &&
+			  ((player1_y +  height >= powerup1_y && player1_y + height <= powerup1_y + height) ||
+			   (player1_y >= powerup1_y && player1_y <= powerup1_y + height))) begin
+					powerup1_x <= 32'b11111111111111111111111111111111;
+			      powerup1_y <= 32'b11111111111111111111111111111111;
+					powerup1_playerXRegister <= 32'd1;
+					
+					powerup1_playerXDurationStageReg <= 32'd1;
+		  end	
+		  
+		  
+		  //Powerup 1 duration
+		  if(powerup1_playerXDurationStageReg > 32'd0)
+				powerup1_playerXDurationReg <= powerup1_playerXDurationReg + 1;
+				
+		  if(powerup1_playerXDurationReg == 32'd100000000) begin
+				powerup1_playerXDurationStageReg <= powerup1_playerXDurationStageReg + 1;
+				powerup1_playerXDurationReg <= 32'd0;
+		  end
+				
+		  if(powerup1_playerXDurationStageReg == 32'd8) begin
+				powerup1_playerXDurationStageReg <= 32'd0;
+				powerup1_playerXDurationReg <= 32'd0;
+				powerup1_playerXRegister <= 32'd0;
+		  end
+		  
+		
     end
 	 
 	 
@@ -331,6 +377,10 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
 		  powerup0_player1Register <= 32'd0;
 		  powerup0_player1DurationReg <= 32'd0;
 		  powerup0_player1DurationStageReg <= 32'd0;
+		  
+		  powerup1_playerXRegister <= 32'd0;
+		  powerup1_playerXDurationReg <= 32'd0;
+		  powerup1_playerXDurationStageReg <= 32'd0;
 		  
 	 end
     

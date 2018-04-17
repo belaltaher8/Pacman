@@ -7,13 +7,13 @@ module vga_controller(iRST_n,
                       g_data,
                       r_data,
                       ps2_key_data_in,
-                      player0_x, player0_y, player1_x, player1_y, powerup0_x, powerup0_y, powerup1_x, powerup1_y);
+                      player0_x, player0_y, player1_x, player1_y, powerup0_x, powerup0_y, powerup1_x, powerup1_y, powerup1_playerXRegister);
 
 
 input [7:0] ps2_key_data_in;
 
 input [31:0] player0_x, player0_y, player1_x, player1_y;
-input [31:0] powerup0_x, powerup0_y, powerup1_x, powerup1_y;
+input [31:0] powerup0_x, powerup0_y, powerup1_x, powerup1_y, powerup1_playerXRegister;
 
 
 input iRST_n;
@@ -183,6 +183,7 @@ addrConverter myAddrConverterPlayer0(ADDR, VGA_CLK_n, xADDR, yADDR);
     xADDRToCompare <= xADDR;
     yADDRToCompare <= yADDR;
     
+	 
     if((xADDRToCompare > xLoc0) && (xADDRToCompare < xLoc0 + width) && (yADDRToCompare > yLoc0) && (yADDRToCompare < yLoc0 + height) )
         color <= 23'b111111110000000000000000;
 		  
@@ -195,8 +196,10 @@ addrConverter myAddrConverterPlayer0(ADDR, VGA_CLK_n, xADDR, yADDR);
     else if((xADDRToCompare > powerup1xLocToRender) && (xADDRToCompare < powerup1xLocToRender + width) && (yADDRToCompare > powerup1yLocToRender) && (yADDRToCompare < powerup1yLocToRender + height) )
 		  color <= 23'b111111110000000011111111;
 		  
-    else
-        color <= bgr_data_raw;  
+    else if(powerup1_playerXRegister == 32'd1)
+        color <= 23'b000000000000000000000000;  
+	 else 
+		  color <= bgr_data_raw;
 		 
 	 
 
