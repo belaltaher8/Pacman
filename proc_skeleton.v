@@ -132,8 +132,8 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
 	 
 	 //Width and height
 	 wire [31:0] width, height;
-	 assign width =  32'd28;
-	 assign height = 32'd28;
+	 assign width =  32'd25;
+	 assign height = 32'd25;
 	 
     
 	 // PLAYER 0 DEDICATED ADDRESSES
@@ -340,11 +340,58 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
 		  
 		  
 		  /// PLAYER 0 COLLISION LOGIC WITH MAP ///
+		  
+		  // UP COLLISIONS //
+		  
+		  //Top wall
 		  if(temp_player0_y < 32'd16)
 				player0_y <= 32'd16;
-				
-		  else if(temp_player0_y < 72 && temp_player0_x <= 184 && temp_player0_x + width >= 133) 
+			
+				//ADD TOP BOUNDS FOR Y AS WELL
+		  //First row block 1
+		  else if(temp_player0_y < 72  && temp_player0_x <= 183 && temp_player0_x + width >= 134) 
 				player0_y <= 72;
+				
+		  //First row block 2 	
+		  else if(temp_player0_y < 72  && temp_player0_x <= 279 && temp_player0_x + width >= 215)
+				player0_y <= 72;
+				
+		  //First row block 3	
+		  else if(temp_player0_y < 72  && temp_player0_x <= 327 && temp_player0_x + width >= 310)
+				player0_y <= 72;
+		  
+		  //First row block 4 
+		  else if(temp_player0_y < 72  && temp_player0_x <= 424 && temp_player0_x + width >= 358)
+				player0_y <= 72;
+		  
+		  //First row block 5
+		  else if(temp_player0_y < 72  && temp_player0_x <= 503 && temp_player0_x + width >= 454)
+				player0_y <= 72;
+		  
+		  //Second row block 1 
+		  else if(temp_player0_y < 113 && temp_player0_x <= 183 && temp_player0_x + width >= 134)
+				player0_y <= 113;
+			
+		  //Second row block 2 part 1	
+		  else if(temp_player0_y < 197 && temp_player0_x <= 231 && temp_player0_x + width >= 214)	
+				player0_y <= 197;
+			
+		  //Second row block 2 part 2	
+		  else if(temp_player0_y < 155 && temp_player0_x <= 280 && temp_player0_x + width >= 232)
+				player0_y <= 155;
+				
+		  //Second row block 3 part 1	
+		  else if(temp_player0_y < 113 && temp_player0_x <= 309 && temp_player0_x + width >= 262)
+				player0_y <= 113;
+				
+		  //Second row block 3 part 2	
+		  else if(temp_player0_y < 155 && temp_player0_x <= 327 && temp_player0_x + width >= 310)
+			   player0_y <= 155; 
+				
+		  //Second row block 3 part 3
+		  else if(temp_player0_y < 113 && temp_player0_x <= 374 && temp_player0_x + width >= 330)
+				player0_y <= 113;
+		  
 		  else
 				player0_y <= temp_player0_y;
 				

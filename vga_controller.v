@@ -145,8 +145,8 @@ initial begin
     xLoc1 <= 10'b0000000000;
     yLoc1 <=  9'b000000000;
     
-    width <=  10'd28;
-    height <=  9'd28;
+    width <=  10'd25;
+    height <=  9'd25;
 	 
 	 
 	 powerup0xLocToRender <= 10'b0000000000;
