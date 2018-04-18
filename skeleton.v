@@ -3,7 +3,9 @@ module skeleton(resetn,
 	debug_data_in, debug_addr, leds, 						// extra debugging ports
 	lcd_data, lcd_rw, lcd_en, lcd_rs, lcd_on, lcd_blon,// LCD info
 	seg1, seg2, seg3, seg4, seg5, seg6, seg7, seg8,		// seven segements
-    sw0, sw1, sw2, sw3, sw4, sw5, sw6, sw7,              //switches
+   sw0, sw1, sw2, sw3, sw4, sw5, sw6, sw7,              //switches
+	ButtonNE, ButtonNW, ButtonSE, ButtonSW, 				// controller in
+	JoyN, JoyE, JoyS, JoyW, 									// controller in
 	VGA_CLK,   														//	VGA Clock
 	VGA_HS,															//	VGA H_SYNC
 	VGA_VS,															//	VGA V_SYNC
@@ -45,8 +47,10 @@ module skeleton(resetn,
 	wire	[7:0]	 ps2_out;	
     
     ////////////////////////    Switches     //////////////////////////
-    input sw0, sw1, sw2, sw3, sw4, sw5, sw6, sw7;
+   input sw0, sw1, sw2, sw3, sw4, sw5, sw6, sw7;
    
+	//////////////////////// Game Controllers /////////////////////////////
+	input ButtonNE, ButtonNW, ButtonSE, ButtonSW, JoyN, JoyE, JoyS, JoyW;
 	
 	// clock divider (by 5, i.e., 10 MHz)
 	//pll div(CLOCK_50,inclock);
@@ -110,7 +114,7 @@ module skeleton(resetn,
 	Hexadecimal_To_Seven_Segment hex8(player0_x[7:4], seg8);
 	
 	// FPGA LED outputs
-	assign leds = {sw7, sw6, sw5, sw4, sw3, sw2, sw1, sw0};
+	assign leds = {ButtonNE, ButtonNW, ButtonSE, ButtonSW, JoyN, JoyE, JoyS, JoyW};
 		
 	// VGA
 	Reset_Delay			r0	(.iCLK(CLOCK_50),.oRESET(DLY_RST)	);

@@ -352,11 +352,43 @@
 					"strict" : false
 				},
 				{
-					"name" : "sw0",
+					"name" : "JoyW",
 					"strict" : false
 				},
 				{
-					"name" : "sw1",
+					"name" : "JoyS",
+					"strict" : false
+				},
+				{
+					"name" : "JoyE",
+					"strict" : false
+				},
+				{
+					"name" : "JoyN",
+					"strict" : false
+				},
+				{
+					"name" : "ButtonSW",
+					"strict" : false
+				},
+				{
+					"name" : "ButtonSE",
+					"strict" : false
+				},
+				{
+					"name" : "ButtonNW",
+					"strict" : false
+				},
+				{
+					"name" : "ButtonNE",
+					"strict" : false
+				},
+				{
+					"name" : "CLOCK_50",
+					"strict" : false
+				},
+				{
+					"name" : "resetn",
 					"strict" : false
 				},
 				{
@@ -364,11 +396,19 @@
 					"strict" : false
 				},
 				{
+					"name" : "sw1",
+					"strict" : false
+				},
+				{
 					"name" : "sw3",
 					"strict" : false
 				},
 				{
-					"name" : "sw4",
+					"name" : "sw0",
+					"strict" : false
+				},
+				{
+					"name" : "sw7",
 					"strict" : false
 				},
 				{
@@ -380,15 +420,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "sw7",
-					"strict" : false
-				},
-				{
-					"name" : "CLOCK_50",
-					"strict" : false
-				},
-				{
-					"name" : "resetn",
+					"name" : "sw4",
 					"strict" : false
 				}
 			]
