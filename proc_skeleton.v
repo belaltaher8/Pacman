@@ -105,10 +105,12 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
     
     //Player 0 x & y
     output reg [31:0] player0_x, player0_y;
+	 reg [31:0] temp_player0_x, temp_player0_y;
 	 
 	 
 	 //Player 1 x & y
 	 output reg [31:0] player1_x, player1_y;
+	 reg [31:0] temp_player1_x, temp_player1_y;
 	 
 	 
 	 //Powerup 0 location
@@ -124,10 +126,14 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
 	 reg [31:0] powerup1_playerXDurationReg, powerup1_playerXDurationStageReg; 
 	 
 	 
+	 //Collision detection register for player 0
+	 reg leftCollision, rightCollision, upCollision, downCollision;
+	 
+	 
 	 //Width and height
 	 wire [31:0] width, height;
-	 assign width = 32'd32;
-	 assign height = 32'd32;
+	 assign width =  32'd28;
+	 assign height = 32'd28;
 	 
     
 	 // PLAYER 0 DEDICATED ADDRESSES
@@ -330,6 +336,21 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
 				powerup1_playerXRegister <= 32'd0;
 		  end
 		  
+		  
+		  
+		  
+		  /// PLAYER 0 COLLISION LOGIC WITH MAP ///
+		  if(temp_player0_y < 32'd16)
+				player0_y <= 32'd16;
+				
+		  else if(temp_player0_y < 72 && temp_player0_x <= 184 && temp_player0_x + width >= 133) 
+				player0_y <= 72;
+		  else
+				player0_y <= temp_player0_y;
+				
+			
+		  player0_x <= temp_player0_x;
+		  
 		
     end
 	 
@@ -337,32 +358,40 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
 	 
 	 always @(negedge clock) begin
 	 	  if (address_dmem == 17'd4200 && wren == 1'b1) begin
-            player0_x <= data;
+            temp_player0_x <= data;
         end
 		  
 		  if (address_dmem == 17'd4203 && wren == 1'b1) begin
-            player1_x <= data;
+            //temp_player1_x <= data;
+				player1_x <= data;
         end
 	 end
      
 	 always @(negedge clock) begin
         if (address_dmem == 17'd4201 && wren == 1'b1) begin
-            player0_y <= data;
+            temp_player0_y <= data;
         end
 		  
 		  if (address_dmem == 17'd4204 && wren == 1'b1) begin
-            player1_y <= data;
+           // temp_player1_y <= data;
+			   player1_y <= data;
         end
 	 end
 	 
     
     //Player Instantiation
     initial begin
-        player0_x <= 32'd240;
-        player0_y <= 32'd250;
+        player0_x <= 32'd260;
+        player0_y <= 32'd240;
 		  
-		  player1_x <= 32'd100;
-		  player1_y <= 32'd100;
+		  temp_player0_x <= 32'd260;
+        temp_player0_y <= 32'd240;
+		  
+		  player1_x <= 32'd360;
+		  player1_y <= 32'd240;
+		  
+		  temp_player1_x <= 32'd360;
+		  temp_player1_y <= 32'd240;
 		  
 		  powerup0_x <= 32'd300;
 		  powerup0_y <= 32'd300;
@@ -381,6 +410,11 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
 		  powerup1_playerXRegister <= 32'd0;
 		  powerup1_playerXDurationReg <= 32'd0;
 		  powerup1_playerXDurationStageReg <= 32'd0;
+		  
+		  leftCollision <= 1'b0;
+		  rightCollision <= 1'b0;
+		  upCollision <= 1'b0;
+		  downCollision <= 1'b0;
 		  
 	 end
     
