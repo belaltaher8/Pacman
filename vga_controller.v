@@ -1,4 +1,4 @@
-module vga_controller(iRST_n,
+module vga_controller(iRST_n, procClock,
                       iVGA_CLK,
                       oBLANK_n,
                       oHS,
@@ -7,10 +7,12 @@ module vga_controller(iRST_n,
                       g_data,
                       r_data,
                       ps2_key_data_in,
-                      player0_x, player0_y, player1_x, player1_y, powerup0_x, powerup0_y, powerup1_x, powerup1_y, powerup1_playerXRegister);
+                      player0_x, player0_y, player1_x, player1_y, powerup0_x, powerup0_y, powerup1_x, powerup1_y, powerup1_playerXRegister,
+							 player0_collisionUp, player0_collisionDown, player0_collisionRight, player0_collisionLeft, colorUp);
 
 
 input [7:0] ps2_key_data_in;
+input procClock;
 
 input [31:0] player0_x, player0_y, player1_x, player1_y;
 input [31:0] powerup0_x, powerup0_y, powerup1_x, powerup1_y, powerup1_playerXRegister;
@@ -102,12 +104,7 @@ end
 
 //////////////////////////
 //////INDEX addr.
-assign VGA_CLK_n = ~iVGA_CLK;
-img_data	img_data_inst (
-	.address ( realADDR ),
-	.clock ( VGA_CLK_n ),
-	.q ( index )
-	);
+
 	
 /////////////////////////
 
@@ -154,6 +151,7 @@ initial begin
 	 
 	 powerup1xLocToRender <= 10'd0;
 	 powerup1yLocToRender <=  9'd0;
+	 
     
     
 end
@@ -205,7 +203,114 @@ addrConverter myAddrConverterPlayer0(ADDR, VGA_CLK_n, xADDR, yADDR);
 
 end
 
+output reg player0_collisionUp, player0_collisionDown, player0_collisionRight, player0_collisionLeft;
 
+always@(posedge procClock) begin
+
+	if(colorUp == 6'hFF5757) begin
+		player0_collisionUp <= 1'b1;
+   end
+	else if(colorUp != 6'hFF5757) begin
+		player0_collisionUp <= 1'b0;
+	end
+		
+	/*if(colorDown == 6'hFF5757)
+		player0_collisionDown <= 1'b1;
+	else
+		player0_collisionDown <= 0;
+		
+	if(colorLeft == 6'hFF5757)
+		player0_collisionLeft <= 1;
+	else
+		player0_collisionLeft <= 0;
+		
+	if(colorRight == 6'hFF5757)
+		player0_collisionRight <= 1;
+	else
+		player0_collisionRight <= 0;*/
+		
+		
+end
+	
+
+wire [7:0] upIndex;
+output wire [23:0] colorUp;
+
+wire [9:0] xLocToUse;
+wire [8:0] yLocToUse;
+
+assign xLocToUse = xLoc0;
+assign yLocToUse = yLoc0;
+
+img_data upCollisionDetector(
+	.address((yLocToUse-1) * 640 + xLocToUse),
+	.clock(procClock),
+	.q(upIndex)
+	);
+	
+img_index upCollisionDetector2(
+	.address(upIndex),
+	.clock(~procClock),
+	.q(colorUp)
+	);
+	
+/*wire [7:0] downIndex;
+wire [23:0] colorDown;
+
+img_data downCollisionDetector(
+	.address((yLoc+1) * 640 + xLoc),
+	.clock(procClock),
+	.q(downIndex)
+	);
+	
+img_index downCollisionDetector2(
+	.address(downIndex),
+	.clock(~procClock),
+	.q(colorDown)
+	);
+	
+wire [7:0] rightIndex;
+wire [23:0] colorRight;
+
+img_data rightCollisionDetector(
+	.address((yLoc) * 640 + xLoc + 1),
+	.clock(procClock),
+	.q(rightIndex)
+	);
+	
+img_index rightCollisionDetector2(
+	.address(rightIndex),
+	.clock(~procClock),
+	.q(colorRight)
+	);
+	
+wire [7:0] leftIndex;
+wire [23:0] colorLeft;
+
+img_data leftCollisionDetector(
+	.address((yLoc) * 640 + xLoc - 1),
+	.clock(procClock),
+	.q(leftIndex)
+	);
+	
+img_index leftCollisionDetector2(
+	.address(leftIndex),
+	.clock(~procClock),
+	.q(colorLeft)
+	);*/
+	
+	
+	
+	
+	
+	
+	
+assign VGA_CLK_n = ~iVGA_CLK;
+img_data	img_data_inst (
+	.address ( realADDR ),
+	.clock ( VGA_CLK_n ),
+	.q ( index )
+	);	
 	
 //////Color table output
 img_index	img_index_inst (

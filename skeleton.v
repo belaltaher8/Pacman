@@ -56,10 +56,12 @@ module skeleton(resetn,
 	//assign clock = inclock;
 	
 	// your processor
-    wire [31:0] player0_x, player0_y, player1_x, player1_y, reg1, powerup0_x, powerup0_y, powerup1_x, powerup1_y, powerup1_playerXRegister;
+    wire [31:0] player0_x, player0_y, player1_x, player1_y, reg1, powerup0_x, powerup0_y, powerup1_x, powerup1_y, powerup1_playerXRegister, reg13;
 	 wire [16:0] address_dmem;
 	 wire [31:0] q_dmem;
-    
+	 wire player0_collisionUp, player0_collisionRight, player0_collisionLeft, player0_collisionDown;
+
+	 
 	proc_skeleton myProcSkeleton(
                                  .clock(clock), 
                                  .reset(~resetn), 
@@ -80,9 +82,14 @@ module skeleton(resetn,
 											.downSig2(sw6),
 											.leftSig2(sw7),
                                  .reg1(reg1),
+											.reg13(reg13),
 											.powerup0_x(powerup0_x), .powerup0_y(powerup0_y),
 											.powerup1_x(powerup1_x), .powerup1_y(powerup1_y),
-											.powerup1_playerXRegister(powerup1_playerXRegister)
+											.powerup1_playerXRegister(powerup1_playerXRegister),
+											.player0_collisionUp(player0_collisionUp),
+											.player0_collisionDown(player0_collisionDown),
+											.player0_collisionRight(player0_collisionRight),
+											.player0_collisionLeft(player0_collisionLeft)
                                  /*lcd_write_en, lcd_write_data, debug_data_in, debug_addr*/
                                  );
 	
@@ -97,20 +104,22 @@ module skeleton(resetn,
 	// lcd controller
 	lcd mylcd(clock, ~resetn, 1'b1, player0_x[7:0], lcd_data, lcd_rw, lcd_en, lcd_rs, lcd_on, lcd_blon);
 	
+	wire [23:0] colorUp;
+	
 	// example for sending ps2 data to the first two seven segment displays
-	Hexadecimal_To_Seven_Segment hex1(reg1[3:0], seg1);
-	Hexadecimal_To_Seven_Segment hex2(reg1[7:4], seg2);
+	Hexadecimal_To_Seven_Segment hex1(colorUp[3:0], seg1);
+	Hexadecimal_To_Seven_Segment hex2(colorUp[7:4], seg2);
 	
 	// the other seven segment displays are currently set to 0
-	Hexadecimal_To_Seven_Segment hex3(4'd0, seg3);
-	Hexadecimal_To_Seven_Segment hex4(4'd0, seg4);
-	Hexadecimal_To_Seven_Segment hex5(player0_y[3:0], seg5);
-	Hexadecimal_To_Seven_Segment hex6(player0_y[7:4], seg6);
-	Hexadecimal_To_Seven_Segment hex7(player0_x[3:0], seg7);
-	Hexadecimal_To_Seven_Segment hex8(player0_x[7:4], seg8);
+	Hexadecimal_To_Seven_Segment hex3(colorUp[11:8], seg3);
+	Hexadecimal_To_Seven_Segment hex4(colorUp[15:12], seg4);
+	Hexadecimal_To_Seven_Segment hex5(colorUp[19:16], seg5);
+	Hexadecimal_To_Seven_Segment hex6(colorUp[23:20], seg6);
+	Hexadecimal_To_Seven_Segment hex7(4'd0, seg7);
+	Hexadecimal_To_Seven_Segment hex8(4'd0, seg8);
 	
 	// FPGA LED outputs
-	assign leds = {sw7, sw6, sw5, sw4, sw3, sw2, sw1, sw0};
+	assign leds = {sw7, sw6, sw5, sw4, sw3, sw2, sw1, player0_collisionUp};
 		
 	// VGA
 	Reset_Delay			r0	(.iCLK(CLOCK_50),.oRESET(DLY_RST)	);
@@ -120,7 +129,7 @@ module skeleton(resetn,
     wire [11:0] VGA_address;
     wire [31:0] VGA_data;
     
-	vga_controller vga_ins(.iRST_n(DLY_RST),
+	vga_controller vga_ins(.iRST_n(DLY_RST), .procClock(clock),
 								 .iVGA_CLK(VGA_CLK),
 								 .oBLANK_n(VGA_BLANK),
 								 .oHS(VGA_HS),
@@ -134,7 +143,11 @@ module skeleton(resetn,
 											.powerup1_x(powerup1_x), .powerup1_y(powerup1_y),
 											.player1_x(player1_x),
 											.player1_y(player1_y),
-											.powerup1_playerXRegister(powerup1_playerXRegister)
+											.powerup1_playerXRegister(powerup1_playerXRegister),
+											.player0_collisionUp(player0_collisionUp),
+											.player0_collisionDown(player0_collisionDown),
+											.player0_collisionRight(player0_collisionRight),
+											.player0_collisionLeft(player0_collisionLeft), .colorUp(colorUp)
                                  );
 	
 	
