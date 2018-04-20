@@ -296,12 +296,12 @@ set_global_assignment -name VECTOR_WAVEFORM_FILE output_files/Waveform6.vwf
 set_global_assignment -name MIF_FILE image_data.mif
 set_global_assignment -name MIF_FILE color_data.mif
 set_global_assignment -name VECTOR_WAVEFORM_FILE output_files/Waveform7.vwf
-set_location_assignment PIN_AB22 -to ButtonNE
-set_location_assignment PIN_AB21 -to ButtonNW
-set_location_assignment PIN_AC15 -to ButtonSE
-set_location_assignment PIN_Y17 -to ButtonSW
-set_location_assignment PIN_AC21 -to JoyN
-set_location_assignment PIN_Y16 -to JoyE
-set_location_assignment PIN_AD21 -to JoyS
-set_location_assignment PIN_AE16 -to JoyW
+set_location_assignment PIN_AB21 -to ButtonNE
+set_location_assignment PIN_AC21 -to ButtonNW
+set_location_assignment PIN_Y17 -to ButtonSE
+set_location_assignment PIN_Y16 -to ButtonSW
+set_location_assignment PIN_AD21 -to JoyN
+set_location_assignment PIN_AE16 -to JoyE
+set_location_assignment PIN_AD15 -to JoyS
+set_location_assignment PIN_AE15 -to JoyW
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
