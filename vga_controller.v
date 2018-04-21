@@ -9,7 +9,7 @@ module vga_controller(iRST_n, procClock,
                       ps2_key_data_in,
                       player0_x, player0_y, player1_x, player1_y, powerup0_x, powerup0_y, powerup1_x, powerup1_y, powerup1_playerXRegister,
 							 player0_collisionUp, player0_collisionDown, player0_collisionRight, player0_collisionLeft,
-							 player1_collisionUp, player1_collisionDown, player1_collisionRight, player1_collisionLeft);
+							 player1_collisionUp, player1_collisionDown, player1_collisionRight, player1_collisionLeft, screenReg);
 
 
 input [7:0] ps2_key_data_in;
@@ -19,6 +19,7 @@ input [31:0] player0_x, player0_y, player1_x, player1_y;
 input [31:0] powerup0_x, powerup0_y, powerup1_x, powerup1_y, powerup1_playerXRegister;
 
 reg [8:0] scoreReg;
+output reg [1:0] screenReg;
 
 
 input iRST_n;
@@ -172,7 +173,7 @@ initial begin
 	 powerup1yLocToRender <=  9'd0;
 	 
 	 scoreReg <= 8'd0;
-    
+    screenReg <= 2'd0;
     
 end
 
@@ -268,15 +269,15 @@ always@(posedge procClock) begin
 		
 		
 	//Player 0 RIGHT COLLISIONS
-	if(bgr_data_raw == 24'hFF5757 && (yADDRToCompare > yLoc0) && (yADDRToCompare < (yLoc0 + height)) && (xADDRToCompare == xLoc0 + width + 1))begin
+	if(bgr_data_raw == 24'hFF5757 && (yADDRToCompare > yLoc0) && (yADDRToCompare < (yLoc0 + height)) && (xADDRToCompare == xLoc0 + width + 2))begin
 			player0_collisionRight <= 1'b1;
 			rightCollisionFlag0 <= 1'b1;
 	end
 	
-	else if(bgr_data_raw != 24'hFF5757 && (yADDRToCompare > yLoc0) && (yADDRToCompare < (yLoc0 + height)) && (xADDRToCompare == xLoc0 + width + 1) && rightCollisionFlag0 == 1'b0)
+	else if(bgr_data_raw != 24'hFF5757 && (yADDRToCompare > yLoc0) && (yADDRToCompare < (yLoc0 + height)) && (xADDRToCompare == xLoc0 + width + 2) && rightCollisionFlag0 == 1'b0)
 		   player0_collisionRight <= 1'b0;
 			
-	else if(yADDRToCompare > yLoc0 + height + 1)
+	else if(xADDRToCompare > xLoc0 + width + 1)
 			rightCollisionFlag0 <= 1'b0;
 	
 	
@@ -289,7 +290,7 @@ always@(posedge procClock) begin
 	else if(bgr_data_raw != 24'hFF5757 && (yADDRToCompare > yLoc0) && (yADDRToCompare < (yLoc0 + height)) && (xADDRToCompare == xLoc0 - 1) && leftCollisionFlag0 == 1'b0)
 		   player0_collisionLeft <= 1'b0;
 			
-	else if(yADDRToCompare > yLoc0 + height + 1)
+	else if(xADDRToCompare > xLoc0 + width + 1)
 			leftCollisionFlag0 <= 1'b0;
 			
 			
@@ -310,7 +311,7 @@ always@(posedge procClock) begin
 		
 		
 		
-	 //Player 0 DOWN COLLISIONS	
+	 //Player 1 DOWN COLLISIONS	
 	 if(bgr_data_raw == 24'hFF5757 && (xADDRToCompare > xLoc1) && (xADDRToCompare < (xLoc1 + width)) && (yADDRToCompare == yLoc1 + height + 1)) begin
 		  player1_collisionDown <= 1'b1;
 		  downCollisionFlag1 <= 1'b1;
@@ -325,20 +326,20 @@ always@(posedge procClock) begin
 		
 		
 		
-	//Player 0 RIGHT COLLISIONS
-	if(bgr_data_raw == 24'hFF5757 && (yADDRToCompare > yLoc1) && (yADDRToCompare < (yLoc1 + height)) && (xADDRToCompare == xLoc1 + width + 1))begin
+	//Player 1 RIGHT COLLISIONS
+	if(bgr_data_raw == 24'hFF5757 && (yADDRToCompare > yLoc1) && (yADDRToCompare < (yLoc1 + height)) && (xADDRToCompare == xLoc1 + width + 2))begin
 			player1_collisionRight <= 1'b1;
 			rightCollisionFlag1 <= 1'b1;
 	end
 	
-	else if(bgr_data_raw != 24'hFF5757 && (yADDRToCompare > yLoc1) && (yADDRToCompare < (yLoc1 + height)) && (xADDRToCompare == xLoc1 + width + 1) && rightCollisionFlag1 == 1'b0)
+	else if(bgr_data_raw != 24'hFF5757 && (yADDRToCompare > yLoc1) && (yADDRToCompare < (yLoc1 + height)) && (xADDRToCompare == xLoc1 + width + 2) && rightCollisionFlag1 == 1'b0)
 		   player1_collisionRight <= 1'b0;
 			
-	else if(yADDRToCompare > yLoc1 + height + 1)
+	else if(xADDRToCompare > xLoc1 + width + 1)
 			rightCollisionFlag1 <= 1'b0;
 	
 	
-	//Player 0 LEFT COLLISIONS
+	//Player 1 LEFT COLLISIONS
 	if(bgr_data_raw == 24'hFF5757 && (yADDRToCompare > yLoc1) && (yADDRToCompare < (yLoc1 + height)) && (xADDRToCompare == xLoc1 - 1))begin
 			player1_collisionLeft <= 1'b1;
 			leftCollisionFlag1 <= 1'b1;
@@ -347,7 +348,7 @@ always@(posedge procClock) begin
 	else if(bgr_data_raw != 24'hFF5757 && (yADDRToCompare > yLoc1) && (yADDRToCompare < (yLoc1 + height)) && (xADDRToCompare == xLoc1 - 1) && leftCollisionFlag1 == 1'b0)
 		   player1_collisionLeft <= 1'b0;
 			
-	else if(yADDRToCompare > yLoc1 + height + 1)
+	else if(xADDRToCompare > xLoc1 + width + 1)
 			leftCollisionFlag1 <= 1'b0;
 		
 		

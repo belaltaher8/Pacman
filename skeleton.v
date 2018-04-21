@@ -100,7 +100,8 @@ module skeleton(resetn,
 											.player1_collisionUp(player1_collisionUp),
 											.player1_collisionDown(player1_collisionDown),
 											.player1_collisionRight(player1_collisionRight),
-											.player1_collisionLeft(player1_collisionLeft)
+											.player1_collisionLeft(player1_collisionLeft),
+											.screenReg(screenReg)
                                  );
 	
 	// keyboard controller
@@ -138,6 +139,7 @@ module skeleton(resetn,
     
     wire [11:0] VGA_address;
     wire [31:0] VGA_data;
+	 wire [2:0] screenReg;
     
 	vga_controller vga_ins(.iRST_n(DLY_RST), .procClock(clock),
 								 .iVGA_CLK(VGA_CLK),
@@ -161,7 +163,8 @@ module skeleton(resetn,
 											.player1_collisionUp(player1_collisionUp),
 											.player1_collisionDown(player1_collisionDown),
 											.player1_collisionRight(player1_collisionRight),
-											.player1_collisionLeft(player1_collisionLeft)
+											.player1_collisionLeft(player1_collisionLeft),
+											.screenReg(screenReg)
                                  );
 	
 	

@@ -16,7 +16,7 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
 							upSig, rightSig, downSig, leftSig, upSig2, rightSig2, downSig2, leftSig2,
 							reg1, powerup0_x, powerup0_y, powerup1_x, powerup1_y, powerup1_playerXRegister, 
 							player0_collisionUp, player0_collisionDown, player0_collisionRight, player0_collisionLeft, reg13, pauseButton,
-							player1_collisionUp, player1_collisionDown, player1_collisionRight, player1_collisionLeft
+							player1_collisionUp, player1_collisionDown, player1_collisionRight, player1_collisionLeft, screenReg
 					 
 					 );
                      
@@ -28,6 +28,11 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
 	 input player0_collisionUp, player0_collisionDown, player0_collisionRight, player0_collisionLeft;
 	 input player1_collisionUp, player1_collisionDown, player1_collisionRight, player1_collisionLeft;
 	 input pauseButton;
+	 
+	 input [1:0] screenReg;
+	 
+	 wire [1:0] screenSignal;
+	 assign screenSignal = screenReg;
 	 
     /** IMEM **/
     wire [11:0] address_imem;
@@ -172,6 +177,10 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
 		  if(address_dmem < 17'd4096) begin
 			   proc_data_in <= q_dmem;
 		  end
+		  
+		  
+		  else if(address_dmem == 17'd4500)
+				proc_data_in <= screenSignal;
         
         // PLAYER 0 Functionality
         // 1 means up
