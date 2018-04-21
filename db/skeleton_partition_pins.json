@@ -236,6 +236,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "JoyW",
+					"strict" : false
+				},
+				{
 					"name" : "sw7",
 					"strict" : false
 				},
@@ -249,10 +253,6 @@
 				},
 				{
 					"name" : "sw4",
-					"strict" : false
-				},
-				{
-					"name" : "JoyW",
 					"strict" : false
 				}
 			]

@@ -9,7 +9,8 @@ module vga_controller(iRST_n, procClock,
                       ps2_key_data_in,
                       player0_x, player0_y, player1_x, player1_y, powerup0_x, powerup0_y, powerup1_x, powerup1_y, powerup1_playerXRegister,
 							 player0_collisionUp, player0_collisionDown, player0_collisionRight, player0_collisionLeft,
-							 player1_collisionUp, player1_collisionDown, player1_collisionRight, player1_collisionLeft, screenReg);
+							 player1_collisionUp, player1_collisionDown, player1_collisionRight, player1_collisionLeft, screenReg,
+							 player0_direction);
 
 
 input [7:0] ps2_key_data_in;
@@ -17,6 +18,7 @@ input procClock;
 
 input [31:0] player0_x, player0_y, player1_x, player1_y;
 input [31:0] powerup0_x, powerup0_y, powerup1_x, powerup1_y, powerup1_playerXRegister;
+input [1:0] player0_direction;
 
 reg [8:0] scoreReg;
 output reg [1:0] screenReg;
@@ -52,6 +54,18 @@ wire [7:0] index;
 wire [23:0] bgr_data_raw;
 reg  [23:0] color;
 wire cBLANK_n,cHS,cVS,rst;
+
+wire [23:0] pacman_data_raw;
+wire [7:0] pacman_or, pacman_ol, pacman_ou, pacman_od, pacman_cr, pacman_cl, pacman_cu, pacman_cd;
+reg [7:0] pacman_index;
+reg [9:0] pacman_addr;
+reg pacman_mouth;
+
+wire [23:0] blue_data_raw;
+wire [7:0] blue_NE, blue_NW, blue_SE, blu_SW;
+reg [7:0] blue_index;
+reg [9:0] blue_addr;
+
 ////
 assign rst = ~iRST_n;
 video_sync_generator LTM_ins (.vga_clk(iVGA_CLK),
@@ -155,6 +169,8 @@ reg [8:0] powerup1yLocToRender;
 
 reg [31:0] clockCounter;
 
+reg [24:0] pacman_counter;
+
 initial begin
     xLoc0 <= 10'b0000000000;
     yLoc0 <=  9'b000000000;
@@ -174,6 +190,9 @@ initial begin
 	 
 	 scoreReg <= 8'd0;
     screenReg <= 2'd0;
+	 
+	 pacman_mouth <= 1'b0;
+	 pacman_counter <= 25'd0;
     
 end
 
@@ -204,13 +223,13 @@ addrConverter myAddrConverterPlayer0(ADDR, VGA_CLK_n, xADDR, yADDR);
     
 	 
     if((xADDRToCompare > xLoc0) && (xADDRToCompare < xLoc0 + width) && (yADDRToCompare > yLoc0) && (yADDRToCompare < yLoc0 + height) )
-        color <= 23'b111111110000000000000000;
+        color <= pacman_data_raw;
 		  
     else if((xADDRToCompare > powerup0xLocToRender) && (xADDRToCompare < powerup0xLocToRender + width) && (yADDRToCompare > powerup0yLocToRender) && (yADDRToCompare < powerup0yLocToRender + height) )
 		  color <= 23'b000000001111111100000000;
 		  
     else if((xADDRToCompare > xLoc1) && (xADDRToCompare < xLoc1 + width) && (yADDRToCompare > yLoc1) && (yADDRToCompare < yLoc1 + height) )	  
-		  color <= 23'b000000000000000011111111;
+		  color <= blue_data_raw;
 		  
     else if((xADDRToCompare > powerup1xLocToRender) && (xADDRToCompare < powerup1xLocToRender + width) && (yADDRToCompare > powerup1yLocToRender) && (yADDRToCompare < powerup1yLocToRender + height) )
 		  color <= 23'b111111110000000011111111;
@@ -403,7 +422,111 @@ digits_color_data scoreRenderer2 (
 	.clock(iVGA_CLK),
 	.q(score_data_raw)
 	);
+
+
+//////Pacman VGA Shite
+pacman_open_eye_right	poer (
+	.address ( pacman_addr ),
+	.clock ( VGA_CLK_n ),
+	.q ( pacman_or )
+	);
+pacman_open_eye_up	poeu (
+	.address ( pacman_addr ),
+	.clock ( VGA_CLK_n ),
+	.q ( pacman_ou )
+	);
+pacman_open_eye_left	poel (
+	.address ( pacman_addr ),
+	.clock ( VGA_CLK_n ),
+	.q ( pacman_ol )
+	);
+pacman_open_eye_down	poed (
+	.address ( pacman_addr ),
+	.clock ( VGA_CLK_n ),
+	.q ( pacman_od )
+	);
+pacman_closed_eye_right	pcer (
+	.address ( pacman_addr ),
+	.clock ( VGA_CLK_n ),
+	.q ( pacman_cr )
+	);
+pacman_closed_eye_up	pceu (
+	.address ( pacman_addr ),
+	.clock ( VGA_CLK_n ),
+	.q ( pacman_cu )
+	);
+pacman_closed_eye_left	pcel (
+	.address ( pacman_addr ),
+	.clock ( VGA_CLK_n ),
+	.q ( pacman_cl )
+	);
+pacman_closed_eye_down	pced (
+	.address ( pacman_addr ),
+	.clock ( VGA_CLK_n ),
+	.q ( pacman_cd )
+	);
+//////Color table output
+pacman_index	pi (
+	.address ( pacman_index ),
+	.clock ( iVGA_CLK ),
+	.q ( pacman_data_raw)
+	);	
+//////
+
+//////Blue Ghost VGA Shite
+blue_NE	bne (
+	.address ( blue_addr ),
+	.clock ( VGA_CLK_n ),
+	.q ( blue_NE )
+	);
+blue_NW	bnw (
+	.address ( blue_addr ),
+	.clock ( VGA_CLK_n ),
+	.q ( blue_NW )
+	);
+blue_SE	bse (
+	.address ( blue_addr ),
+	.clock ( VGA_CLK_n ),
+	.q ( blue_SE )
+	);
+blue_SW	bsw (
+	.address ( blue_addr ),
+	.clock ( VGA_CLK_n ),
+	.q ( blue_SW )
+	);
+//////Color table output
+blue_index	bi (
+	.address ( blue_index ),
+	.clock ( iVGA_CLK ),
+	.q ( blue_data_raw)
+	);	
+//////
+
+always @(VGA_CLK_n) begin
+	// Updates Pacman Address for VGA
+	if((xADDR > player0_x) && (xADDR < player0_x + width) && (yADDR > player0_y) && (yADDR < player0_y + height))
+		pacman_addr <= (yADDR-player0_y) * 28 + xADDR-player0_x;
+	if((xADDR > player1_x) && (xADDR < player1_x + width) && (yADDR > player1_y) && (yADDR < player1_y + height))
+		blue_addr <= (yADDR-player1_y) * 28 + xADDR-player1_x;
+		
+	if (player0_direction == 2'b00 &&  pacman_mouth == 1'b1) pacman_index <= pacman_or;
+	else if ((player0_direction == 2'b01) && (pacman_mouth == 1'b1)) pacman_index <= pacman_od;
+	else if ((player0_direction == 2'b10) && (pacman_mouth == 1'b1)) pacman_index <= pacman_ol;
+	else if ((player0_direction == 2'b11) && (pacman_mouth == 1'b1)) pacman_index <= pacman_ou;
+	else if ((player0_direction == 2'b00) && (pacman_mouth == 1'b0)) pacman_index <= pacman_cr;
+	else if ((player0_direction == 2'b01) && (pacman_mouth == 1'b0)) pacman_index <= pacman_cd;
+	else if ((player0_direction == 2'b10) && (pacman_mouth == 1'b0)) pacman_index <= pacman_cl;
+	else if ((player0_direction == 2'b11) && (pacman_mouth == 1'b0)) pacman_index <= pacman_cu;
 	
+	if ((player0_x <= player1_x) && (player0_y <= player1_y)) blue_index <= blue_NW;
+	else if ((player0_x > player1_x) && (player0_y < player1_y)) blue_index <= blue_NE;
+	else if ((player0_x < player1_x) && (player0_y > player1_y)) blue_index <= blue_SW;
+	else if ((player0_x > player1_x) && (player0_y >= player1_y)) blue_index <= blue_SE;
+		
+	pacman_counter <= pacman_counter + 1;
+	if (pacman_counter == 25'd0) pacman_mouth <= ~pacman_mouth;
+	
+end
 	
 
 	

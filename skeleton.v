@@ -51,6 +51,7 @@ module skeleton(resetn,
    
 	///////////////////////// Game Controller //////////////////////////////
 	input ButtonNE, ButtonNW, ButtonSE, ButtonSW, JoyN, JoyS, JoyE, JoyW;
+	reg [1:0] player0_direction;
 	
 	// clock divider (by 5, i.e., 10 MHz)
 	//pll div(CLOCK_50,inclock);
@@ -103,6 +104,17 @@ module skeleton(resetn,
 											.player1_collisionLeft(player1_collisionLeft),
 											.screenReg(screenReg)
                                  );
+	
+	initial begin
+	player0_direction <= 2'b00;
+	end
+	
+	always @(JoyN, JoyE, JoyW, JoyS) begin
+		if (JoyE == 1) player0_direction <= 2'b00;
+		else if (JoyS == 1) player0_direction <= 2'b01;
+		else if (JoyW == 1) player0_direction <= 2'b10;
+		else if (JoyN == 1) player0_direction <= 2'b11;
+	end
 	
 	// keyboard controller
 	PS2_Interface myps2(clock, resetn, ps2_clock, ps2_data, ps2_key_data, ps2_key_pressed, ps2_out);
@@ -164,7 +176,8 @@ module skeleton(resetn,
 											.player1_collisionDown(player1_collisionDown),
 											.player1_collisionRight(player1_collisionRight),
 											.player1_collisionLeft(player1_collisionLeft),
-											.screenReg(screenReg)
+											.screenReg(screenReg),
+											.player0_direction(player0_direction)
                                  );
 	
 	

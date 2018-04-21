@@ -2,92 +2,164 @@
 TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
-Type  : Slow 1200mV 85C Model Setup 'CLOCK_50'
-Slack : -7.759
-TNS   : -4786.134
+Type  : Slow 1200mV 85C Model Setup 'proc_skeleton:myProcSkeleton|player1_x[0]'
+Slack : -10.213
+TNS   : -101.139
+
+Type  : Slow 1200mV 85C Model Setup 'proc_skeleton:myProcSkeleton|player0_x[0]'
+Slack : -9.721
+TNS   : -96.422
 
 Type  : Slow 1200mV 85C Model Setup 'p1|altpll_component|pll|clk[2]'
-Slack : -4.531
-TNS   : -21.661
+Slack : -8.779
+TNS   : -47.961
+
+Type  : Slow 1200mV 85C Model Setup 'CLOCK_50'
+Slack : -7.083
+TNS   : -5324.550
 
 Type  : Slow 1200mV 85C Model Hold 'CLOCK_50'
-Slack : 0.385
+Slack : 0.391
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'p1|altpll_component|pll|clk[2]'
-Slack : 0.406
+Slack : 0.403
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'proc_skeleton:myProcSkeleton|player0_x[0]'
+Slack : 0.492
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'proc_skeleton:myProcSkeleton|player1_x[0]'
+Slack : 0.854
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Recovery 'p1|altpll_component|pll|clk[2]'
-Slack : 13.492
+Slack : 12.568
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Removal 'p1|altpll_component|pll|clk[2]'
-Slack : 4.465
+Slack : 4.414
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'proc_skeleton:myProcSkeleton|player0_x[0]'
+Slack : 0.130
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'proc_skeleton:myProcSkeleton|player1_x[0]'
+Slack : 0.156
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLOCK_50'
-Slack : 9.650
+Slack : 9.611
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'p1|altpll_component|pll|clk[2]'
-Slack : 19.708
+Slack : 19.706
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Setup 'CLOCK_50'
-Slack : -6.397
-TNS   : -3423.509
+Type  : Slow 1200mV 0C Model Setup 'proc_skeleton:myProcSkeleton|player1_x[0]'
+Slack : -9.479
+TNS   : -95.950
+
+Type  : Slow 1200mV 0C Model Setup 'proc_skeleton:myProcSkeleton|player0_x[0]'
+Slack : -9.146
+TNS   : -91.778
 
 Type  : Slow 1200mV 0C Model Setup 'p1|altpll_component|pll|clk[2]'
-Slack : -2.200
-TNS   : -9.456
+Slack : -7.708
+TNS   : -32.062
+
+Type  : Slow 1200mV 0C Model Setup 'CLOCK_50'
+Slack : -5.775
+TNS   : -3907.227
 
 Type  : Slow 1200mV 0C Model Hold 'CLOCK_50'
-Slack : 0.338
+Slack : 0.350
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'p1|altpll_component|pll|clk[2]'
-Slack : 0.356
+Slack : 0.354
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'proc_skeleton:myProcSkeleton|player0_x[0]'
+Slack : 0.554
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'proc_skeleton:myProcSkeleton|player1_x[0]'
+Slack : 0.960
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Recovery 'p1|altpll_component|pll|clk[2]'
-Slack : 14.146
+Slack : 13.269
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Removal 'p1|altpll_component|pll|clk[2]'
-Slack : 3.957
+Slack : 3.906
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'proc_skeleton:myProcSkeleton|player1_x[0]'
+Slack : 0.054
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'proc_skeleton:myProcSkeleton|player0_x[0]'
+Slack : 0.076
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
-Slack : 9.682
+Slack : 9.567
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'p1|altpll_component|pll|clk[2]'
 Slack : 19.709
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Setup 'CLOCK_50'
-Slack : 0.738
-TNS   : 0.000
+Type  : Fast 1200mV 0C Model Setup 'proc_skeleton:myProcSkeleton|player1_x[0]'
+Slack : -5.061
+TNS   : -52.096
+
+Type  : Fast 1200mV 0C Model Setup 'proc_skeleton:myProcSkeleton|player0_x[0]'
+Slack : -4.773
+TNS   : -49.448
 
 Type  : Fast 1200mV 0C Model Setup 'p1|altpll_component|pll|clk[2]'
-Slack : 5.503
-TNS   : 0.000
+Slack : -4.508
+TNS   : -14.060
+
+Type  : Fast 1200mV 0C Model Setup 'CLOCK_50'
+Slack : -0.907
+TNS   : -251.245
 
 Type  : Fast 1200mV 0C Model Hold 'CLOCK_50'
-Slack : 0.169
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Hold 'p1|altpll_component|pll|clk[2]'
 Slack : 0.178
 TNS   : 0.000
 
+Type  : Fast 1200mV 0C Model Hold 'p1|altpll_component|pll|clk[2]'
+Slack : 0.181
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'proc_skeleton:myProcSkeleton|player0_x[0]'
+Slack : 0.255
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'proc_skeleton:myProcSkeleton|player1_x[0]'
+Slack : 0.491
+TNS   : 0.000
+
 Type  : Fast 1200mV 0C Model Recovery 'p1|altpll_component|pll|clk[2]'
-Slack : 16.424
+Slack : 15.913
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Removal 'p1|altpll_component|pll|clk[2]'
-Slack : 2.292
+Slack : 2.210
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'proc_skeleton:myProcSkeleton|player1_x[0]'
+Slack : 0.173
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'proc_skeleton:myProcSkeleton|player0_x[0]'
+Slack : 0.182
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
@@ -95,7 +167,7 @@ Slack : 9.367
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'p1|altpll_component|pll|clk[2]'
-Slack : 19.750
+Slack : 19.745
 TNS   : 0.000
 
 ------------------------------------------------------------
