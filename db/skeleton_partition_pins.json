@@ -80,14 +80,6 @@
 					"strict" : false
 				},
 				{
-					"name" : "seg1[1]",
-					"strict" : false
-				},
-				{
-					"name" : "seg1[2]",
-					"strict" : false
-				},
-				{
 					"name" : "seg1[3]",
 					"strict" : false
 				},
@@ -97,150 +89,6 @@
 				},
 				{
 					"name" : "seg1[5]",
-					"strict" : false
-				},
-				{
-					"name" : "seg1[6]",
-					"strict" : false
-				},
-				{
-					"name" : "seg2[0]",
-					"strict" : false
-				},
-				{
-					"name" : "seg2[1]",
-					"strict" : false
-				},
-				{
-					"name" : "seg2[2]",
-					"strict" : false
-				},
-				{
-					"name" : "seg2[3]",
-					"strict" : false
-				},
-				{
-					"name" : "seg2[4]",
-					"strict" : false
-				},
-				{
-					"name" : "seg2[5]",
-					"strict" : false
-				},
-				{
-					"name" : "seg2[6]",
-					"strict" : false
-				},
-				{
-					"name" : "seg3[0]",
-					"strict" : false
-				},
-				{
-					"name" : "seg3[1]",
-					"strict" : false
-				},
-				{
-					"name" : "seg3[2]",
-					"strict" : false
-				},
-				{
-					"name" : "seg3[3]",
-					"strict" : false
-				},
-				{
-					"name" : "seg3[4]",
-					"strict" : false
-				},
-				{
-					"name" : "seg3[5]",
-					"strict" : false
-				},
-				{
-					"name" : "seg3[6]",
-					"strict" : false
-				},
-				{
-					"name" : "seg4[0]",
-					"strict" : false
-				},
-				{
-					"name" : "seg4[1]",
-					"strict" : false
-				},
-				{
-					"name" : "seg4[2]",
-					"strict" : false
-				},
-				{
-					"name" : "seg4[3]",
-					"strict" : false
-				},
-				{
-					"name" : "seg4[4]",
-					"strict" : false
-				},
-				{
-					"name" : "seg4[5]",
-					"strict" : false
-				},
-				{
-					"name" : "seg4[6]",
-					"strict" : false
-				},
-				{
-					"name" : "seg5[0]",
-					"strict" : false
-				},
-				{
-					"name" : "seg5[1]",
-					"strict" : false
-				},
-				{
-					"name" : "seg5[2]",
-					"strict" : false
-				},
-				{
-					"name" : "seg5[3]",
-					"strict" : false
-				},
-				{
-					"name" : "seg5[4]",
-					"strict" : false
-				},
-				{
-					"name" : "seg5[5]",
-					"strict" : false
-				},
-				{
-					"name" : "seg5[6]",
-					"strict" : false
-				},
-				{
-					"name" : "seg6[0]",
-					"strict" : false
-				},
-				{
-					"name" : "seg6[1]",
-					"strict" : false
-				},
-				{
-					"name" : "seg6[2]",
-					"strict" : false
-				},
-				{
-					"name" : "seg6[3]",
-					"strict" : false
-				},
-				{
-					"name" : "seg6[4]",
-					"strict" : false
-				},
-				{
-					"name" : "seg6[5]",
-					"strict" : false
-				},
-				{
-					"name" : "seg6[6]",
 					"strict" : false
 				},
 				{
@@ -352,31 +200,31 @@
 					"strict" : false
 				},
 				{
-					"name" : "sw1",
+					"name" : "JoyE",
 					"strict" : false
 				},
 				{
-					"name" : "sw2",
+					"name" : "JoyS",
 					"strict" : false
 				},
 				{
-					"name" : "sw3",
+					"name" : "JoyN",
 					"strict" : false
 				},
 				{
-					"name" : "sw4",
+					"name" : "ButtonSW",
 					"strict" : false
 				},
 				{
-					"name" : "sw5",
+					"name" : "ButtonSE",
 					"strict" : false
 				},
 				{
-					"name" : "sw6",
+					"name" : "ButtonNW",
 					"strict" : false
 				},
 				{
-					"name" : "sw7",
+					"name" : "ButtonNE",
 					"strict" : false
 				},
 				{
@@ -388,7 +236,23 @@
 					"strict" : false
 				},
 				{
-					"name" : "sw0",
+					"name" : "sw7",
+					"strict" : false
+				},
+				{
+					"name" : "sw6",
+					"strict" : false
+				},
+				{
+					"name" : "sw5",
+					"strict" : false
+				},
+				{
+					"name" : "sw4",
+					"strict" : false
+				},
+				{
+					"name" : "JoyW",
 					"strict" : false
 				}
 			]

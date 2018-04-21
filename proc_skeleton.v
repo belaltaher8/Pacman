@@ -15,7 +15,8 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
                      q_imem, 
 							upSig, rightSig, downSig, leftSig, upSig2, rightSig2, downSig2, leftSig2,
 							reg1, powerup0_x, powerup0_y, powerup1_x, powerup1_y, powerup1_playerXRegister, 
-							player0_collisionUp, player0_collisionDown, player0_collisionRight, player0_collisionLeft, reg13
+							player0_collisionUp, player0_collisionDown, player0_collisionRight, player0_collisionLeft, reg13, pauseButton,
+							player1_collisionUp, player1_collisionDown, player1_collisionRight, player1_collisionLeft
 					 
 					 );
                      
@@ -25,7 +26,8 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
 	 input [7:0]	 ps2_out;	
     input leftSig, rightSig, upSig, downSig, leftSig2, rightSig2, upSig2, downSig2; 
 	 input player0_collisionUp, player0_collisionDown, player0_collisionRight, player0_collisionLeft;
-	 
+	 input player1_collisionUp, player1_collisionDown, player1_collisionRight, player1_collisionLeft;
+	 input pauseButton;
 	 
     /** IMEM **/
     wire [11:0] address_imem;
@@ -128,9 +130,21 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
 	 
 	 //Width and height
 	 wire [31:0] width, height;
-	 assign width =  32'd25;
-	 assign height = 32'd25;
+	 assign width =  32'd24;
+	 assign height = 32'd24;
 	 
+	 //Pause register
+	 reg pauseReg;
+	 
+	 /*always @(posedge pauseButton) begin
+	 
+		if(pauseReg == 1'b1)
+			pauseReg <= 1'b0;
+		else if(pauseReg == 1'b0)
+			pauseReg <= 1'b1;
+			
+	  end
+	 */
     
 	 // PLAYER 0 DEDICATED ADDRESSES
     // 4100 -> Player 0 input
@@ -147,6 +161,10 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
 	 // 4203 -> Player 1 x location
 	 // 4204 -> Player 1 y location
 	 // 4205 -> Player 1 powerup
+	 // 4304 -> Player 1 up collision
+	 // 4305 -> Player 1 right collision
+	 // 4306 -> Player 1 down collision
+	 // 4307 -> Player 1 left collision
     always @(negedge clock) begin
 		
        
@@ -174,10 +192,6 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
         // 4 means left
         else if (address_dmem == 17'd4100 && upSig == 1'b0 && downSig == 1'b0 && leftSig == 1'b1 && rightSig == 1'b0) begin
             proc_data_in <= 32'd4;
-        end
-        
-        else if (address_dmem == 17'd4100 && upSig == 1'b0 && downSig == 1'b0 && leftSig == 1'b0 && rightSig == 1'b0) begin
-            proc_data_in <= 32'd0;
         end
 
 		  
@@ -250,6 +264,31 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
 		  else if(address_dmem == 17'd4205 && wren == 1'b0) begin
 				proc_data_in <= powerup0_player1Register;
 		  end
+				
+				
+				
+		  //Player 1 Collision Functionality
+		  else if(address_dmem == 17'd4304 && wren == 1'b0 && player1_collisionUp == 1)
+		      proc_data_in <= 32'd1; 
+				
+		  else if(address_dmem == 17'd4305 && wren == 1'b0 && player1_collisionRight == 1)
+		      proc_data_in <= 32'd1;
+				
+		  else if(address_dmem == 17'd4306 && wren == 1'b0 && player1_collisionDown == 1)
+		      proc_data_in <= 32'd1;
+				
+		  else if(address_dmem == 17'd4307 && wren == 1'b0 && player1_collisionLeft == 1)
+		      proc_data_in <= 32'd1;
+				
+				
+		  /*
+		  //PAUSE Functionality
+		  else if(address_dmem == 17'd4400 && wren == 1'b0 && pauseReg == 1'b1)
+				proc_data_in <= 32'd1;
+				
+		  else if(address_dmem == 17'd4400 && wren == 1'b0 && pauseReg == 1'b0)
+				proc_data_in <= 32'd0;*/
+		  
 		  
 
 		  

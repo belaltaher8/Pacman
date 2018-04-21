@@ -162,6 +162,27 @@ set_location_assignment PIN_H21 -to leds[4]
 set_location_assignment PIN_G20 -to leds[5]
 set_location_assignment PIN_G22 -to leds[6]
 set_location_assignment PIN_G21 -to leds[7]
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_location_assignment PIN_AB28 -to sw0
+set_location_assignment PIN_AC28 -to sw1
+set_location_assignment PIN_AC27 -to sw2
+set_location_assignment PIN_AD27 -to sw3
+set_location_assignment PIN_AB27 -to sw4
+set_location_assignment PIN_AC26 -to sw5
+set_location_assignment PIN_AD26 -to sw6
+set_location_assignment PIN_AB26 -to sw7
+set_location_assignment PIN_AC21 -to ButtonNW
+set_location_assignment PIN_AE16 -to ButtonNE
+set_location_assignment PIN_Y16 -to ButtonSW
+set_location_assignment PIN_Y17 -to ButtonSE
+set_location_assignment PIN_AD21 -to JoyS
+set_location_assignment PIN_AB21 -to JoyW
+set_location_assignment PIN_AD15 -to JoyE
+set_location_assignment PIN_AE15 -to JoyN
+set_global_assignment -name MIF_FILE image_data_digits.mif
+set_global_assignment -name MIF_FILE color_data_digits.mif
 set_global_assignment -name VERILOG_FILE xor_32.v
 set_global_assignment -name VERILOG_FILE X_M.v
 set_global_assignment -name VERILOG_FILE writeback.v
@@ -239,12 +260,8 @@ set_global_assignment -name VERILOG_FILE and_32.v
 set_global_assignment -name VERILOG_FILE and_16.v
 set_global_assignment -name VERILOG_FILE alu_16.v
 set_global_assignment -name VERILOG_FILE alu.v
-set_global_assignment -name MIF_FILE index.mif
-set_global_assignment -name MIF_FILE index_logo.mif
-set_global_assignment -name MIF_FILE img_bars.mif
 set_global_assignment -name MIF_FILE imem.mif
 set_global_assignment -name MIF_FILE dmem.mif
-set_global_assignment -name MIF_FILE img_data_logo.mif
 set_global_assignment -name VERILOG_FILE VGA_Audio_PLL.v
 set_global_assignment -name VERILOG_FILE Reset_Delay.v
 set_global_assignment -name VERILOG_FILE skeleton.v
@@ -267,33 +284,14 @@ set_global_assignment -name VERILOG_FILE vga_controller.v
 set_global_assignment -name VERILOG_FILE video_sync_generator.v
 set_global_assignment -name VERILOG_FILE img_index.v
 set_global_assignment -name VERILOG_FILE img_data.v
-set_global_assignment -name MIF_FILE lab7_img_data.mif
-set_global_assignment -name MIF_FILE lab7_img_index.mif
 set_global_assignment -name VERILOG_FILE ps2_fsm.v
 set_global_assignment -name VERILOG_FILE proc_skeleton.v
 set_global_assignment -name SYSTEMVERILOG_FILE lcd.sv
-set_global_assignment -name CDF_FILE output_files/Chain1.cdf
-set_global_assignment -name CDF_FILE output_files/Chain2.cdf
 set_global_assignment -name VERILOG_FILE VGA_clock_converter.v
-set_global_assignment -name VECTOR_WAVEFORM_FILE output_files/Waveform.vwf
-set_global_assignment -name VECTOR_WAVEFORM_FILE output_files/Waveform1.vwf
-set_global_assignment -name VECTOR_WAVEFORM_FILE output_files/Waveform2.vwf
-set_global_assignment -name VECTOR_WAVEFORM_FILE output_files/Waveform3.vwf
-set_global_assignment -name VECTOR_WAVEFORM_FILE output_files/Waveform4.vwf
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_location_assignment PIN_AB28 -to sw0
-set_location_assignment PIN_AC28 -to sw1
-set_location_assignment PIN_AC27 -to sw2
-set_location_assignment PIN_AD27 -to sw3
-set_location_assignment PIN_AB27 -to sw4
-set_location_assignment PIN_AC26 -to sw5
-set_location_assignment PIN_AD26 -to sw6
-set_location_assignment PIN_AB26 -to sw7
-set_global_assignment -name VECTOR_WAVEFORM_FILE output_files/Waveform5.vwf
-set_global_assignment -name VECTOR_WAVEFORM_FILE output_files/Waveform6.vwf
 set_global_assignment -name MIF_FILE image_data.mif
 set_global_assignment -name MIF_FILE color_data.mif
-set_global_assignment -name VECTOR_WAVEFORM_FILE output_files/Waveform7.vwf
+set_global_assignment -name QIP_FILE bgr_color_data.qip
+set_global_assignment -name QIP_FILE bgr_pixel_data.qip
+set_global_assignment -name QIP_FILE digits_color_data.qip
+set_global_assignment -name QIP_FILE digits_image_data.qip
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

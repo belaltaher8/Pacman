@@ -3,7 +3,9 @@ module skeleton(resetn,
 	debug_data_in, debug_addr, leds, 						// extra debugging ports
 	lcd_data, lcd_rw, lcd_en, lcd_rs, lcd_on, lcd_blon,// LCD info
 	seg1, seg2, seg3, seg4, seg5, seg6, seg7, seg8,		// seven segements
-    sw0, sw1, sw2, sw3, sw4, sw5, sw6, sw7,              //switches
+   sw0, sw1, sw2, sw3, sw4, sw5, sw6, sw7,              //switches
+	ButtonNE, ButtonNW, ButtonSE, ButtonSW,				//buttons
+	JoyN, JoyS, JoyE, JoyW,										//joystick
 	VGA_CLK,   														//	VGA Clock
 	VGA_HS,															//	VGA H_SYNC
 	VGA_VS,															//	VGA V_SYNC
@@ -47,6 +49,8 @@ module skeleton(resetn,
     ////////////////////////    Switches     //////////////////////////
     input sw0, sw1, sw2, sw3, sw4, sw5, sw6, sw7;
    
+	///////////////////////// Game Controller //////////////////////////////
+	input ButtonNE, ButtonNW, ButtonSE, ButtonSW, JoyN, JoyS, JoyE, JoyW;
 	
 	// clock divider (by 5, i.e., 10 MHz)
 	//pll div(CLOCK_50,inclock);
@@ -60,6 +64,8 @@ module skeleton(resetn,
 	 wire [16:0] address_dmem;
 	 wire [31:0] q_dmem;
 	 wire player0_collisionUp, player0_collisionRight, player0_collisionLeft, player0_collisionDown;
+	 wire player1_collisionUp, player1_collisionRight, player1_collisionLeft, player1_collisionDown;
+
 
 	 
 	proc_skeleton myProcSkeleton(
@@ -71,12 +77,12 @@ module skeleton(resetn,
                                  .player0_y(player0_y), 
 											.player1_x(player1_x),
 											.player1_y(player1_y),
-                                 .upSig(sw0),
+                                 .upSig(JoyN),
 											.address_dmem(address_dmem),
 										 	.q_dmem(q_dmem),
-                                 .rightSig(sw1),
-                                 .downSig(sw2),
-                                 .leftSig(sw3),
+                                 .rightSig(JoyE),
+                                 .downSig(JoyS),
+                                 .leftSig(JoyW),
 											.upSig2(sw4),
 											.rightSig2(sw5),
 											.downSig2(sw6),
@@ -89,8 +95,12 @@ module skeleton(resetn,
 											.player0_collisionUp(player0_collisionUp),
 											.player0_collisionDown(player0_collisionDown),
 											.player0_collisionRight(player0_collisionRight),
-											.player0_collisionLeft(player0_collisionLeft)
-                                 /*lcd_write_en, lcd_write_data, debug_data_in, debug_addr*/
+											.player0_collisionLeft(player0_collisionLeft),
+											.pauseButton(ButtonSE),
+											.player1_collisionUp(player1_collisionUp),
+											.player1_collisionDown(player1_collisionDown),
+											.player1_collisionRight(player1_collisionRight),
+											.player1_collisionLeft(player1_collisionLeft)
                                  );
 	
 	// keyboard controller
@@ -104,22 +114,22 @@ module skeleton(resetn,
 	// lcd controller
 	lcd mylcd(clock, ~resetn, 1'b1, player0_x[7:0], lcd_data, lcd_rw, lcd_en, lcd_rs, lcd_on, lcd_blon);
 	
-	wire [23:0] colorUp;
+
 	
 	// example for sending ps2 data to the first two seven segment displays
-	Hexadecimal_To_Seven_Segment hex1(colorUp[3:0], seg1);
-	Hexadecimal_To_Seven_Segment hex2(colorUp[7:4], seg2);
+	Hexadecimal_To_Seven_Segment hex1({1'b0, 1'b0, 1'b0, player0_collisionUp}, seg1);
+	Hexadecimal_To_Seven_Segment hex2(4'b0, seg2);
 	
 	// the other seven segment displays are currently set to 0
-	Hexadecimal_To_Seven_Segment hex3(colorUp[11:8], seg3);
-	Hexadecimal_To_Seven_Segment hex4(colorUp[15:12], seg4);
-	Hexadecimal_To_Seven_Segment hex5(colorUp[19:16], seg5);
-	Hexadecimal_To_Seven_Segment hex6(colorUp[23:20], seg6);
-	Hexadecimal_To_Seven_Segment hex7(4'd0, seg7);
-	Hexadecimal_To_Seven_Segment hex8(4'd0, seg8);
+	Hexadecimal_To_Seven_Segment hex3(4'b0, seg3);
+	Hexadecimal_To_Seven_Segment hex4(4'b0, seg4);
+	Hexadecimal_To_Seven_Segment hex5(4'b0, seg5);
+	Hexadecimal_To_Seven_Segment hex6(4'b0, seg6);
+	Hexadecimal_To_Seven_Segment hex7(4'b0, seg7);
+	Hexadecimal_To_Seven_Segment hex8(4'b0, seg8);
 	
 	// FPGA LED outputs
-	assign leds = {sw7, sw6, sw5, sw4, sw3, sw2, sw1, player0_collisionUp};
+	assign leds = {ButtonNE, ButtonNW, ButtonSE, ButtonSW, JoyN, JoyS, JoyE, player0_collisionUp};
 		
 	// VGA
 	Reset_Delay			r0	(.iCLK(CLOCK_50),.oRESET(DLY_RST)	);
@@ -147,7 +157,11 @@ module skeleton(resetn,
 											.player0_collisionUp(player0_collisionUp),
 											.player0_collisionDown(player0_collisionDown),
 											.player0_collisionRight(player0_collisionRight),
-											.player0_collisionLeft(player0_collisionLeft), .colorUp(colorUp)
+											.player0_collisionLeft(player0_collisionLeft),
+											.player1_collisionUp(player1_collisionUp),
+											.player1_collisionDown(player1_collisionDown),
+											.player1_collisionRight(player1_collisionRight),
+											.player1_collisionLeft(player1_collisionLeft)
                                  );
 	
 	
