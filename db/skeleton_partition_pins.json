@@ -200,31 +200,35 @@
 					"strict" : false
 				},
 				{
-					"name" : "JoyE",
+					"name" : "JoyE_0",
 					"strict" : false
 				},
 				{
-					"name" : "JoyS",
+					"name" : "JoyW_0",
 					"strict" : false
 				},
 				{
-					"name" : "JoyN",
+					"name" : "JoyS_0",
 					"strict" : false
 				},
 				{
-					"name" : "ButtonSW",
+					"name" : "JoyN_0",
 					"strict" : false
 				},
 				{
-					"name" : "ButtonSE",
+					"name" : "ButtonSW_0",
 					"strict" : false
 				},
 				{
-					"name" : "ButtonNW",
+					"name" : "ButtonSE_0",
 					"strict" : false
 				},
 				{
-					"name" : "ButtonNE",
+					"name" : "ButtonNW_0",
+					"strict" : false
+				},
+				{
+					"name" : "ButtonNE_0",
 					"strict" : false
 				},
 				{
@@ -236,23 +240,27 @@
 					"strict" : false
 				},
 				{
-					"name" : "JoyW",
+					"name" : "sw1",
 					"strict" : false
 				},
 				{
-					"name" : "sw7",
+					"name" : "JoyE_1",
 					"strict" : false
 				},
 				{
-					"name" : "sw6",
+					"name" : "JoyW_1",
 					"strict" : false
 				},
 				{
-					"name" : "sw5",
+					"name" : "JoyS_1",
 					"strict" : false
 				},
 				{
-					"name" : "sw4",
+					"name" : "JoyN_1",
+					"strict" : false
+				},
+				{
+					"name" : "sw0",
 					"strict" : false
 				}
 			]

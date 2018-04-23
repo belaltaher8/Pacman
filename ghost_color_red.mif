@@ -23,7 +23,7 @@ DATA_RADIX=HEX;
 
 CONTENT BEGIN
 	0  :   040404;
-	1  :   0A3FFC;
-	2  :   FAFAFA;
-	3  :   FF3844;
+	1  :   FAFAFA;
+	2  :   FF3844;
+	3  :   0A3FFC;
 END;

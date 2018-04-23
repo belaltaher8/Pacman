@@ -28,6 +28,7 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
 	 input player0_collisionUp, player0_collisionDown, player0_collisionRight, player0_collisionLeft;
 	 input player1_collisionUp, player1_collisionDown, player1_collisionRight, player1_collisionLeft;
 	 input pauseButton;
+	
 	 
 	 input [1:0] screenReg;
 	 
@@ -137,6 +138,8 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
 	 wire [31:0] width, height;
 	 assign width =  32'd24;
 	 assign height = 32'd24;
+	 
+	 
 	 
 	 //Pause register
 	 reg pauseReg;
@@ -290,6 +293,26 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
 		      proc_data_in <= 32'd1;
 				
 				
+		  //Pink ghost functionality 
+		 /* else if(address_dmem == 17'd4400 && wren == 1'b0)
+				proc_data_in <= pinkGhost_x;
+		
+		  else if(address_dmem == 17'd4401 && wren == 1'b0)
+				proc_data_in <= pinkGhost_y;
+				
+		  else if(address_dmem == 17'd4402 && wren == 1'b0 && pinkSignal == 1)
+				proc_data_in <= 1;
+				
+		  else if(address_dmem == 17'd4402 && wren == 1'b0 && pinkSignal == 2)
+				proc_data_in <= 2;
+
+		  else if(address_dmem == 17'd4402 && wren == 1'b0 && pinkSignal == 3)
+				proc_data_in <= 3;
+
+		  else if(address_dmem == 17'd4402 && wren == 1'b0 && pinkSignal == 4)
+				proc_data_in <= 4;
+				*/
+				
 		  /*
 		  //PAUSE Functionality
 		  else if(address_dmem == 17'd4400 && wren == 1'b0 && pauseReg == 1'b1)
@@ -400,8 +423,7 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
 				powerup1_playerXRegister <= 32'd0;
 		  end
 		  
-		  
-		  
+
 		  
 		  
 		
@@ -417,9 +439,7 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
 		  if (address_dmem == 17'd4203 && wren == 1'b1) begin
 				player1_x <= data;
         end
-	 end
-     
-	 always @(negedge clock) begin
+
         if (address_dmem == 17'd4201 && wren == 1'b1) begin
             player0_y <= data;
         end
@@ -427,6 +447,13 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
 		  if (address_dmem == 17'd4204 && wren == 1'b1) begin
 			   player1_y <= data;
         end
+		  /*
+		  if (address_dmem == 17'd4400 && wren == 1'b1)
+				pinkGhost_x <= data;
+				
+		  if (address_dmem == 17'd4401 && wren == 1'b1)
+				pinkGhost_y <= data;*/
+		  
 	 end
 	 
     
@@ -456,6 +483,8 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
 		  powerup1_playerXRegister <= 32'd0;
 		  powerup1_playerXDurationReg <= 32'd0;
 		  powerup1_playerXDurationStageReg <= 32'd0;
+		  
+
 		  
 		  
 	 end
