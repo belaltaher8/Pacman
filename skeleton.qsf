@@ -189,6 +189,14 @@ set_location_assignment PIN_AD15 -to JoyE_0
 set_location_assignment PIN_AE15 -to JoyN_0
 set_location_assignment PIN_AD21 -to JoyS_0
 set_location_assignment PIN_AB21 -to JoyW_0
+set_global_assignment -name MIF_FILE color_data.mif
+set_global_assignment -name MIF_FILE image_data.mif
+set_global_assignment -name VERILOG_FILE bgr_pixel_data.v
+set_global_assignment -name VERILOG_FILE bgr_color_data.v
+set_global_assignment -name MIF_FILE speed.mif
+set_global_assignment -name MIF_FILE speed_index.mif
+set_global_assignment -name VERILOG_FILE speed_index.v
+set_global_assignment -name VERILOG_FILE speed.v
 set_global_assignment -name MIF_FILE game_over_index.mif
 set_global_assignment -name MIF_FILE game_over.mif
 set_global_assignment -name QIP_FILE img_index.qip
@@ -343,10 +351,6 @@ set_global_assignment -name VERILOG_FILE ps2_fsm.v
 set_global_assignment -name VERILOG_FILE proc_skeleton.v
 set_global_assignment -name SYSTEMVERILOG_FILE lcd.sv
 set_global_assignment -name VERILOG_FILE VGA_clock_converter.v
-set_global_assignment -name MIF_FILE image_data.mif
-set_global_assignment -name MIF_FILE color_data.mif
-set_global_assignment -name QIP_FILE bgr_color_data.qip
-set_global_assignment -name QIP_FILE bgr_pixel_data.qip
 set_global_assignment -name QIP_FILE digits_color_data.qip
 set_global_assignment -name QIP_FILE digits_image_data.qip
 set_global_assignment -name MIF_FILE ghost_color_blue.mif
@@ -379,4 +383,6 @@ set_global_assignment -name VERILOG_FILE startscreen_index.v
 set_global_assignment -name VERILOG_FILE start_screen.v
 set_global_assignment -name VERILOG_FILE game_over_color.v
 set_global_assignment -name VERILOG_FILE game_over_index.v
+set_global_assignment -name VERILOG_FILE you_win_color.v
+set_global_assignment -name VERILOG_FILE you_win_index.v
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

@@ -43,13 +43,13 @@ module bgr_color_data (
 	q_b);
 
 	input	  aclr;
-	input	[3:0]  address_a;
-	input	[3:0]  address_b;
+	input	[18:0]  address_a;
+	input	[18:0]  address_b;
 	input	  clock;
 	input	  rden_a;
 	input	  rden_b;
-	output	[23:0]  q_a;
-	output	[23:0]  q_b;
+	output	[1:0]  q_a;
+	output	[1:0]  q_b;
 `ifndef ALTERA_RESERVED_QIS
 // synopsys translate_off
 `endif
@@ -96,7 +96,7 @@ endmodule
 // Retrieval info: PRIVATE: JTAG_ENABLED NUMERIC "0"
 // Retrieval info: PRIVATE: JTAG_ID STRING "NONE"
 // Retrieval info: PRIVATE: MAXIMUM_DEPTH NUMERIC "0"
-// Retrieval info: PRIVATE: MEMSIZE NUMERIC "264"
+// Retrieval info: PRIVATE: MEMSIZE NUMERIC "614400"
 // Retrieval info: PRIVATE: MEM_IN_BITS NUMERIC "0"
 // Retrieval info: PRIVATE: MIFfilename STRING "color_data.mif"
 // Retrieval info: PRIVATE: OPERATION_MODE NUMERIC "3"
@@ -114,10 +114,10 @@ endmodule
 // Retrieval info: PRIVATE: USE_DIFF_CLKEN NUMERIC "0"
 // Retrieval info: PRIVATE: UseDPRAM NUMERIC "1"
 // Retrieval info: PRIVATE: VarWidth NUMERIC "0"
-// Retrieval info: PRIVATE: WIDTH_READ_A NUMERIC "24"
-// Retrieval info: PRIVATE: WIDTH_READ_B NUMERIC "24"
-// Retrieval info: PRIVATE: WIDTH_WRITE_A NUMERIC "24"
-// Retrieval info: PRIVATE: WIDTH_WRITE_B NUMERIC "24"
+// Retrieval info: PRIVATE: WIDTH_READ_A NUMERIC "2"
+// Retrieval info: PRIVATE: WIDTH_READ_B NUMERIC "2"
+// Retrieval info: PRIVATE: WIDTH_WRITE_A NUMERIC "2"
+// Retrieval info: PRIVATE: WIDTH_WRITE_B NUMERIC "2"
 // Retrieval info: PRIVATE: WRADDR_ACLR_B NUMERIC "0"
 // Retrieval info: PRIVATE: WRADDR_REG_B NUMERIC "1"
 // Retrieval info: PRIVATE: WRCTRL_ACLR_B NUMERIC "0"
@@ -133,8 +133,8 @@ endmodule
 // Retrieval info: CONSTANT: INIT_FILE STRING "color_data.mif"
 // Retrieval info: CONSTANT: INTENDED_DEVICE_FAMILY STRING "Cyclone IV E"
 // Retrieval info: CONSTANT: LPM_TYPE STRING "altsyncram"
-// Retrieval info: CONSTANT: NUMWORDS_A NUMERIC "11"
-// Retrieval info: CONSTANT: NUMWORDS_B NUMERIC "11"
+// Retrieval info: CONSTANT: NUMWORDS_A NUMERIC "307200"
+// Retrieval info: CONSTANT: NUMWORDS_B NUMERIC "307200"
 // Retrieval info: CONSTANT: OPERATION_MODE STRING "BIDIR_DUAL_PORT"
 // Retrieval info: CONSTANT: OUTDATA_ACLR_A STRING "CLEAR0"
 // Retrieval info: CONSTANT: OUTDATA_ACLR_B STRING "CLEAR0"
@@ -142,33 +142,33 @@ endmodule
 // Retrieval info: CONSTANT: OUTDATA_REG_B STRING "CLOCK0"
 // Retrieval info: CONSTANT: POWER_UP_UNINITIALIZED STRING "FALSE"
 // Retrieval info: CONSTANT: RAM_BLOCK_TYPE STRING "M9K"
-// Retrieval info: CONSTANT: WIDTHAD_A NUMERIC "4"
-// Retrieval info: CONSTANT: WIDTHAD_B NUMERIC "4"
-// Retrieval info: CONSTANT: WIDTH_A NUMERIC "24"
-// Retrieval info: CONSTANT: WIDTH_B NUMERIC "24"
+// Retrieval info: CONSTANT: WIDTHAD_A NUMERIC "19"
+// Retrieval info: CONSTANT: WIDTHAD_B NUMERIC "19"
+// Retrieval info: CONSTANT: WIDTH_A NUMERIC "2"
+// Retrieval info: CONSTANT: WIDTH_B NUMERIC "2"
 // Retrieval info: CONSTANT: WIDTH_BYTEENA_A NUMERIC "1"
 // Retrieval info: CONSTANT: WIDTH_BYTEENA_B NUMERIC "1"
 // Retrieval info: CONSTANT: WRCONTROL_WRADDRESS_REG_B STRING "CLOCK0"
 // Retrieval info: USED_PORT: aclr 0 0 0 0 INPUT GND "aclr"
-// Retrieval info: USED_PORT: address_a 0 0 4 0 INPUT NODEFVAL "address_a[3..0]"
-// Retrieval info: USED_PORT: address_b 0 0 4 0 INPUT NODEFVAL "address_b[3..0]"
+// Retrieval info: USED_PORT: address_a 0 0 19 0 INPUT NODEFVAL "address_a[18..0]"
+// Retrieval info: USED_PORT: address_b 0 0 19 0 INPUT NODEFVAL "address_b[18..0]"
 // Retrieval info: USED_PORT: clock 0 0 0 0 INPUT VCC "clock"
-// Retrieval info: USED_PORT: q_a 0 0 24 0 OUTPUT NODEFVAL "q_a[23..0]"
-// Retrieval info: USED_PORT: q_b 0 0 24 0 OUTPUT NODEFVAL "q_b[23..0]"
+// Retrieval info: USED_PORT: q_a 0 0 2 0 OUTPUT NODEFVAL "q_a[1..0]"
+// Retrieval info: USED_PORT: q_b 0 0 2 0 OUTPUT NODEFVAL "q_b[1..0]"
 // Retrieval info: USED_PORT: rden_a 0 0 0 0 INPUT VCC "rden_a"
 // Retrieval info: USED_PORT: rden_b 0 0 0 0 INPUT VCC "rden_b"
 // Retrieval info: CONNECT: @aclr0 0 0 0 0 aclr 0 0 0 0
-// Retrieval info: CONNECT: @address_a 0 0 4 0 address_a 0 0 4 0
-// Retrieval info: CONNECT: @address_b 0 0 4 0 address_b 0 0 4 0
+// Retrieval info: CONNECT: @address_a 0 0 19 0 address_a 0 0 19 0
+// Retrieval info: CONNECT: @address_b 0 0 19 0 address_b 0 0 19 0
 // Retrieval info: CONNECT: @clock0 0 0 0 0 clock 0 0 0 0
-// Retrieval info: CONNECT: @data_a 0 0 24 0 GND 0 0 24 0
-// Retrieval info: CONNECT: @data_b 0 0 24 0 GND 0 0 24 0
+// Retrieval info: CONNECT: @data_a 0 0 2 0 GND 0 0 2 0
+// Retrieval info: CONNECT: @data_b 0 0 2 0 GND 0 0 2 0
 // Retrieval info: CONNECT: @rden_a 0 0 0 0 rden_a 0 0 0 0
 // Retrieval info: CONNECT: @rden_b 0 0 0 0 rden_b 0 0 0 0
 // Retrieval info: CONNECT: @wren_a 0 0 0 0 GND 0 0 0 0
 // Retrieval info: CONNECT: @wren_b 0 0 0 0 GND 0 0 0 0
-// Retrieval info: CONNECT: q_a 0 0 24 0 @q_a 0 0 24 0
-// Retrieval info: CONNECT: q_b 0 0 24 0 @q_b 0 0 24 0
+// Retrieval info: CONNECT: q_a 0 0 2 0 @q_a 0 0 2 0
+// Retrieval info: CONNECT: q_b 0 0 2 0 @q_b 0 0 2 0
 // Retrieval info: GEN_FILE: TYPE_NORMAL bgr_color_data.v TRUE
 // Retrieval info: GEN_FILE: TYPE_NORMAL bgr_color_data.inc FALSE
 // Retrieval info: GEN_FILE: TYPE_NORMAL bgr_color_data.cmp FALSE

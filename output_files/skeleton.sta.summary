@@ -3,43 +3,43 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'p1|altpll_component|pll|clk[2]'
-Slack : -10.952
-TNS   : -104.692
+Slack : -12.027
+TNS   : -118.166
 
 Type  : Slow 1200mV 85C Model Setup 'sw0'
-Slack : -9.872
-TNS   : -239.605
+Slack : -11.202
+TNS   : -275.697
 
 Type  : Slow 1200mV 85C Model Setup 'vga_controller:vga_ins|addrConverter:myAddrConverterPlayer0|xADDR[0]'
-Slack : -8.766
-TNS   : -394.818
+Slack : -9.314
+TNS   : -483.734
 
 Type  : Slow 1200mV 85C Model Setup 'CLOCK_50'
-Slack : -8.461
-TNS   : -3869.856
+Slack : -6.533
+TNS   : -2697.365
 
 Type  : Slow 1200mV 85C Model Hold 'CLOCK_50'
-Slack : 0.402
+Slack : 0.390
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'p1|altpll_component|pll|clk[2]'
-Slack : 0.431
+Slack : 0.404
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'vga_controller:vga_ins|addrConverter:myAddrConverterPlayer0|xADDR[0]'
-Slack : 0.739
+Slack : 0.581
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'sw0'
-Slack : 1.610
+Slack : 1.961
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Recovery 'p1|altpll_component|pll|clk[2]'
-Slack : 12.975
+Slack : 13.334
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Removal 'p1|altpll_component|pll|clk[2]'
-Slack : 5.840
+Slack : 5.485
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'sw0'
@@ -47,55 +47,55 @@ Slack : -3.000
 TNS   : -3.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'vga_controller:vga_ins|addrConverter:myAddrConverterPlayer0|xADDR[0]'
-Slack : 0.136
+Slack : 0.167
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLOCK_50'
-Slack : 9.616
+Slack : 9.650
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'p1|altpll_component|pll|clk[2]'
-Slack : 19.707
+Slack : 19.706
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'p1|altpll_component|pll|clk[2]'
-Slack : -9.854
-TNS   : -81.420
+Slack : -10.807
+TNS   : -92.742
 
 Type  : Slow 1200mV 0C Model Setup 'sw0'
-Slack : -9.036
-TNS   : -218.707
+Slack : -10.306
+TNS   : -252.018
 
 Type  : Slow 1200mV 0C Model Setup 'vga_controller:vga_ins|addrConverter:myAddrConverterPlayer0|xADDR[0]'
-Slack : -8.288
-TNS   : -379.116
+Slack : -8.726
+TNS   : -463.352
 
 Type  : Slow 1200mV 0C Model Setup 'CLOCK_50'
-Slack : -6.941
-TNS   : -2507.084
+Slack : -5.175
+TNS   : -1453.703
 
 Type  : Slow 1200mV 0C Model Hold 'CLOCK_50'
-Slack : 0.353
+Slack : 0.349
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'p1|altpll_component|pll|clk[2]'
-Slack : 0.396
+Slack : 0.355
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'vga_controller:vga_ins|addrConverter:myAddrConverterPlayer0|xADDR[0]'
-Slack : 0.770
+Slack : 0.577
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'sw0'
-Slack : 1.429
+Slack : 1.818
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Recovery 'p1|altpll_component|pll|clk[2]'
-Slack : 13.736
+Slack : 14.102
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Removal 'p1|altpll_component|pll|clk[2]'
-Slack : 5.135
+Slack : 4.837
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'sw0'
@@ -103,11 +103,11 @@ Slack : -3.000
 TNS   : -3.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'vga_controller:vga_ins|addrConverter:myAddrConverterPlayer0|xADDR[0]'
-Slack : 0.030
+Slack : 0.032
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
-Slack : 9.567
+Slack : 9.626
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'p1|altpll_component|pll|clk[2]'
@@ -115,19 +115,23 @@ Slack : 19.709
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'p1|altpll_component|pll|clk[2]'
-Slack : -5.764
-TNS   : -43.921
+Slack : -6.351
+TNS   : -49.260
 
 Type  : Fast 1200mV 0C Model Setup 'sw0'
-Slack : -4.397
-TNS   : -106.402
+Slack : -5.269
+TNS   : -127.912
 
 Type  : Fast 1200mV 0C Model Setup 'vga_controller:vga_ins|addrConverter:myAddrConverterPlayer0|xADDR[0]'
-Slack : -4.057
-TNS   : -192.276
+Slack : -4.773
+TNS   : -241.556
 
 Type  : Fast 1200mV 0C Model Setup 'CLOCK_50'
-Slack : 0.636
+Slack : 1.334
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'vga_controller:vga_ins|addrConverter:myAddrConverterPlayer0|xADDR[0]'
+Slack : 0.006
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'CLOCK_50'
@@ -135,39 +139,35 @@ Slack : 0.178
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'p1|altpll_component|pll|clk[2]'
-Slack : 0.185
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Hold 'vga_controller:vga_ins|addrConverter:myAddrConverterPlayer0|xADDR[0]'
-Slack : 0.340
+Slack : 0.179
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'sw0'
-Slack : 0.565
+Slack : 0.730
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Recovery 'p1|altpll_component|pll|clk[2]'
-Slack : 16.202
+Slack : 16.370
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Removal 'p1|altpll_component|pll|clk[2]'
-Slack : 3.050
+Slack : 2.893
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'sw0'
 Slack : -3.000
-TNS   : -5.380
+TNS   : -8.517
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'vga_controller:vga_ins|addrConverter:myAddrConverterPlayer0|xADDR[0]'
-Slack : 0.091
-TNS   : 0.000
+Slack : -0.022
+TNS   : -0.346
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
-Slack : 9.367
+Slack : 9.366
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'p1|altpll_component|pll|clk[2]'
-Slack : 19.746
+Slack : 19.750
 TNS   : 0.000
 
 ------------------------------------------------------------

@@ -459,11 +459,11 @@ module proc_skeleton(clock, reset, ps2_key_pressed, ps2_out,
 		  player1_y <= 32'd240;
 		  
 		  
-		  powerup0_x <= 32'd300;
-		  powerup0_y <= 32'd300;
+		  powerup0_x <= 32'd312;
+		  powerup0_y <= 32'd325;
 		  
-		  powerup1_x <= 32'd400;
-		  powerup1_y <= 32'd400;
+		  powerup1_x <= 32'd318;
+		  powerup1_y <= 32'd163;
 		  
 		  powerup0_player0Register <= 32'd0;
 		  powerup0_player0DurationReg <= 32'd0;

@@ -27,7 +27,8 @@ input gameplay;
 reg [9:0] scoreRegPlayer0, scoreRegPlayer1;
 output reg [1:0] screenReg;
 
-reg [31:0] pellet0_x, pellet0_y, pellet1_x, pellet1_y, pellet2_x, pellet2_y, pellet3_x, pellet3_y, pellet4_x, pellet4_y, pellet5_x, pellet5_y;
+reg [31:0] pellet0_x, pellet0_y, pellet1_x, pellet1_y, pellet2_x, pellet2_y, pellet3_x, pellet3_y, pellet4_x, pellet4_y, pellet5_x, pellet5_y,
+			  pellet6_x, pellet6_y, pellet7_x, pellet7_y, pellet8_x, pellet8_y, pellet9_x, pellet9_y, pellet10_x, pellet10_y, pellet11_x, pellet11_y;
 
 
 input iRST_n;
@@ -63,7 +64,7 @@ reg [18:0] ADDR;
 reg [18:0] realADDR;
 reg [23:0] bgr_data;
 wire VGA_CLK_n;
-wire [7:0] index;
+wire [1:0] index;
 wire [23:0] bgr_data_raw;
 reg  [23:0] color;
 wire cBLANK_n,cHS,cVS,rst;
@@ -101,6 +102,10 @@ wire [23:0] pink_data_raw;
 wire [7:0] pink_NE, pink_NW, pink_SE, pink_SW;
 reg [7:0] pink_ind;
 reg [9:0] pink_addr;
+
+wire [23:0] speed_data_raw;
+wire [7:0] speed_ind;
+reg [9:0] speed_addr;
 
 ////
 assign rst = ~iRST_n;
@@ -240,6 +245,9 @@ reg [8:0] yLocG2;
 reg [9:0] xLocG3;
 reg [8:0] yLocG3;
 
+reg [9:0] pellet_width;
+reg [8:0] pellet_height;
+
 reg [9:0] width;
 reg [8:0] height;
 wire [9:0] xADDR;
@@ -281,7 +289,12 @@ initial begin
 	 
 	 xLocG3 <= 10'd508;
     yLocG3 <=  9'd409;
+	 
+	 youWinRegister <= 0;
     
+	 pellet_width <=  10'd12;
+    pellet_height <=  9'd12;
+	 
     width <=  10'd24;
     height <=  9'd24;
 	 
@@ -291,7 +304,7 @@ initial begin
 	 pinkSig4 <= 0;
 	 pinkCounter <= 0;
 	 
-	 gameOverOccurred <= 1;
+	 gameOverOccurred <= 0;
 	 
 	 redSig1 <= 1;
 	 redSig2 <= 0;
@@ -318,6 +331,7 @@ initial begin
 	 powerup1yLocToRender <=  9'd0;
 	 
 	 scoreRegPlayer0 <= 8'd0;
+	 scoreRegPlayer1 <= 8'd0;
     screenReg <= 2'd0;
 	 
 	 pacman_mouth <= 1'b0;
@@ -326,23 +340,41 @@ initial begin
 	 player0_deathCount <= 26'd0;
 	 player1_deathCount <= 26'd0;
 	 
-	 pellet0_x <= 235;
-	 pellet0_y <= 163;
+	 pellet0_x <= 193;
+	 pellet0_y <= 75;
 	 
-	 pellet1_x <= 235;
-	 pellet1_y <= 187;
+	 pellet1_x <= 193;
+	 pellet1_y <= 123;
 	 
-	 pellet2_x <= 235;
-	 pellet2_y <= 211;
+	 pellet2_x <= 193;
+	 pellet2_y <= 172;
 	 
-	 pellet3_x <= 235;
-	 pellet3_y <= 235;
+	 pellet3_x <= 193;
+	 pellet3_y <= 240;
 	 
-	 pellet4_x <= 235;
-	 pellet4_y <= 259;
+	 pellet4_x <= 193;
+	 pellet4_y <= 290;
 	 
-	 pellet5_x <= 235;
-	 pellet5_y <= 283;
+	 pellet5_x <= 193;
+	 pellet5_y <= 340;
+	 
+	 pellet6_x <= 433;
+	 pellet6_y <= 75;
+	 
+	 pellet7_x <= 433;
+	 pellet7_y <= 123;
+	 
+	 pellet8_x <= 433;
+	 pellet8_y <= 172;
+	 
+	 pellet9_x <= 433;
+	 pellet9_y <= 240;
+	 
+	 pellet10_x <= 433;
+	 pellet10_y <= 290;
+	 
+	 pellet11_x <= 433;
+	 pellet11_y <= 340;
 	 
 
     
@@ -391,17 +423,26 @@ addrConverter myAddrConverterPlayer0(ADDR, VGA_CLK_n, xADDR, yADDR);
     
 	 if (gameplay == 1'b1) begin
 	 
-		 if((xADDRToCompare > xLoc0) && (xADDRToCompare < xLoc0 + width) && (yADDRToCompare > yLoc0) && (yADDRToCompare < yLoc0 + height) )
+		 if(scoreRegPlayer0 + scoreRegPlayer1 == 60)
+			youWinRegister <= 1;
+	 
+		 if(inGameOver == 1'b1 && gameOverOccurred == 1'b1 && gameOverDataRaw != 24'h00FF00 && youWinRegister != 1'b1)
+				color <= gameOverDataRaw;
+				
+		 else if(inGameOver == 1'b1 && youWinRegister == 1'b1 && youWinDataRaw != 24'h00FF00 && gameOverOccurred != 1'b1)
+				color <= youWinDataRaw;
+		 
+		 else if((xADDRToCompare > xLoc0) && (xADDRToCompare < xLoc0 + width) && (yADDRToCompare > yLoc0) && (yADDRToCompare < yLoc0 + height))
 			  color <= pacman_data_raw;
 			  
 		 else if((xADDRToCompare > powerup0xLocToRender) && (xADDRToCompare < powerup0xLocToRender + width) && (yADDRToCompare > powerup0yLocToRender) && (yADDRToCompare < powerup0yLocToRender + height) )
-			  color <= 23'b000000001111111100000000;
+			  color <= speed_data_raw;
 			  
 		 else if((xADDRToCompare > xLoc1) && (xADDRToCompare < xLoc1 + width) && (yADDRToCompare > yLoc1) && (yADDRToCompare < yLoc1 + height) )	  
 			  color <= pacman_data_raw1;
 			  
-		 else if((xADDRToCompare > powerup1xLocToRender) && (xADDRToCompare < powerup1xLocToRender + width) && (yADDRToCompare > powerup1yLocToRender) && (yADDRToCompare < powerup1yLocToRender + height) )
-			  color <= 23'b111111110000000011111111;
+		 else if((xADDRToCompare > powerup1xLocToRender) && (xADDRToCompare < powerup1xLocToRender + pellet_width) && (yADDRToCompare > powerup1yLocToRender) && (yADDRToCompare < powerup1yLocToRender + pellet_height) )
+			  color <= 24'b011110101101010011111110;
 		
 		 else if((xADDRToCompare > xLocG0) && (xADDRToCompare < xLocG0 + width) && (yADDRToCompare > yLocG0) && (yADDRToCompare < yLocG0 + height) )	  
 			  color <= blue_data_raw;
@@ -416,7 +457,7 @@ addrConverter myAddrConverterPlayer0(ADDR, VGA_CLK_n, xADDR, yADDR);
 			  color <= pink_data_raw;
 			  
 		 else if(powerup1_playerXRegister == 32'd1 && inScorePlayer0Digit0 != 1'b1 && inScorePlayer0Digit1 != 1'b1 && inScorePlayer0Digit2 != 1'b1 && inScorePlayer1Digit0 != 1'b1 && inScorePlayer1Digit1 != 1'b1 && inScorePlayer1Digit2 != 1'b1)
-			  color <= 23'b000000000000000000000000;  
+			  color <= 24'b000000000000000000000000;  
 			  
 		 else if(inScorePlayer0Digit0 == 1'b1)
 			  color <= score_data_rawDigit0;
@@ -436,27 +477,42 @@ addrConverter myAddrConverterPlayer0(ADDR, VGA_CLK_n, xADDR, yADDR);
 		 else if(inScorePlayer1Digit2 == 1'b1)
 			  color <= score_data_rawPlayer1Digit2;
 		 
-		 else if(xADDRToCompare > pellet0_x && xADDRToCompare < pellet0_x + width && yADDRToCompare > pellet0_y && yADDRToCompare < pellet0_y + height)
-				color <= 23'b000000001111111111111111;
+		 else if(xADDRToCompare > pellet0_x && xADDRToCompare < pellet0_x + pellet_width && yADDRToCompare > pellet0_y && yADDRToCompare < pellet0_y + pellet_height)
+				color <= 24'b011110101101010011111110;
 				
-		 else if(xADDRToCompare > pellet1_x && xADDRToCompare < pellet1_x + width && yADDRToCompare > pellet1_y && yADDRToCompare < pellet1_y + height)
-				color <= 23'b000000001111111111111111;
+		 else if(xADDRToCompare > pellet1_x && xADDRToCompare < pellet1_x + pellet_width && yADDRToCompare > pellet1_y && yADDRToCompare < pellet1_y + pellet_height)
+				color <= 24'b011110101101010011111110;
 				
-		 else if(xADDRToCompare > pellet2_x && xADDRToCompare < pellet2_x + width && yADDRToCompare > pellet2_y && yADDRToCompare < pellet2_y + height)
-				color <= 23'b000000001111111111111111;
+		 else if(xADDRToCompare > pellet2_x && xADDRToCompare < pellet2_x + pellet_width && yADDRToCompare > pellet2_y && yADDRToCompare < pellet2_y + pellet_height)
+				color <= 24'b011110101101010011111110;
 				
-		 else if(xADDRToCompare > pellet3_x && xADDRToCompare < pellet3_x + width && yADDRToCompare > pellet3_y && yADDRToCompare < pellet3_y + height)
-				color <= 23'b000000001111111111111111;
+		 else if(xADDRToCompare > pellet3_x && xADDRToCompare < pellet3_x + pellet_width && yADDRToCompare > pellet3_y && yADDRToCompare < pellet3_y + pellet_height)
+				color <= 24'b011110101101010011111110;
 				
-		 else if(xADDRToCompare > pellet4_x && xADDRToCompare < pellet4_x + width && yADDRToCompare > pellet4_y && yADDRToCompare < pellet4_y + height)
-				color <= 23'b000000001111111111111111;
+		 else if(xADDRToCompare > pellet4_x && xADDRToCompare < pellet4_x + pellet_width && yADDRToCompare > pellet4_y && yADDRToCompare < pellet4_y + pellet_height)
+				color <= 24'b011110101101010011111110;
 				
-		 else if(xADDRToCompare > pellet5_x && xADDRToCompare < pellet5_x + width && yADDRToCompare > pellet5_y && yADDRToCompare < pellet5_y + height)
-				color <= 23'b000000001111111111111111;
-		
-		else if(inGameOver == 1'b1 && gameOverOccurred == 1'b1 && gameOverDataRaw != 24'h00FF00)
-				color <= gameOverDataRaw;
-			  
+		 else if(xADDRToCompare > pellet5_x && xADDRToCompare < pellet5_x + pellet_width && yADDRToCompare > pellet5_y && yADDRToCompare < pellet5_y + pellet_height)
+				color <= 24'b011110101101010011111110;
+		 
+		 else if(xADDRToCompare > pellet6_x && xADDRToCompare < pellet6_x + pellet_width && yADDRToCompare > pellet6_y && yADDRToCompare < pellet6_y + pellet_height)
+				color <= 24'b011110101101010011111110;
+				
+		 else if(xADDRToCompare > pellet7_x && xADDRToCompare < pellet7_x + pellet_width && yADDRToCompare > pellet7_y && yADDRToCompare < pellet7_y + pellet_height)
+				color <= 24'b011110101101010011111110;
+				
+		 else if(xADDRToCompare > pellet8_x && xADDRToCompare < pellet8_x + pellet_width && yADDRToCompare > pellet8_y && yADDRToCompare < pellet8_y + pellet_height)
+				color <= 24'b011110101101010011111110;
+				
+		 else if(xADDRToCompare > pellet9_x && xADDRToCompare < pellet9_x + pellet_width && yADDRToCompare > pellet9_y && yADDRToCompare < pellet9_y + pellet_height)
+				color <= 24'b011110101101010011111110;
+				
+		 else if(xADDRToCompare > pellet10_x && xADDRToCompare < pellet10_x + pellet_width && yADDRToCompare > pellet10_y && yADDRToCompare < pellet10_y + pellet_height)
+				color <= 24'b011110101101010011111110;
+				
+		 else if(xADDRToCompare > pellet11_x && xADDRToCompare < pellet11_x + pellet_width && yADDRToCompare > pellet11_y && yADDRToCompare < pellet11_y + pellet_height)
+				color <= 24'b011110101101010011111110;
+		 
 		 else 
 			  color <= bgr_data_raw;
 	 
@@ -478,6 +534,8 @@ reg upCollisionFlag0, downCollisionFlag0, rightCollisionFlag0, leftCollisionFlag
 reg upCollisionFlag1, downCollisionFlag1, rightCollisionFlag1, leftCollisionFlag1;
 
 reg gameOverOccurred;
+
+
 
 //COLLISION FLAGS
 
@@ -776,134 +834,319 @@ always@(posedge procClock) begin
 		blueSig4 <= 0;
 	end
 	
-		 //Player 0 collision with pellet 0 
-        if(((xLoc0 +  width >= pellet0_x && xLoc0 + width <= pellet0_x + width) || 
-			   (xLoc0 >= pellet0_x && xLoc0 <= pellet0_x + width)) &&
-			  ((yLoc0 +  height >= pellet0_y && yLoc0 + height <= pellet0_y + height) ||
-			   (yLoc0 >= pellet0_y && yLoc0 <= pellet0_y + height))) begin
+		 //Player 0 collision with pellet 0
+        if(((xLoc0 +  width/2 >= pellet0_x && xLoc0 + width/2 <= pellet0_x + pellet_width) || 
+			   (xLoc0 >= pellet0_x && xLoc0 <= pellet0_x + pellet_width)) &&
+			  ((yLoc0 +  height/2 >= pellet0_y && yLoc0 + height/2 <= pellet0_y + pellet_height) ||
+			   (yLoc0 >= pellet0_y && yLoc0 <= pellet0_y + pellet_height))) begin
 					pellet0_x <= 32'b11111111111111111111111111111111;
 					pellet0_y <= 32'b11111111111111111111111111111111;
 					scoreRegPlayer0 <= scoreRegPlayer0 + 5;
 		  end	
 		  
 		 //Player 0 collision with pellet 1 
-        if(((xLoc0 +  width >= pellet1_x && xLoc0 + width <= pellet1_x + width) || 
-			   (xLoc0 >= pellet1_x && xLoc0 <= pellet1_x + width)) &&
-			  ((yLoc0 +  height >= pellet1_y && yLoc0 + height <= pellet1_y + height) ||
-			   (yLoc0 >= pellet1_y && yLoc0 <= pellet1_y + height))) begin
+        if(((xLoc0 +  width/2 >= pellet1_x && xLoc0 + width/2 <= pellet1_x + pellet_width) || 
+			   (xLoc0 >= pellet1_x && xLoc0 <= pellet1_x + pellet_width)) &&
+			  ((yLoc0 +  height/2 >= pellet1_y && yLoc0 + height/2 <= pellet1_y + pellet_height) ||
+			   (yLoc0 >= pellet1_y && yLoc0 <= pellet1_y + pellet_height))) begin
 					pellet1_x <= 32'b11111111111111111111111111111111;
 					pellet1_y <= 32'b11111111111111111111111111111111;
 					scoreRegPlayer0 <= scoreRegPlayer0 + 5;
 		  end	
 		  
 		 //Player 0 collision with pellet 2
-        if(((xLoc0 +  width >= pellet2_x && xLoc0 + width <= pellet2_x + width) || 
-			   (xLoc0 >= pellet2_x && xLoc0 <= pellet2_x + width)) &&
-			  ((yLoc0 +  height >= pellet2_y && yLoc0 + height <= pellet2_y + height) ||
-			   (yLoc0 >= pellet2_y && yLoc0 <= pellet2_y + height))) begin
+        if(((xLoc0 +  width/2 >= pellet2_x && xLoc0 + width/2 <= pellet2_x + pellet_width) || 
+			   (xLoc0 >= pellet2_x && xLoc0 <= pellet2_x + pellet_width)) &&
+			  ((yLoc0 +  height/2 >= pellet2_y && yLoc0 + height/2 <= pellet2_y + pellet_height) ||
+			   (yLoc0 >= pellet2_y && yLoc0 <= pellet2_y + pellet_height))) begin
 					pellet2_x <= 32'b11111111111111111111111111111111;
 					pellet2_y <= 32'b11111111111111111111111111111111;
 					scoreRegPlayer0 <= scoreRegPlayer0 + 5;
 		  end	
 		  
 		 //Player 0 collision with pellet 3
-        if(((xLoc0 +  width >= pellet3_x && xLoc0 + width <= pellet3_x + width) || 
-			   (xLoc0 >= pellet3_x && xLoc0 <= pellet3_x + width)) &&
-			  ((yLoc0 +  height >= pellet3_y && yLoc0 + height <= pellet3_y + height) ||
-			   (yLoc0 >= pellet3_y && yLoc0 <= pellet3_y + height))) begin
+        if(((xLoc0 +  width/2 >= pellet3_x && xLoc0 + width/2 <= pellet3_x + pellet_width) || 
+			   (xLoc0 >= pellet3_x && xLoc0 <= pellet3_x + pellet_width)) &&
+			  ((yLoc0 +  height/2 >= pellet3_y && yLoc0 + height/2 <= pellet3_y + pellet_height) ||
+			   (yLoc0 >= pellet3_y && yLoc0 <= pellet3_y + pellet_height))) begin
 					pellet3_x <= 32'b11111111111111111111111111111111;
 					pellet3_y <= 32'b11111111111111111111111111111111;
 					scoreRegPlayer0 <= scoreRegPlayer0 + 5;
 		  end	
 		  
-		 //Player 0 collision with pellet 0 
-        if(((xLoc0 +  width >= pellet4_x && xLoc0 + width <= pellet4_x + width) || 
-			   (xLoc0 >= pellet4_x && xLoc0 <= pellet4_x + width)) &&
-			  ((yLoc0 +  height >= pellet4_y && yLoc0 + height <= pellet4_y + height) ||
-			   (yLoc0 >= pellet4_y && yLoc0 <= pellet4_y + height))) begin
+		 //Player 0 collision with pellet 4 
+        if(((xLoc0 +  width/2 >= pellet4_x && xLoc0 + width/2 <= pellet4_x + pellet_width) || 
+			   (xLoc0 >= pellet4_x && xLoc0 <= pellet4_x + pellet_width)) &&
+			  ((yLoc0 +  height/2 >= pellet4_y && yLoc0 + height/2 <= pellet4_y + pellet_height) ||
+			   (yLoc0 >= pellet4_y && yLoc0 <= pellet4_y + pellet_height))) begin
 					pellet4_x <= 32'b11111111111111111111111111111111;
 					pellet4_y <= 32'b11111111111111111111111111111111;
 					scoreRegPlayer0 <= scoreRegPlayer0 + 5;
 		  end	
 		  
 		 //Player 0 collision with pellet 5
-        if(((xLoc0 +  width >= pellet5_x && xLoc0 + width <= pellet5_x + width) || 
-			   (xLoc0 >= pellet5_x && xLoc0 <= pellet5_x + width)) &&
-			  ((yLoc0 +  height >= pellet5_y && yLoc0 + height <= pellet5_y + height) ||
-			   (yLoc0 >= pellet5_y && yLoc0 <= pellet5_y + height))) begin
+        if(((xLoc0 +  width/2 >= pellet5_x && xLoc0 + width/2 <= pellet5_x + pellet_width) || 
+			   (xLoc0 >= pellet5_x && xLoc0 <= pellet5_x + pellet_width)) &&
+			  ((yLoc0 +  height/2 >= pellet5_y && yLoc0 + height/2 <= pellet5_y + pellet_height) ||
+			   (yLoc0 >= pellet5_y && yLoc0 <= pellet5_y + pellet_height))) begin
 					pellet5_x <= 32'b11111111111111111111111111111111;
 					pellet5_y <= 32'b11111111111111111111111111111111;
 					scoreRegPlayer0 <= scoreRegPlayer0 + 5;
 		  end	
 		  
+		  //Player 0 collision with pellet 6
+        if(((xLoc0 +  width/2 >= pellet6_x && xLoc0 + width/2 <= pellet6_x + pellet_width) || 
+			   (xLoc0 >= pellet6_x && xLoc0 <= pellet6_x + pellet_width)) &&
+			  ((yLoc0 +  height/2 >= pellet6_y && yLoc0 + height/2 <= pellet6_y + pellet_height) ||
+			   (yLoc0 >= pellet6_y && yLoc0 <= pellet6_y + pellet_height))) begin
+					pellet6_x <= 32'b11111111111111111111111111111111;
+					pellet6_y <= 32'b11111111111111111111111111111111;
+					scoreRegPlayer0 <= scoreRegPlayer0 + 5;
+		  end	
 		  
+		 //Player 0 collision with pellet 7
+        if(((xLoc0 +  width/2 >= pellet7_x && xLoc0 + width/2 <= pellet7_x + pellet_width) || 
+			   (xLoc0 >= pellet7_x && xLoc0 <= pellet7_x + pellet_width)) &&
+			  ((yLoc0 +  height/2 >= pellet7_y && yLoc0 + height/2 <= pellet7_y + pellet_height) ||
+			   (yLoc0 >= pellet7_y && yLoc0 <= pellet7_y + pellet_height))) begin
+					pellet7_x <= 32'b11111111111111111111111111111111;
+					pellet7_y <= 32'b11111111111111111111111111111111;
+					scoreRegPlayer0 <= scoreRegPlayer0 + 5;
+		  end	
 		  
+		 //Player 0 collision with pellet 8
+        if(((xLoc0 +  width/2 >= pellet8_x && xLoc0 + width/2 <= pellet8_x + pellet_width) || 
+			   (xLoc0 >= pellet8_x && xLoc0 <= pellet8_x + pellet_width)) &&
+			  ((yLoc0 +  height/2 >= pellet8_y && yLoc0 + height/2 <= pellet8_y + pellet_height) ||
+			   (yLoc0 >= pellet8_y && yLoc0 <= pellet8_y + pellet_height))) begin
+					pellet8_x <= 32'b11111111111111111111111111111111;
+					pellet8_y <= 32'b11111111111111111111111111111111;
+					scoreRegPlayer0 <= scoreRegPlayer0 + 5;
+		  end	
 		  
+		 //Player 0 collision with pellet 9
+        if(((xLoc0 +  width/2 >= pellet9_x && xLoc0 + width/2 <= pellet9_x + pellet_width) || 
+			   (xLoc0 >= pellet9_x && xLoc0 <= pellet9_x + pellet_width)) &&
+			  ((yLoc0 +  height/2 >= pellet9_y && yLoc0 + height/2 <= pellet9_y + pellet_height) ||
+			   (yLoc0 >= pellet9_y && yLoc0 <= pellet9_y + pellet_height))) begin
+					pellet9_x <= 32'b11111111111111111111111111111111;
+					pellet9_y <= 32'b11111111111111111111111111111111;
+					scoreRegPlayer0 <= scoreRegPlayer0 + 5;
+		  end	
 		  
+		 //Player 0 collision with pellet 10 
+        if(((xLoc0 +  width/2 >= pellet10_x && xLoc0 + width/2 <= pellet10_x + pellet_width) || 
+			   (xLoc0 >= pellet10_x && xLoc0 <= pellet10_x + pellet_width)) &&
+			  ((yLoc0 +  height/2 >= pellet10_y && yLoc0 + height/2 <= pellet10_y + pellet_height) ||
+			   (yLoc0 >= pellet10_y && yLoc0 <= pellet10_y + pellet_height))) begin
+					pellet10_x <= 32'b11111111111111111111111111111111;
+					pellet10_y <= 32'b11111111111111111111111111111111;
+					scoreRegPlayer0 <= scoreRegPlayer0 + 5;
+		  end	
+		  
+		 //Player 0 collision with pellet 11
+        if(((xLoc0 +  width/2 >= pellet11_x && xLoc0 + width/2 <= pellet11_x + pellet_width) || 
+			   (xLoc0 >= pellet11_x && xLoc0 <= pellet11_x + pellet_width)) &&
+			  ((yLoc0 +  height/2 >= pellet11_y && yLoc0 + height/2 <= pellet11_y + pellet_height) ||
+			   (yLoc0 >= pellet11_y && yLoc0 <= pellet11_y + pellet_height))) begin
+					pellet11_x <= 32'b11111111111111111111111111111111;
+					pellet11_y <= 32'b11111111111111111111111111111111;
+					scoreRegPlayer0 <= scoreRegPlayer0 + 5;
+		  end	
 		  
 		
 		 //Player 1 collision with pellet 0 
-        if(((xLoc1 +  width >= pellet0_x && xLoc1 + width <= pellet0_x + width) || 
-			   (xLoc1 >= pellet0_x && xLoc1 <= pellet0_x + width)) &&
-			  ((yLoc1 +  height >= pellet0_y && yLoc1 + height <= pellet0_y + height) ||
-			   (yLoc1 >= pellet0_y && yLoc1 <= pellet0_y + height))) begin
+        if(((xLoc1 +  width/2 >= pellet0_x && xLoc1 + width/2 <= pellet0_x + pellet_width) || 
+			   (xLoc1 >= pellet0_x && xLoc1 <= pellet0_x + pellet_width)) &&
+			  ((yLoc1 +  height/2 >= pellet0_y && yLoc1 + height/2 <= pellet0_y + pellet_height) ||
+			   (yLoc1 >= pellet0_y && yLoc1 <= pellet0_y + pellet_height))) begin
 					pellet0_x <= 32'b11111111111111111111111111111111;
 					pellet0_y <= 32'b11111111111111111111111111111111;
 					scoreRegPlayer1 <= scoreRegPlayer1 + 5;
 		  end	
 		  
-		 //Player 0 collision with pellet 1 
-        if(((xLoc1 +  width >= pellet1_x && xLoc1 + width <= pellet1_x + width) || 
-			   (xLoc1 >= pellet1_x && xLoc1 <= pellet1_x + width)) &&
-			  ((yLoc1 +  height >= pellet1_y && yLoc1 + height <= pellet1_y + height) ||
-			   (yLoc1 >= pellet1_y && yLoc1 <= pellet1_y + height))) begin
+		 //Player 1 collision with pellet 1 
+        if(((xLoc1 +  width/2 >= pellet1_x && xLoc1 + width/2 <= pellet1_x + pellet_width) || 
+			   (xLoc1 >= pellet1_x && xLoc1 <= pellet1_x + pellet_width)) &&
+			  ((yLoc1 +  height/2 >= pellet1_y && yLoc1 + height/2 <= pellet1_y + pellet_height) ||
+			   (yLoc1 >= pellet1_y && yLoc1 <= pellet1_y + pellet_height))) begin
 					pellet1_x <= 32'b11111111111111111111111111111111;
 					pellet1_y <= 32'b11111111111111111111111111111111;
 					scoreRegPlayer1 <= scoreRegPlayer1 + 5;
 		  end	
 		  
-		 //Player 0 collision with pellet 2
-        if(((xLoc1 +  width >= pellet2_x && xLoc1 + width <= pellet2_x + width) || 
-			   (xLoc1 >= pellet2_x && xLoc1 <= pellet2_x + width)) &&
-			  ((yLoc1 +  height >= pellet2_y && yLoc1 + height <= pellet2_y + height) ||
-			   (yLoc1 >= pellet2_y && yLoc1 <= pellet2_y + height))) begin
+		 //Player 1 collision with pellet 2
+        if(((xLoc1 +  width/2 >= pellet2_x && xLoc1 + width/2 <= pellet2_x + pellet_width) || 
+			   (xLoc1 >= pellet2_x && xLoc1 <= pellet2_x + pellet_width)) &&
+			  ((yLoc1 +  height/2 >= pellet2_y && yLoc1 + height/2 <= pellet2_y + pellet_height) ||
+			   (yLoc1 >= pellet2_y && yLoc1 <= pellet2_y + pellet_height))) begin
 					pellet2_x <= 32'b11111111111111111111111111111111;
 					pellet2_y <= 32'b11111111111111111111111111111111;
 					scoreRegPlayer1 <= scoreRegPlayer1 + 5;
 		  end	
 		  
-		 //Player 0 collision with pellet 3
-        if(((xLoc1 +  width >= pellet3_x && xLoc1 + width <= pellet3_x + width) || 
-			   (xLoc1 >= pellet3_x && xLoc1 <= pellet3_x + width)) &&
-			  ((yLoc1 +  height >= pellet3_y && yLoc1 + height <= pellet3_y + height) ||
-			   (yLoc1 >= pellet3_y && yLoc1 <= pellet3_y + height))) begin
+		 //Player 1 collision with pellet 3
+        if(((xLoc1 +  width/2 >= pellet3_x && xLoc1 + width/2 <= pellet3_x + pellet_width) || 
+			   (xLoc1 >= pellet3_x && xLoc1 <= pellet3_x + pellet_width)) &&
+			  ((yLoc1 +  height/2 >= pellet3_y && yLoc1 + height/2 <= pellet3_y + pellet_height) ||
+			   (yLoc1 >= pellet3_y && yLoc1 <= pellet3_y + pellet_height))) begin
 					pellet3_x <= 32'b11111111111111111111111111111111;
 					pellet3_y <= 32'b11111111111111111111111111111111;
-					scoreRegPlayer0 <= scoreRegPlayer0 + 5;
+					scoreRegPlayer1 <= scoreRegPlayer0 + 5;
 		  end	
 		  
-		 //Player 0 collision with pellet 0 
-        if(((xLoc1 +  width >= pellet4_x && xLoc1 + width <= pellet4_x + width) || 
-			   (xLoc1 >= pellet4_x && xLoc1 <= pellet4_x + width)) &&
-			  ((yLoc1 +  height >= pellet4_y && yLoc1 + height <= pellet4_y + height) ||
-			   (yLoc1 >= pellet4_y && yLoc1 <= pellet4_y + height))) begin
+		 //Player 1 collision with pellet 4 
+        if(((xLoc1 +  width/2 >= pellet4_x && xLoc1 + width/2 <= pellet4_x + pellet_width) || 
+			   (xLoc1 >= pellet4_x && xLoc1 <= pellet4_x + pellet_width)) &&
+			  ((yLoc1 +  height/2 >= pellet4_y && yLoc1 + height/2 <= pellet4_y + pellet_height) ||
+			   (yLoc1 >= pellet4_y && yLoc1 <= pellet4_y + pellet_height))) begin
 					pellet4_x <= 32'b11111111111111111111111111111111;
 					pellet4_y <= 32'b11111111111111111111111111111111;
 					scoreRegPlayer1 <= scoreRegPlayer1 + 5;
 		  end	
 		  
-		 //Player 0 collision with pellet 5
-        if(((xLoc1 +  width >= pellet5_x && xLoc1 + width <= pellet5_x + width) || 
-			   (xLoc1 >= pellet5_x && xLoc1 <= pellet5_x + width)) &&
-			  ((yLoc1 +  height >= pellet5_y && yLoc1 + height <= pellet5_y + height) ||
-			   (yLoc1 >= pellet5_y && yLoc1 <= pellet5_y + height))) begin
+		 //Player 1 collision with pellet 5
+        if(((xLoc1 +  width/2 >= pellet5_x && xLoc1 + width/2 <= pellet5_x + pellet_width) || 
+			   (xLoc1 >= pellet5_x && xLoc1 <= pellet5_x + pellet_width)) &&
+			  ((yLoc1 +  height/2 >= pellet5_y && yLoc1 + height/2 <= pellet5_y + pellet_height) ||
+			   (yLoc1 >= pellet5_y && yLoc1 <= pellet5_y + pellet_height))) begin
 					pellet5_x <= 32'b11111111111111111111111111111111;
 					pellet5_y <= 32'b11111111111111111111111111111111;
 					scoreRegPlayer1 <= scoreRegPlayer1 + 5;
 		  end	
-	
-		
-		
+		  
+		  //Player 1 collision with pellet 6
+        if(((xLoc1 +  width/2 >= pellet6_x && xLoc1 + width/2 <= pellet6_x + pellet_width) || 
+			   (xLoc1 >= pellet6_x && xLoc1 <= pellet6_x + pellet_width)) &&
+			  ((yLoc1 +  height/2 >= pellet6_y && yLoc1 + height/2 <= pellet6_y + pellet_height) ||
+			   (yLoc1 >= pellet6_y && yLoc1 <= pellet6_y + pellet_height))) begin
+					pellet6_x <= 32'b11111111111111111111111111111111;
+					pellet6_y <= 32'b11111111111111111111111111111111;
+					scoreRegPlayer1 <= scoreRegPlayer1 + 5;
+		  end	
+		  
+		 //Player 1 collision with pellet 7 
+        if(((xLoc1 +  width/2 >= pellet7_x && xLoc1 + width/2 <= pellet7_x + pellet_width) || 
+			   (xLoc1 >= pellet7_x && xLoc1 <= pellet7_x + pellet_width)) &&
+			  ((yLoc1 +  height/2 >= pellet7_y && yLoc1 + height/2 <= pellet7_y + pellet_height) ||
+			   (yLoc1 >= pellet7_y && yLoc1 <= pellet7_y + pellet_height))) begin
+					pellet7_x <= 32'b11111111111111111111111111111111;
+					pellet7_y <= 32'b11111111111111111111111111111111;
+					scoreRegPlayer1 <= scoreRegPlayer1 + 5;
+		  end	
+		  
+		 //Player 1 collision with pellet 8
+        if(((xLoc1 +  width/2 >= pellet8_x && xLoc1 + width/2 <= pellet8_x + pellet_width) || 
+			   (xLoc1 >= pellet8_x && xLoc1 <= pellet8_x + pellet_width)) &&
+			  ((yLoc1 +  height/2 >= pellet8_y && yLoc1 + height/2 <= pellet8_y + pellet_height) ||
+			   (yLoc1 >= pellet8_y && yLoc1 <= pellet8_y + pellet_height))) begin
+					pellet8_x <= 32'b11111111111111111111111111111111;
+					pellet8_y <= 32'b11111111111111111111111111111111;
+					scoreRegPlayer1 <= scoreRegPlayer1 + 5;
+		  end	
+		  
+		 //Player 1 collision with pellet 9
+        if(((xLoc1 +  width/2 >= pellet9_x && xLoc1 + width/2 <= pellet9_x + pellet_width) || 
+			   (xLoc1 >= pellet9_x && xLoc1 <= pellet9_x + pellet_width)) &&
+			  ((yLoc1 +  height/2 >= pellet9_y && yLoc1 + height/2 <= pellet9_y + pellet_height) ||
+			   (yLoc1 >= pellet9_y && yLoc1 <= pellet9_y + pellet_height))) begin
+					pellet9_x <= 32'b11111111111111111111111111111111;
+					pellet9_y <= 32'b11111111111111111111111111111111;
+					scoreRegPlayer0 <= scoreRegPlayer0 + 5;
+		  end	
+		  
+		 //Player 1 collision with pellet 10
+        if(((xLoc1 +  width/2 >= pellet10_x && xLoc1 + width/2 <= pellet10_x + pellet_width) || 
+			   (xLoc1 >= pellet10_x && xLoc1 <= pellet10_x + pellet_width)) &&
+			  ((yLoc1 +  height/2 >= pellet10_y && yLoc1 + height/2 <= pellet10_y + pellet_height) ||
+			   (yLoc1 >= pellet10_y && yLoc1 <= pellet10_y + pellet_height))) begin
+					pellet10_x <= 32'b11111111111111111111111111111111;
+					pellet10_y <= 32'b11111111111111111111111111111111;
+					scoreRegPlayer1 <= scoreRegPlayer1 + 5;
+		  end	
+		  
+		 //Player 1 collision with pellet 11
+        if(((xLoc1 +  width/2 >= pellet11_x && xLoc1 + width/2 <= pellet11_x + pellet_width) || 
+			   (xLoc1 >= pellet11_x && xLoc1 <= pellet11_x + pellet_width)) &&
+			  ((yLoc1 +  height/2 >= pellet11_y && yLoc1 + height/2 <= pellet11_y + pellet_height) ||
+			   (yLoc1 >= pellet11_y && yLoc1 <= pellet11_y + pellet_height))) begin
+					pellet11_x <= 32'b11111111111111111111111111111111;
+					pellet11_y <= 32'b11111111111111111111111111111111;
+					scoreRegPlayer1 <= scoreRegPlayer1 + 5;
+		  end	
+		  
+		  
+		  
+		  
+		  
+		  
+		  //Player 0 collision with Ghost 0 
+		  if(((xLoc0 +  width >= xLocG0 && xLoc0 + width <= xLocG0 + width) || 
+			   (xLoc0 >= xLocG0 && xLoc0 <= xLocG0 + width)) &&
+			  ((yLoc0 +  height >= yLocG0 && yLoc0 + height <= yLocG0 + height) ||
+			   (yLoc0 >= yLocG0 && yLoc0 <= yLocG0 + height))) begin
+					gameOverOccurred <= 1;
+		  end	
+		  
+		  		  //Player 0 collision with Ghost 1
+		  else if(((xLoc0 +  width >= xLocG1 && xLoc0 + width <= xLocG1 + width) || 
+			   (xLoc0 >= xLocG1 && xLoc0 <= xLocG1 + width)) &&
+			  ((yLoc0 +  height >= yLocG1 && yLoc0 + height <= yLocG1 + height) ||
+			   (yLoc0 >= yLocG1 && yLoc0 <= yLocG1 + height))) begin
+					gameOverOccurred <= 1;
+		  end	
+		  
+		  		  //Player 0 collision with Ghost 2
+		  else if(((xLoc0 +  width >= xLocG2 && xLoc0 + width <= xLocG2 + width) || 
+			   (xLoc0 >= xLocG2 && xLoc0 <= xLocG2 + width)) &&
+			  ((yLoc0 +  height >= yLocG2 && yLoc0 + height <= yLocG2 + height) ||
+			   (yLoc0 >= yLocG2 && yLoc0 <= yLocG2 + height))) begin
+					gameOverOccurred <= 1;
+		  end	
+		  
+		  		  //Player 0 collision with Ghost 3
+		  else if(((xLoc0 +  width >= xLocG3 && xLoc0 + width <= xLocG3 + width) || 
+			   (xLoc0 >= xLocG3 && xLoc0 <= xLocG3 + width)) &&
+			  ((yLoc0 +  height >= yLocG3 && yLoc0 + height <= yLocG3 + height) ||
+			   (yLoc0 >= yLocG3 && yLoc0 <= yLocG3 + height))) begin
+					gameOverOccurred <= 1;
+		  end	
+		  
+		  
+		  
+		  
+		  
+		  //Player 1 collision with Ghost 0 
+		  if(((xLoc1 +  width >= xLocG0 && xLoc1 + width <= xLocG0 + width) || 
+			   (xLoc1 >= xLocG0 && xLoc1 <= xLocG0 + width)) &&
+			  ((yLoc1 +  height >= yLocG0 && yLoc1 + height <= yLocG0 + height) ||
+			   (yLoc1 >= yLocG0 && yLoc1 <= yLocG0 + height))) begin
+					gameOverOccurred <= 1;
+		  end	
+		  
+		  		  //Player 1 collision with Ghost 1
+		  else if(((xLoc1 +  width >= xLocG1 && xLoc1 + width <= xLocG1 + width) || 
+			   (xLoc1 >= xLocG1 && xLoc1 <= xLocG1 + width)) &&
+			  ((yLoc1 +  height >= yLocG1 && yLoc1 + height <= yLocG1 + height) ||
+			   (yLoc1 >= yLocG1 && yLoc1 <= yLocG1 + height))) begin
+					gameOverOccurred <= 1;
+		  end	
+		  
+		  		  //Player 1 collision with Ghost 2
+		  else if(((xLoc1 +  width >= xLocG2 && xLoc1 + width <= xLocG2 + width) || 
+			   (xLoc1 >= xLocG2 && xLoc1 <= xLocG2 + width)) &&
+			  ((yLoc1 +  height >= yLocG2 && yLoc1 + height <= yLocG2 + height) ||
+			   (yLoc1 >= yLocG2 && yLoc1 <= yLocG2 + height))) begin
+					gameOverOccurred <= 1;
+		  end	
+		  
+		  		  //Player 0 collision with Ghost 3
+		  else if(((xLoc1 +  width >= xLocG3 && xLoc1 + width <= xLocG3 + width) || 
+			   (xLoc1 >= xLocG3 && xLoc1 <= xLocG3 + width)) &&
+			  ((yLoc1 +  height >= yLocG3 && yLoc1 + height <= yLocG3 + height) ||
+			   (yLoc1 >= yLocG3 && yLoc1 <= yLocG3 + height))) begin
+					gameOverOccurred <= 1;
+		  end	
 end
 	
 
@@ -915,7 +1158,7 @@ end
 	
 assign VGA_CLK_n = ~iVGA_CLK;
 
-bgr_pixel_data	img_data_inst (
+bgr_color_data	img_data_inst (
 	.aclr(1'b0),
 	.address_a ( ADDR ),
 	.address_b (4'd0),
@@ -926,10 +1169,10 @@ bgr_pixel_data	img_data_inst (
 	.q_b ()
 	);	
 
-bgr_color_data img_index_inst (
+bgr_pixel_data img_index_inst (
 	.aclr(1'b0),
 	.address_a ( index ),
-	.address_b (4'd0),
+	.address_b (2'd0),
 	.clock ( iVGA_CLK ),
 	.rden_a (1'b1),
 	.rden_b (1'b1),
@@ -1302,6 +1545,20 @@ pink_index	pinki (
 	);	
 //////
 
+//////Speed powerup VGA Shite (0)
+speed	speedinst (
+	.address ( speed_addr ),
+	.clock ( VGA_CLK_n ),
+	.q ( speed_ind )
+	);
+//////Color table output
+speed_index	si (
+	.address ( speed_ind ),
+	.clock ( iVGA_CLK ),
+	.q ( speed_data_raw )
+	);	
+//////
+
 wire gameOverWire;
 wire [23:0] gameOverDataRaw;
 
@@ -1316,6 +1573,23 @@ game_over_color gameOverScreen2(
 	.clock(iVGA_CLK),
 	.q( gameOverDataRaw),
 	);
+	
+wire youWinWire;
+wire [23:0] youWinDataRaw;
+
+you_win_index youWinScreen (
+	.address(ADDRinGameOver),
+	.clock(VGA_CLK_n),
+	.q(youWinWire)
+	);
+	
+you_win_color youWinScreen2 (
+	.address(youWinWire),
+	.clock(iVGA_CLK),
+	.q(youWinDataRaw)
+	);
+	
+reg youWinRegister;
 
 always @(VGA_CLK_n) begin
 	// Updates Pacman Address for VGA
@@ -1331,6 +1605,8 @@ always @(VGA_CLK_n) begin
 		orange_addr <= (yADDR-yLocG2) * width + xADDR-xLocG2;
 	if((xADDR > xLocG3) && (xADDR < xLocG3 + width) && (yADDR > yLocG3) && (yADDR < yLocG3 + height))
 		pink_addr <= (yADDR-yLocG3) * width + xADDR-xLocG3;
+	if((xADDR > powerup0xLocToRender) && (xADDR < powerup0xLocToRender + width) && (yADDR > powerup0yLocToRender) && (yADDR < powerup0yLocToRender + height))
+		speed_addr <= (yADDR-powerup0yLocToRender) * width + xADDR-powerup0xLocToRender;
 	
 	if (player0_deathCount < 26'd4000000 && player0_dead == 1) begin 
 		player0_deathCount <= player0_deathCount + 26'd1;

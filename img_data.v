@@ -60,11 +60,11 @@ module img_data (
 // synopsys translate_on
 `endif
 
-	wire [3:0] sub_wire0;
-	wire [3:0] sub_wire1;
+	wire [1:0] sub_wire0;
+	wire [1:0] sub_wire1;
 	
-	wire [3:0] q = sub_wire0[3:0];
-	wire [3:0] q_b = sub_wire1[3:0];
+	wire [1:0] q = sub_wire0[1:0];
+	wire [1:0] q_b = sub_wire1[1:0];
 
 	altsyncram	altsyncram_component (
 				.clock0 (clock),
