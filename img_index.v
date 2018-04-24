@@ -44,8 +44,8 @@ module img_index (
 	q,
 	q_b);
 
-	input	[2:0]  address;
-	input [2:0]  address_b;
+	input	[1:0]  address;
+	input [1:0]  address_b;
 	
 	input	  clock;
 	
@@ -104,19 +104,19 @@ module img_index (
 		altsyncram_component.intended_device_family = "Cyclone IV E",
 		altsyncram_component.lpm_hint = "ENABLE_RUNTIME_MOD=NO",
 		altsyncram_component.lpm_type = "altsyncram",
-		altsyncram_component.numwords_a = 6,
-		altsyncram_component.numwords_b = 6,
+		altsyncram_component.numwords_a = 4,
+		altsyncram_component.numwords_b = 4,
 		altsyncram_component.operation_mode = "BIDIR_DUAL_PORT",
 		altsyncram_component.outdata_aclr_a = "NONE",
 		altsyncram_component.outdata_reg_a = "CLOCK0",
 		altsyncram_component.outdata_aclr_b = "NONE",
 		altsyncram_component.outdata_reg_b = "CLOCK0",	
 		altsyncram_component.ram_block_type = "M9K",	
-		altsyncram_component.widthad_a = 3,
+		altsyncram_component.widthad_a = 2,
 		altsyncram_component.width_a = 24,
 		altsyncram_component.width_byteena_a = 1,
 		
-		altsyncram_component.widthad_b = 3,
+		altsyncram_component.widthad_b = 2,
 		altsyncram_component.width_b = 24,
 		altsyncram_component.width_byteena_b = 1,
 		altsyncram_component.wrcontrol_wraddress_reg_b = "CLOCK0";

@@ -1,5 +1,5 @@
 MIF/HEX Update report for skeleton
-Sun Apr 22 14:06:27 2018
+Mon Apr 23 17:40:56 2018
 Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Standard Edition
 
 
@@ -36,7 +36,7 @@ agreement for further details.
 +---------------------------------------------------------------+
 ; MIF/HEX Update Summary                                        ;
 +-----------------------+---------------------------------------+
-; MIF/HEX Update Status ; Successful - Sun Apr 22 14:06:27 2018 ;
+; MIF/HEX Update Status ; Successful - Mon Apr 23 17:40:56 2018 ;
 ; Revision Name         ; skeleton                              ;
 ; Top-level Entity Name ; skeleton                              ;
 ; Family                ; Cyclone IV E                          ;
@@ -44,35 +44,53 @@ agreement for further details.
 +-----------------------+---------------------------------------+
 
 
-+-------------------------------------------------------------+
-; MIF/HEX Update Processed Files                              ;
-+-------------------------------------------------------------+
-; File Name                                                   ;
-+-------------------------------------------------------------+
-; C:/Users/Student/Desktop/Pacman/blue_NE.mif                 ;
-; C:/Users/Student/Desktop/Pacman/blue_NW.mif                 ;
-; C:/Users/Student/Desktop/Pacman/blue_SE.mif                 ;
-; C:/Users/Student/Desktop/Pacman/blue_SW.mif                 ;
-; C:/Users/Student/Desktop/Pacman/color_data.mif              ;
-; C:/Users/Student/Desktop/Pacman/color_data_digits.mif       ;
-; C:/Users/Student/Desktop/Pacman/dmem.mif                    ;
-; C:/Users/Student/Desktop/Pacman/ghost_color_blue.mif        ;
-; C:/Users/Student/Desktop/Pacman/ghost_color_orange.mif      ;
-; C:/Users/Student/Desktop/Pacman/ghost_color_pink.mif        ;
-; C:/Users/Student/Desktop/Pacman/ghost_color_red.mif         ;
-; C:/Users/Student/Desktop/Pacman/image_data.mif              ;
-; C:/Users/Student/Desktop/Pacman/image_data_digits.mif       ;
-; C:/Users/Student/Desktop/Pacman/imem.mif                    ;
-; C:/Users/Student/Desktop/Pacman/pacman_closed_eye_down.mif  ;
-; C:/Users/Student/Desktop/Pacman/pacman_closed_eye_left.mif  ;
-; C:/Users/Student/Desktop/Pacman/pacman_closed_eye_right.mif ;
-; C:/Users/Student/Desktop/Pacman/pacman_closed_eye_up.mif    ;
-; C:/Users/Student/Desktop/Pacman/pacman_color.mif            ;
-; C:/Users/Student/Desktop/Pacman/pacman_open_eye_down.mif    ;
-; C:/Users/Student/Desktop/Pacman/pacman_open_eye_left.mif    ;
-; C:/Users/Student/Desktop/Pacman/pacman_open_eye_right.mif   ;
-; C:/Users/Student/Desktop/Pacman/pacman_open_eye_up.mif      ;
-+-------------------------------------------------------------+
++----------------------------------------------------------------------+
+; MIF/HEX Update Processed Files                                       ;
++----------------------------------------------------------------------+
+; File Name                                                            ;
++----------------------------------------------------------------------+
+; C:/Users/Student/Desktop/Pacman/Pacman/blue_NE.mif                   ;
+; C:/Users/Student/Desktop/Pacman/Pacman/blue_NW.mif                   ;
+; C:/Users/Student/Desktop/Pacman/Pacman/blue_SE.mif                   ;
+; C:/Users/Student/Desktop/Pacman/Pacman/blue_SW.mif                   ;
+; C:/Users/Student/Desktop/Pacman/Pacman/color_data.mif                ;
+; C:/Users/Student/Desktop/Pacman/Pacman/color_data_digits.mif         ;
+; C:/Users/Student/Desktop/Pacman/Pacman/dmem.mif                      ;
+; C:/Users/Student/Desktop/Pacman/Pacman/ghost_color_blue.mif          ;
+; C:/Users/Student/Desktop/Pacman/Pacman/ghost_color_orange.mif        ;
+; C:/Users/Student/Desktop/Pacman/Pacman/ghost_color_pink.mif          ;
+; C:/Users/Student/Desktop/Pacman/Pacman/ghost_color_red.mif           ;
+; C:/Users/Student/Desktop/Pacman/Pacman/image_data.mif                ;
+; C:/Users/Student/Desktop/Pacman/Pacman/image_data_digits.mif         ;
+; C:/Users/Student/Desktop/Pacman/Pacman/imem.mif                      ;
+; C:/Users/Student/Desktop/Pacman/Pacman/mspacman_closed_eye_down.mif  ;
+; C:/Users/Student/Desktop/Pacman/Pacman/mspacman_closed_eye_left.mif  ;
+; C:/Users/Student/Desktop/Pacman/Pacman/mspacman_closed_eye_right.mif ;
+; C:/Users/Student/Desktop/Pacman/Pacman/mspacman_closed_eye_up.mif    ;
+; C:/Users/Student/Desktop/Pacman/Pacman/mspacman_color.mif            ;
+; C:/Users/Student/Desktop/Pacman/Pacman/mspacman_open_eye_down.mif    ;
+; C:/Users/Student/Desktop/Pacman/Pacman/mspacman_open_eye_left.mif    ;
+; C:/Users/Student/Desktop/Pacman/Pacman/mspacman_open_eye_right.mif   ;
+; C:/Users/Student/Desktop/Pacman/Pacman/mspacman_open_eye_up.mif      ;
+; C:/Users/Student/Desktop/Pacman/Pacman/pacman_closed_eye_down.mif    ;
+; C:/Users/Student/Desktop/Pacman/Pacman/pacman_closed_eye_left.mif    ;
+; C:/Users/Student/Desktop/Pacman/Pacman/pacman_closed_eye_right.mif   ;
+; C:/Users/Student/Desktop/Pacman/Pacman/pacman_closed_eye_up.mif      ;
+; C:/Users/Student/Desktop/Pacman/Pacman/pacman_color.mif              ;
+; C:/Users/Student/Desktop/Pacman/Pacman/pacman_die0.mif               ;
+; C:/Users/Student/Desktop/Pacman/Pacman/pacman_die1.mif               ;
+; C:/Users/Student/Desktop/Pacman/Pacman/pacman_die2.mif               ;
+; C:/Users/Student/Desktop/Pacman/Pacman/pacman_die3.mif               ;
+; C:/Users/Student/Desktop/Pacman/Pacman/pacman_die4.mif               ;
+; C:/Users/Student/Desktop/Pacman/Pacman/pacman_die5.mif               ;
+; C:/Users/Student/Desktop/Pacman/Pacman/pacman_die6.mif               ;
+; C:/Users/Student/Desktop/Pacman/Pacman/pacman_open_eye_down.mif      ;
+; C:/Users/Student/Desktop/Pacman/Pacman/pacman_open_eye_left.mif      ;
+; C:/Users/Student/Desktop/Pacman/Pacman/pacman_open_eye_right.mif     ;
+; C:/Users/Student/Desktop/Pacman/Pacman/pacman_open_eye_up.mif        ;
+; C:/Users/Student/Desktop/Pacman/Pacman/start_screen.mif              ;
+; C:/Users/Student/Desktop/Pacman/Pacman/startscreen_color.mif         ;
++----------------------------------------------------------------------+
 
 
 +-------------------------+
@@ -81,65 +99,67 @@ agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime MIF/HEX Update
     Info: Version 16.0.0 Build 211 04/27/2016 SJ Standard Edition
-    Info: Processing started: Sun Apr 22 14:06:19 2018
+    Info: Processing started: Mon Apr 23 17:40:44 2018
 Info: Command: quartus_cdb skeleton -c skeleton --update_mif
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Warning (39023): Can't find Memory Initialization File red_SW.mif -- skipped updates for this file
-Warning (39023): Can't find Memory Initialization File red_SE.mif -- skipped updates for this file
-Warning (39023): Can't find Memory Initialization File red_NW.mif -- skipped updates for this file
-Warning (39023): Can't find Memory Initialization File red_NE.mif -- skipped updates for this file
-Warning (39023): Can't find Memory Initialization File pink_SW.mif -- skipped updates for this file
-Warning (39023): Can't find Memory Initialization File pink_SE.mif -- skipped updates for this file
-Warning (39023): Can't find Memory Initialization File pink_NW.mif -- skipped updates for this file
-Warning (39023): Can't find Memory Initialization File pink_NE.mif -- skipped updates for this file
-Warning (39023): Can't find Memory Initialization File orange_SW.mif -- skipped updates for this file
-Warning (39023): Can't find Memory Initialization File orange_SE.mif -- skipped updates for this file
-Warning (39023): Can't find Memory Initialization File orange_NW.mif -- skipped updates for this file
-Warning (39023): Can't find Memory Initialization File orange_NE.mif -- skipped updates for this file
-Warning (113016): Width of data items in "pacman_closed_eye_up.mif" is smaller than the memory width. Padding data items with 0 on MSB to fit in memory.  File: C:/Users/Student/Desktop/Pacman/pacman_closed_eye_up.mif Line: 7
-Critical Warning (127005): Memory depth (784) in the design file differs from memory depth (576) in the Memory Initialization File "C:/Users/Student/Desktop/Pacman/pacman_closed_eye_up.mif" -- setting initial value for remaining addresses to 0
-Warning (113016): Width of data items in "pacman_open_eye_left.mif" is smaller than the memory width. Padding data items with 0 on MSB to fit in memory.  File: C:/Users/Student/Desktop/Pacman/pacman_open_eye_left.mif Line: 7
-Critical Warning (127005): Memory depth (784) in the design file differs from memory depth (576) in the Memory Initialization File "C:/Users/Student/Desktop/Pacman/pacman_open_eye_left.mif" -- setting initial value for remaining addresses to 0
-Warning (113016): Width of data items in "pacman_closed_eye_left.mif" is smaller than the memory width. Padding data items with 0 on MSB to fit in memory.  File: C:/Users/Student/Desktop/Pacman/pacman_closed_eye_left.mif Line: 7
-Critical Warning (127005): Memory depth (784) in the design file differs from memory depth (576) in the Memory Initialization File "C:/Users/Student/Desktop/Pacman/pacman_closed_eye_left.mif" -- setting initial value for remaining addresses to 0
-Warning (113016): Width of data items in "pacman_open_eye_up.mif" is smaller than the memory width. Padding data items with 0 on MSB to fit in memory.  File: C:/Users/Student/Desktop/Pacman/pacman_open_eye_up.mif Line: 7
-Critical Warning (127005): Memory depth (784) in the design file differs from memory depth (576) in the Memory Initialization File "C:/Users/Student/Desktop/Pacman/pacman_open_eye_up.mif" -- setting initial value for remaining addresses to 0
-Warning (113016): Width of data items in "pacman_closed_eye_down.mif" is smaller than the memory width. Padding data items with 0 on MSB to fit in memory.  File: C:/Users/Student/Desktop/Pacman/pacman_closed_eye_down.mif Line: 7
-Critical Warning (127005): Memory depth (784) in the design file differs from memory depth (576) in the Memory Initialization File "C:/Users/Student/Desktop/Pacman/pacman_closed_eye_down.mif" -- setting initial value for remaining addresses to 0
-Warning (113016): Width of data items in "pacman_open_eye_right.mif" is smaller than the memory width. Padding data items with 0 on MSB to fit in memory.  File: C:/Users/Student/Desktop/Pacman/pacman_open_eye_right.mif Line: 7
-Critical Warning (127005): Memory depth (784) in the design file differs from memory depth (576) in the Memory Initialization File "C:/Users/Student/Desktop/Pacman/pacman_open_eye_right.mif" -- setting initial value for remaining addresses to 0
-Warning (113016): Width of data items in "pacman_closed_eye_right.mif" is smaller than the memory width. Padding data items with 0 on MSB to fit in memory.  File: C:/Users/Student/Desktop/Pacman/pacman_closed_eye_right.mif Line: 7
-Critical Warning (127005): Memory depth (784) in the design file differs from memory depth (576) in the Memory Initialization File "C:/Users/Student/Desktop/Pacman/pacman_closed_eye_right.mif" -- setting initial value for remaining addresses to 0
-Warning (113016): Width of data items in "pacman_open_eye_down.mif" is smaller than the memory width. Padding data items with 0 on MSB to fit in memory.  File: C:/Users/Student/Desktop/Pacman/pacman_open_eye_down.mif Line: 7
-Critical Warning (127005): Memory depth (784) in the design file differs from memory depth (576) in the Memory Initialization File "C:/Users/Student/Desktop/Pacman/pacman_open_eye_down.mif" -- setting initial value for remaining addresses to 0
+Critical Warning (127005): Memory depth (14) in the design file differs from memory depth (8) in the Memory Initialization File "C:/Users/Student/Desktop/Pacman/Pacman/startscreen_color.mif" -- setting initial value for remaining addresses to 0
+Critical Warning (127005): Memory depth (11) in the design file differs from memory depth (4) in the Memory Initialization File "C:/Users/Student/Desktop/Pacman/Pacman/color_data.mif" -- setting initial value for remaining addresses to 0
+Warning (113016): Width of data items in "start_screen.mif" is smaller than the memory width. Padding data items with 0 on MSB to fit in memory.  File: C:/Users/Student/Desktop/Pacman/Pacman/start_screen.mif Line: 7
+Warning (113016): Width of data items in "image_data.mif" is smaller than the memory width. Padding data items with 0 on MSB to fit in memory.  File: C:/Users/Student/Desktop/Pacman/Pacman/image_data.mif Line: 7
+Warning (113016): Width of data items in "pacman_closed_eye_up.mif" is smaller than the memory width. Padding data items with 0 on MSB to fit in memory.  File: C:/Users/Student/Desktop/Pacman/Pacman/pacman_closed_eye_up.mif Line: 7
+Warning (113016): Width of data items in "pacman_open_eye_left.mif" is smaller than the memory width. Padding data items with 0 on MSB to fit in memory.  File: C:/Users/Student/Desktop/Pacman/Pacman/pacman_open_eye_left.mif Line: 7
+Warning (113016): Width of data items in "pacman_closed_eye_left.mif" is smaller than the memory width. Padding data items with 0 on MSB to fit in memory.  File: C:/Users/Student/Desktop/Pacman/Pacman/pacman_closed_eye_left.mif Line: 7
+Warning (113016): Width of data items in "pacman_open_eye_up.mif" is smaller than the memory width. Padding data items with 0 on MSB to fit in memory.  File: C:/Users/Student/Desktop/Pacman/Pacman/pacman_open_eye_up.mif Line: 7
+Warning (113016): Width of data items in "pacman_closed_eye_down.mif" is smaller than the memory width. Padding data items with 0 on MSB to fit in memory.  File: C:/Users/Student/Desktop/Pacman/Pacman/pacman_closed_eye_down.mif Line: 7
+Warning (113016): Width of data items in "pacman_open_eye_right.mif" is smaller than the memory width. Padding data items with 0 on MSB to fit in memory.  File: C:/Users/Student/Desktop/Pacman/Pacman/pacman_open_eye_right.mif Line: 7
+Warning (113016): Width of data items in "pacman_closed_eye_right.mif" is smaller than the memory width. Padding data items with 0 on MSB to fit in memory.  File: C:/Users/Student/Desktop/Pacman/Pacman/pacman_closed_eye_right.mif Line: 7
+Warning (113016): Width of data items in "pacman_open_eye_down.mif" is smaller than the memory width. Padding data items with 0 on MSB to fit in memory.  File: C:/Users/Student/Desktop/Pacman/Pacman/pacman_open_eye_down.mif Line: 7
 Info (39024): Processed the following Memory Initialization File(s)
-    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/blue_NE.mif File: C:/Users/Student/Desktop/Pacman/blue_NE.mif Line: 0
-    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/blue_NW.mif File: C:/Users/Student/Desktop/Pacman/blue_NW.mif Line: 0
-    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/blue_SE.mif File: C:/Users/Student/Desktop/Pacman/blue_SE.mif Line: 0
-    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/blue_SW.mif File: C:/Users/Student/Desktop/Pacman/blue_SW.mif Line: 0
-    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/color_data.mif File: C:/Users/Student/Desktop/Pacman/color_data.mif Line: 0
-    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/color_data_digits.mif File: C:/Users/Student/Desktop/Pacman/color_data_digits.mif Line: 0
-    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/dmem.mif File: C:/Users/Student/Desktop/Pacman/dmem.mif Line: 0
-    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/ghost_color_blue.mif File: C:/Users/Student/Desktop/Pacman/ghost_color_blue.mif Line: 0
-    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/ghost_color_orange.mif File: C:/Users/Student/Desktop/Pacman/ghost_color_orange.mif Line: 0
-    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/ghost_color_pink.mif File: C:/Users/Student/Desktop/Pacman/ghost_color_pink.mif Line: 0
-    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/ghost_color_red.mif File: C:/Users/Student/Desktop/Pacman/ghost_color_red.mif Line: 0
-    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/image_data.mif File: C:/Users/Student/Desktop/Pacman/image_data.mif Line: 0
-    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/image_data_digits.mif File: C:/Users/Student/Desktop/Pacman/image_data_digits.mif Line: 0
-    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/imem.mif File: C:/Users/Student/Desktop/Pacman/imem.mif Line: 0
-    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/pacman_closed_eye_down.mif File: C:/Users/Student/Desktop/Pacman/pacman_closed_eye_down.mif Line: 0
-    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/pacman_closed_eye_left.mif File: C:/Users/Student/Desktop/Pacman/pacman_closed_eye_left.mif Line: 0
-    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/pacman_closed_eye_right.mif File: C:/Users/Student/Desktop/Pacman/pacman_closed_eye_right.mif Line: 0
-    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/pacman_closed_eye_up.mif File: C:/Users/Student/Desktop/Pacman/pacman_closed_eye_up.mif Line: 0
-    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/pacman_color.mif File: C:/Users/Student/Desktop/Pacman/pacman_color.mif Line: 0
-    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/pacman_open_eye_down.mif File: C:/Users/Student/Desktop/Pacman/pacman_open_eye_down.mif Line: 0
-    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/pacman_open_eye_left.mif File: C:/Users/Student/Desktop/Pacman/pacman_open_eye_left.mif Line: 0
-    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/pacman_open_eye_right.mif File: C:/Users/Student/Desktop/Pacman/pacman_open_eye_right.mif Line: 0
-    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/pacman_open_eye_up.mif File: C:/Users/Student/Desktop/Pacman/pacman_open_eye_up.mif Line: 0
-Info: Quartus Prime MIF/HEX Update was successful. 0 errors, 29 warnings
-    Info: Peak virtual memory: 1045 megabytes
-    Info: Processing ended: Sun Apr 22 14:06:27 2018
-    Info: Elapsed time: 00:00:08
-    Info: Total CPU time (on all processors): 00:00:06
+    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/Pacman/blue_NE.mif File: C:/Users/Student/Desktop/Pacman/Pacman/blue_NE.mif Line: 0
+    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/Pacman/blue_NW.mif File: C:/Users/Student/Desktop/Pacman/Pacman/blue_NW.mif Line: 0
+    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/Pacman/blue_SE.mif File: C:/Users/Student/Desktop/Pacman/Pacman/blue_SE.mif Line: 0
+    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/Pacman/blue_SW.mif File: C:/Users/Student/Desktop/Pacman/Pacman/blue_SW.mif Line: 0
+    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/Pacman/color_data.mif File: C:/Users/Student/Desktop/Pacman/Pacman/color_data.mif Line: 0
+    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/Pacman/color_data_digits.mif File: C:/Users/Student/Desktop/Pacman/Pacman/color_data_digits.mif Line: 0
+    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/Pacman/dmem.mif File: C:/Users/Student/Desktop/Pacman/Pacman/dmem.mif Line: 0
+    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/Pacman/ghost_color_blue.mif File: C:/Users/Student/Desktop/Pacman/Pacman/ghost_color_blue.mif Line: 0
+    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/Pacman/ghost_color_orange.mif File: C:/Users/Student/Desktop/Pacman/Pacman/ghost_color_orange.mif Line: 0
+    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/Pacman/ghost_color_pink.mif File: C:/Users/Student/Desktop/Pacman/Pacman/ghost_color_pink.mif Line: 0
+    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/Pacman/ghost_color_red.mif File: C:/Users/Student/Desktop/Pacman/Pacman/ghost_color_red.mif Line: 0
+    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/Pacman/image_data.mif File: C:/Users/Student/Desktop/Pacman/Pacman/image_data.mif Line: 0
+    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/Pacman/image_data_digits.mif File: C:/Users/Student/Desktop/Pacman/Pacman/image_data_digits.mif Line: 0
+    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/Pacman/imem.mif File: C:/Users/Student/Desktop/Pacman/Pacman/imem.mif Line: 0
+    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/Pacman/mspacman_closed_eye_down.mif File: C:/Users/Student/Desktop/Pacman/Pacman/mspacman_closed_eye_down.mif Line: 0
+    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/Pacman/mspacman_closed_eye_left.mif File: C:/Users/Student/Desktop/Pacman/Pacman/mspacman_closed_eye_left.mif Line: 0
+    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/Pacman/mspacman_closed_eye_right.mif File: C:/Users/Student/Desktop/Pacman/Pacman/mspacman_closed_eye_right.mif Line: 0
+    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/Pacman/mspacman_closed_eye_up.mif File: C:/Users/Student/Desktop/Pacman/Pacman/mspacman_closed_eye_up.mif Line: 0
+    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/Pacman/mspacman_color.mif File: C:/Users/Student/Desktop/Pacman/Pacman/mspacman_color.mif Line: 0
+    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/Pacman/mspacman_open_eye_down.mif File: C:/Users/Student/Desktop/Pacman/Pacman/mspacman_open_eye_down.mif Line: 0
+    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/Pacman/mspacman_open_eye_left.mif File: C:/Users/Student/Desktop/Pacman/Pacman/mspacman_open_eye_left.mif Line: 0
+    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/Pacman/mspacman_open_eye_right.mif File: C:/Users/Student/Desktop/Pacman/Pacman/mspacman_open_eye_right.mif Line: 0
+    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/Pacman/mspacman_open_eye_up.mif File: C:/Users/Student/Desktop/Pacman/Pacman/mspacman_open_eye_up.mif Line: 0
+    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/Pacman/pacman_closed_eye_down.mif File: C:/Users/Student/Desktop/Pacman/Pacman/pacman_closed_eye_down.mif Line: 0
+    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/Pacman/pacman_closed_eye_left.mif File: C:/Users/Student/Desktop/Pacman/Pacman/pacman_closed_eye_left.mif Line: 0
+    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/Pacman/pacman_closed_eye_right.mif File: C:/Users/Student/Desktop/Pacman/Pacman/pacman_closed_eye_right.mif Line: 0
+    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/Pacman/pacman_closed_eye_up.mif File: C:/Users/Student/Desktop/Pacman/Pacman/pacman_closed_eye_up.mif Line: 0
+    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/Pacman/pacman_color.mif File: C:/Users/Student/Desktop/Pacman/Pacman/pacman_color.mif Line: 0
+    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/Pacman/pacman_die0.mif File: C:/Users/Student/Desktop/Pacman/Pacman/pacman_die0.mif Line: 0
+    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/Pacman/pacman_die1.mif File: C:/Users/Student/Desktop/Pacman/Pacman/pacman_die1.mif Line: 0
+    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/Pacman/pacman_die2.mif File: C:/Users/Student/Desktop/Pacman/Pacman/pacman_die2.mif Line: 0
+    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/Pacman/pacman_die3.mif File: C:/Users/Student/Desktop/Pacman/Pacman/pacman_die3.mif Line: 0
+    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/Pacman/pacman_die4.mif File: C:/Users/Student/Desktop/Pacman/Pacman/pacman_die4.mif Line: 0
+    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/Pacman/pacman_die5.mif File: C:/Users/Student/Desktop/Pacman/Pacman/pacman_die5.mif Line: 0
+    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/Pacman/pacman_die6.mif File: C:/Users/Student/Desktop/Pacman/Pacman/pacman_die6.mif Line: 0
+    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/Pacman/pacman_open_eye_down.mif File: C:/Users/Student/Desktop/Pacman/Pacman/pacman_open_eye_down.mif Line: 0
+    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/Pacman/pacman_open_eye_left.mif File: C:/Users/Student/Desktop/Pacman/Pacman/pacman_open_eye_left.mif Line: 0
+    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/Pacman/pacman_open_eye_right.mif File: C:/Users/Student/Desktop/Pacman/Pacman/pacman_open_eye_right.mif Line: 0
+    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/Pacman/pacman_open_eye_up.mif File: C:/Users/Student/Desktop/Pacman/Pacman/pacman_open_eye_up.mif Line: 0
+    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/Pacman/start_screen.mif File: C:/Users/Student/Desktop/Pacman/Pacman/start_screen.mif Line: 0
+    Info (39025): Processed Memory Initialization File C:/Users/Student/Desktop/Pacman/Pacman/startscreen_color.mif File: C:/Users/Student/Desktop/Pacman/Pacman/startscreen_color.mif Line: 0
+Info: Quartus Prime MIF/HEX Update was successful. 0 errors, 13 warnings
+    Info: Peak virtual memory: 1146 megabytes
+    Info: Processing ended: Mon Apr 23 17:40:56 2018
+    Info: Elapsed time: 00:00:12
+    Info: Total CPU time (on all processors): 00:00:10
 
 

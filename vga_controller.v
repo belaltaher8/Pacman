@@ -24,8 +24,10 @@ input player0_dead, player1_dead;
 
 input gameplay;
 
-reg [9:0] scoreRegPlayer0;
+reg [9:0] scoreRegPlayer0, scoreRegPlayer1;
 output reg [1:0] screenReg;
+
+reg [31:0] pellet0_x, pellet0_y, pellet1_x, pellet1_y, pellet2_x, pellet2_y, pellet3_x, pellet3_y, pellet4_x, pellet4_y, pellet5_x, pellet5_y;
 
 
 input iRST_n;
@@ -41,18 +43,22 @@ reg firstRow;
 reg secondRow;
                
 reg [12:0] ADDRinScorePlayer0Digit0, ADDRinScorePlayer0Digit1, ADDRinScorePlayer0Digit2, player0Digit0Offset, player0Digit1Offset, player0Digit2Offset;
+reg [12:0] ADDRinScorePlayer1Digit0, ADDRinScorePlayer1Digit1, ADDRinScorePlayer1Digit2, player1Digit0Offset, player1Digit1Offset, player1Digit2Offset;
 
 wire inScorePlayer0Digit0, inScorePlayer0Digit1, inSCorePlayer0Digit2;
 
-assign inScorePlayer0Digit2 = (xADDRToCompare >= 1 && xADDRToCompare <= 30 && yADDRToCompare >= 60 && yADDRToCompare <= 82) ? 1'b1: 1'b0;
-assign inScorePlayer0Digit1 = (xADDRToCompare >= 31 && xADDRToCompare <= 60 && yADDRToCompare >= 60 && yADDRToCompare <= 82) ? 1'b1: 1'b0;
-assign inScorePlayer0Digit0 = (xADDRToCompare >= 61 && xADDRToCompare <= 90 && yADDRToCompare >= 60 && yADDRToCompare <= 82) ? 1'b1: 1'b0;
+assign inScorePlayer0Digit2 = (xADDRToCompare >=  1 && xADDRToCompare <= 30 && yADDRToCompare >= 60 && yADDRToCompare <= 84) ? 1'b1: 1'b0;
+assign inScorePlayer0Digit1 = (xADDRToCompare >= 31 && xADDRToCompare <= 60 && yADDRToCompare >= 60 && yADDRToCompare <= 84) ? 1'b1: 1'b0;
+assign inScorePlayer0Digit0 = (xADDRToCompare >= 61 && xADDRToCompare <= 90 && yADDRToCompare >= 60 && yADDRToCompare <= 84) ? 1'b1: 1'b0;
 
+assign inScorePlayer1Digit2 = (xADDRToCompare >= 541 && xADDRToCompare <= 570 && yADDRToCompare >= 60 && yADDRToCompare <= 84) ? 1'b1 : 1'b0;
+assign inScorePlayer1Digit1 = (xADDRToCompare >= 571 && xADDRToCompare <= 600 && yADDRToCompare >= 60 && yADDRToCompare <= 84) ? 1'b1: 1'b0;
+assign inScorePlayer1Digit0 = (xADDRToCompare >= 601 && xADDRToCompare <= 630 && yADDRToCompare >= 60 && yADDRToCompare <= 84) ? 1'b1: 1'b0;
 
-reg [12:0] ADDRinScorePlayer1; 
+assign inGameOver = (xADDRToCompare >= 127 && xADDRToCompare <=  506 && yADDRToCompare >= 172 && yADDRToCompare <= 312) ? 1'b1 : 1'b0;
 
-reg inScorePlayer1;
 				
+reg [15:0] ADDRinGameOver;
 reg [18:0] ADDR;
 reg [18:0] realADDR;
 reg [23:0] bgr_data;
@@ -119,6 +125,12 @@ begin
 	  ADDRinScorePlayer0Digit1 <= 13'd0;
 	  ADDRinScorePlayer0Digit2 <= 13'd0;
 	  
+	  ADDRinScorePlayer1Digit0 <= 13'd0;
+	  ADDRinScorePlayer1Digit1 <= 13'd0;
+	  ADDRinScorePlayer1Digit2 <= 13'd0;
+	  
+	  ADDRinGameOver <= 16'd0;
+	  
   end
   
   else if (cHS==1'b0 && cVS==1'b0) begin
@@ -131,6 +143,12 @@ begin
 	  ADDRinScorePlayer0Digit0 <= 13'd0;
 	  ADDRinScorePlayer0Digit1 <= 13'd0;
 	  ADDRinScorePlayer0Digit2 <= 13'd0;
+	  
+	  ADDRinScorePlayer1Digit0 <= 13'd0;
+	  ADDRinScorePlayer1Digit1 <= 13'd0;
+	  ADDRinScorePlayer1Digit2 <= 13'd0;
+	  
+	  ADDRinGameOver <= 16'd0;
   end
   
   else if (cBLANK_n==1'b1) begin
@@ -162,6 +180,7 @@ begin
 			realADDR <= ADDR;
 	  end
 	  
+	  
 	  if(inScorePlayer0Digit0 == 1'b1)
 			ADDRinScorePlayer0Digit0 <= ADDRinScorePlayer0Digit0 + 1;
 		
@@ -170,6 +189,21 @@ begin
 			
 	  if(inScorePlayer0Digit2 == 1'b1)
 			ADDRinScorePlayer0Digit2 <= ADDRinScorePlayer0Digit2 + 1;
+			
+			
+			
+	  if(inScorePlayer1Digit0 == 1'b1)
+			ADDRinScorePlayer1Digit0 <= ADDRinScorePlayer1Digit0 + 1;
+		
+	  if(inScorePlayer1Digit1 == 1'b1)
+			ADDRinScorePlayer1Digit1 <= ADDRinScorePlayer1Digit1 + 1;
+			
+	  if(inScorePlayer1Digit2 == 1'b1)
+			ADDRinScorePlayer1Digit2 <= ADDRinScorePlayer1Digit2 + 1;
+			
+	  if(inGameOver == 1'b1)
+			ADDRinGameOver <= ADDRinGameOver + 1;
+	  
 			
 			
 	end
@@ -221,13 +255,13 @@ reg [8:0] powerup1yLocToRender;
 
 reg [31:0] clockCounter;
 
-reg [32:0] pacman_counter;
+reg [19:0] pacman_counter;
 reg [25:0] player0_deathCount;
 reg [25:0] player1_deathCount;
 
 
-reg pinkSig1, pinkSig2, pinkSig3, pinkSig4;
-reg [19:0] pinkCounter;
+reg pinkSig1, pinkSig2, pinkSig3, pinkSig4, redSig1, redSig2, redSig3, redSig4, orangeSig1, orangeSig2, orangeSig3, orangeSig4, blueSig1, blueSig2, blueSig3, blueSig4;
+reg [18:0] pinkCounter, redCounter, orangeCounter, blueCounter;
 
 initial begin
     xLoc0 <= 10'b0000000000;
@@ -237,16 +271,16 @@ initial begin
     yLoc1 <=  9'b000000000;
 	 
 	 xLocG0 <= 10'd108;
-    yLocG0 <=  9'd20;
+    yLocG0 <=  9'd18;
 	 
 	 xLocG1 <= 10'd108;
-    yLocG1 <=  9'd408;
+    yLocG1 <=  9'd409;
 	 
 	 xLocG2 <= 10'd186;
     yLocG2 <=  9'd72;
 	 
 	 xLocG3 <= 10'd508;
-    yLocG3 <=  9'd412;
+    yLocG3 <=  9'd409;
     
     width <=  10'd24;
     height <=  9'd24;
@@ -257,6 +291,25 @@ initial begin
 	 pinkSig4 <= 0;
 	 pinkCounter <= 0;
 	 
+	 gameOverOccurred <= 1;
+	 
+	 redSig1 <= 1;
+	 redSig2 <= 0;
+	 redSig3 <= 0;
+	 redSig4 <= 0;
+	 redCounter <= 0;
+	 
+	 orangeSig1 <= 1;
+	 orangeSig2 <= 0;
+	 orangeSig3 <= 0;
+	 orangeSig4 <= 0;
+	 orangeCounter <= 0;
+	 
+	 blueSig1 <= 1;
+	 blueSig2 <= 0;
+	 blueSig3 <= 0;
+	 blueSig4 <= 0;
+	 blueCounter <= 0;
 	 
 	 powerup0xLocToRender <= 10'b0000000000;
 	 powerup0yLocToRender <=  9'b000000000;
@@ -272,6 +325,26 @@ initial begin
 	 
 	 player0_deathCount <= 26'd0;
 	 player1_deathCount <= 26'd0;
+	 
+	 pellet0_x <= 235;
+	 pellet0_y <= 163;
+	 
+	 pellet1_x <= 235;
+	 pellet1_y <= 187;
+	 
+	 pellet2_x <= 235;
+	 pellet2_y <= 211;
+	 
+	 pellet3_x <= 235;
+	 pellet3_y <= 235;
+	 
+	 pellet4_x <= 235;
+	 pellet4_y <= 259;
+	 
+	 pellet5_x <= 235;
+	 pellet5_y <= 283;
+	 
+
     
 end
 
@@ -342,8 +415,9 @@ addrConverter myAddrConverterPlayer0(ADDR, VGA_CLK_n, xADDR, yADDR);
 		 else if((xADDRToCompare > xLocG3) && (xADDRToCompare < xLocG3 + width) && (yADDRToCompare > yLocG3) && (yADDRToCompare < yLocG3 + height) )	  
 			  color <= pink_data_raw;
 			  
-		 else if(powerup1_playerXRegister == 32'd1 && inScorePlayer0Digit0 != 1'b1 && inScorePlayer0Digit1 != 1'b1 && inScorePlayer0Digit2 != 1'b1)
+		 else if(powerup1_playerXRegister == 32'd1 && inScorePlayer0Digit0 != 1'b1 && inScorePlayer0Digit1 != 1'b1 && inScorePlayer0Digit2 != 1'b1 && inScorePlayer1Digit0 != 1'b1 && inScorePlayer1Digit1 != 1'b1 && inScorePlayer1Digit2 != 1'b1)
 			  color <= 23'b000000000000000000000000;  
+			  
 		 else if(inScorePlayer0Digit0 == 1'b1)
 			  color <= score_data_rawDigit0;
 			  
@@ -352,6 +426,36 @@ addrConverter myAddrConverterPlayer0(ADDR, VGA_CLK_n, xADDR, yADDR);
 			  
 		 else if(inScorePlayer0Digit2 == 1'b1)
 			  color <= score_data_rawDigit2;
+			  
+		 else if(inScorePlayer1Digit0 == 1'b1)
+			  color <= score_data_rawPlayer1Digit0;
+			  
+		 else if(inScorePlayer1Digit1 == 1'b1)
+			  color <= score_data_rawPlayer1Digit1;
+			  
+		 else if(inScorePlayer1Digit2 == 1'b1)
+			  color <= score_data_rawPlayer1Digit2;
+		 
+		 else if(xADDRToCompare > pellet0_x && xADDRToCompare < pellet0_x + width && yADDRToCompare > pellet0_y && yADDRToCompare < pellet0_y + height)
+				color <= 23'b000000001111111111111111;
+				
+		 else if(xADDRToCompare > pellet1_x && xADDRToCompare < pellet1_x + width && yADDRToCompare > pellet1_y && yADDRToCompare < pellet1_y + height)
+				color <= 23'b000000001111111111111111;
+				
+		 else if(xADDRToCompare > pellet2_x && xADDRToCompare < pellet2_x + width && yADDRToCompare > pellet2_y && yADDRToCompare < pellet2_y + height)
+				color <= 23'b000000001111111111111111;
+				
+		 else if(xADDRToCompare > pellet3_x && xADDRToCompare < pellet3_x + width && yADDRToCompare > pellet3_y && yADDRToCompare < pellet3_y + height)
+				color <= 23'b000000001111111111111111;
+				
+		 else if(xADDRToCompare > pellet4_x && xADDRToCompare < pellet4_x + width && yADDRToCompare > pellet4_y && yADDRToCompare < pellet4_y + height)
+				color <= 23'b000000001111111111111111;
+				
+		 else if(xADDRToCompare > pellet5_x && xADDRToCompare < pellet5_x + width && yADDRToCompare > pellet5_y && yADDRToCompare < pellet5_y + height)
+				color <= 23'b000000001111111111111111;
+		
+		else if(inGameOver == 1'b1 && gameOverOccurred == 1'b1 && gameOverDataRaw != 24'h00FF00)
+				color <= gameOverDataRaw;
 			  
 		 else 
 			  color <= bgr_data_raw;
@@ -373,7 +477,7 @@ output reg player0_collisionUp, player0_collisionDown, player0_collisionRight, p
 reg upCollisionFlag0, downCollisionFlag0, rightCollisionFlag0, leftCollisionFlag0;
 reg upCollisionFlag1, downCollisionFlag1, rightCollisionFlag1, leftCollisionFlag1;
 
-
+reg gameOverOccurred;
 
 //COLLISION FLAGS
 
@@ -381,12 +485,12 @@ always@(posedge procClock) begin
 
 
 	 //Player 0 UP COLLISIONS
-	 if(bgr_data_raw == 24'hFF3844 && (xADDRToCompare > xLoc0) && (xADDRToCompare < (xLoc0 + width)) && (yADDRToCompare == yLoc0 - 1)) begin
+	 if(bgr_data_raw == 24'hFF3333 && (xADDRToCompare > xLoc0) && (xADDRToCompare < (xLoc0 + width)) && (yADDRToCompare == yLoc0 - 1)) begin
 		  player0_collisionUp <= 1'b1;
 		  upCollisionFlag0 <= 1'b1;
 	 end
 		  
-	 else if(bgr_data_raw != 24'hFF3844 && (xADDRToCompare > xLoc0) && (xADDRToCompare < (xLoc0 + width)) && (yADDRToCompare == yLoc0 - 1) && upCollisionFlag0 == 1'b0)
+	 else if(bgr_data_raw != 24'hFF3333 && (xADDRToCompare > xLoc0) && (xADDRToCompare < (xLoc0 + width)) && (yADDRToCompare == yLoc0 - 1) && upCollisionFlag0 == 1'b0)
 		  player0_collisionUp <= 1'b0;
 		  
 	 else if(xADDRToCompare > xLoc0 + width + 1)
@@ -394,12 +498,12 @@ always@(posedge procClock) begin
 		
 		
 	 //Player 0 DOWN COLLISIONS	
-	 if(bgr_data_raw == 24'hFF3844 && (xADDRToCompare > xLoc0) && (xADDRToCompare < (xLoc0 + width)) && (yADDRToCompare == yLoc0 + height + 1)) begin
+	 if(bgr_data_raw == 24'hFF3333 && (xADDRToCompare > xLoc0) && (xADDRToCompare < (xLoc0 + width)) && (yADDRToCompare == yLoc0 + height + 1)) begin
 		  player0_collisionDown <= 1'b1;
 		  downCollisionFlag0 <= 1'b1;
 	 end
 		  
-	 else if(bgr_data_raw != 24'hFF3844 && (xADDRToCompare > xLoc0) && (xADDRToCompare < (xLoc0 + width)) && (yADDRToCompare == yLoc0 + height + 1) && downCollisionFlag0 == 1'b0) begin
+	 else if(bgr_data_raw != 24'hFF3333 && (xADDRToCompare > xLoc0) && (xADDRToCompare < (xLoc0 + width)) && (yADDRToCompare == yLoc0 + height + 1) && downCollisionFlag0 == 1'b0) begin
 		  player0_collisionDown <= 1'b0;
 	 end
 		  
@@ -408,12 +512,12 @@ always@(posedge procClock) begin
 		
 		
 	//Player 0 RIGHT COLLISIONS
-	if(bgr_data_raw == 24'hFF3844 && (yADDRToCompare > yLoc0) && (yADDRToCompare < (yLoc0 + height)) && (xADDRToCompare == xLoc0 + width + 1))begin
+	if(bgr_data_raw == 24'hFF3333 && (yADDRToCompare > yLoc0) && (yADDRToCompare < (yLoc0 + height)) && (xADDRToCompare == xLoc0 + width + 1))begin
 			player0_collisionRight <= 1'b1;
 			rightCollisionFlag0 <= 1'b1;
 	end
 	
-	else if(bgr_data_raw != 24'hFF3844 && (yADDRToCompare > yLoc0) && (yADDRToCompare < (yLoc0 + height)) && (xADDRToCompare == xLoc0 + width + 1) && rightCollisionFlag0 == 1'b0)
+	else if(bgr_data_raw != 24'hFF3333 && (yADDRToCompare > yLoc0) && (yADDRToCompare < (yLoc0 + height)) && (xADDRToCompare == xLoc0 + width + 1) && rightCollisionFlag0 == 1'b0)
 		   player0_collisionRight <= 1'b0;
 			
 	else if(yADDRToCompare > yLoc0 + height + 1)
@@ -421,12 +525,12 @@ always@(posedge procClock) begin
 	
 	
 	//Player 0 LEFT COLLISIONS
-	if(bgr_data_raw == 24'hFF3844 && (yADDRToCompare > yLoc0) && (yADDRToCompare < (yLoc0 + height)) && (xADDRToCompare == xLoc0 - 1))begin
+	if(bgr_data_raw == 24'hFF3333 && (yADDRToCompare > yLoc0) && (yADDRToCompare < (yLoc0 + height)) && (xADDRToCompare == xLoc0 - 1))begin
 			player0_collisionLeft <= 1'b1;
 			leftCollisionFlag0 <= 1'b1;
 	end
 	
-	else if(bgr_data_raw != 24'hFF3844 && (yADDRToCompare > yLoc0) && (yADDRToCompare < (yLoc0 + height)) && (xADDRToCompare == xLoc0 - 1) && leftCollisionFlag0 == 1'b0)
+	else if(bgr_data_raw != 24'hFF3333 && (yADDRToCompare > yLoc0) && (yADDRToCompare < (yLoc0 + height)) && (xADDRToCompare == xLoc0 - 1) && leftCollisionFlag0 == 1'b0)
 		   player0_collisionLeft <= 1'b0;
 			
 	else if(yADDRToCompare > yLoc0 + height + 1)
@@ -437,12 +541,12 @@ always@(posedge procClock) begin
 			
 			
 	 //Player 1 UP COLLISIONS
-	 if(bgr_data_raw == 24'hFF3844 && (xADDRToCompare > xLoc1) && (xADDRToCompare < (xLoc1 + width)) && (yADDRToCompare == yLoc1 - 1)) begin
+	 if(bgr_data_raw == 24'hFF3333 && (xADDRToCompare > xLoc1) && (xADDRToCompare < (xLoc1 + width)) && (yADDRToCompare == yLoc1 - 1)) begin
 		  player1_collisionUp <= 1'b1;
 		  upCollisionFlag1 <= 1'b1;
 	 end
 		  
-	 else if(bgr_data_raw != 24'hFF3844 && (xADDRToCompare > xLoc1) && (xADDRToCompare < (xLoc1 + width)) && (yADDRToCompare == yLoc1 - 1) && upCollisionFlag1 == 1'b0)
+	 else if(bgr_data_raw != 24'hFF3333 && (xADDRToCompare > xLoc1) && (xADDRToCompare < (xLoc1 + width)) && (yADDRToCompare == yLoc1 - 1) && upCollisionFlag1 == 1'b0)
 		  player1_collisionUp <= 1'b0;
 		  
 	 else if(xADDRToCompare > xLoc1 + width + 1)
@@ -451,12 +555,12 @@ always@(posedge procClock) begin
 		
 		
 	 //Player 1 DOWN COLLISIONS	
-	 if(bgr_data_raw == 24'hFF3844 && (xADDRToCompare > xLoc1) && (xADDRToCompare < (xLoc1 + width)) && (yADDRToCompare == yLoc1 + height + 1)) begin
+	 if(bgr_data_raw == 24'hFF3333 && (xADDRToCompare > xLoc1) && (xADDRToCompare < (xLoc1 + width)) && (yADDRToCompare == yLoc1 + height + 1)) begin
 		  player1_collisionDown <= 1'b1;
 		  downCollisionFlag1 <= 1'b1;
 	 end
 		  
-	 else if(bgr_data_raw != 24'hFF3844 && (xADDRToCompare > xLoc1) && (xADDRToCompare < (xLoc1 + width)) && (yADDRToCompare == yLoc1 + height + 1) && downCollisionFlag1 == 1'b0) begin
+	 else if(bgr_data_raw != 24'hFF3333 && (xADDRToCompare > xLoc1) && (xADDRToCompare < (xLoc1 + width)) && (yADDRToCompare == yLoc1 + height + 1) && downCollisionFlag1 == 1'b0) begin
 		  player1_collisionDown <= 1'b0;
 	 end
 		  
@@ -466,12 +570,12 @@ always@(posedge procClock) begin
 		
 		
 	//Player 1 RIGHT COLLISIONS
-	if(bgr_data_raw == 24'hFF3844 && (yADDRToCompare > yLoc1) && (yADDRToCompare < (yLoc1 + height)) && (xADDRToCompare == xLoc1 + width + 1))begin
+	if(bgr_data_raw == 24'hFF3333 && (yADDRToCompare > yLoc1) && (yADDRToCompare < (yLoc1 + height)) && (xADDRToCompare == xLoc1 + width + 1))begin
 			player1_collisionRight <= 1'b1;
 			rightCollisionFlag1 <= 1'b1;
 	end
 	
-	else if(bgr_data_raw != 24'hFF3844 && (yADDRToCompare > yLoc1) && (yADDRToCompare < (yLoc1 + height)) && (xADDRToCompare == xLoc1 + width + 1) && rightCollisionFlag1 == 1'b0)
+	else if(bgr_data_raw != 24'hFF3333 && (yADDRToCompare > yLoc1) && (yADDRToCompare < (yLoc1 + height)) && (xADDRToCompare == xLoc1 + width + 1) && rightCollisionFlag1 == 1'b0)
 		   player1_collisionRight <= 1'b0;
 			
 	else if(yADDRToCompare > yLoc1 + height + 1)
@@ -479,27 +583,28 @@ always@(posedge procClock) begin
 	
 	
 	//Player 1 LEFT COLLISIONS
-	if(bgr_data_raw == 24'hFF3844 && (yADDRToCompare > yLoc1) && (yADDRToCompare < (yLoc1 + height)) && (xADDRToCompare == xLoc1 - 1))begin
+	if(bgr_data_raw == 24'hFF3333 && (yADDRToCompare > yLoc1) && (yADDRToCompare < (yLoc1 + height)) && (xADDRToCompare == xLoc1 - 1))begin
 			player1_collisionLeft <= 1'b1;
 			leftCollisionFlag1 <= 1'b1;
 	end
 	
-	else if(bgr_data_raw != 24'hFF3844 && (yADDRToCompare > yLoc1) && (yADDRToCompare < (yLoc1 + height)) && (xADDRToCompare == xLoc1 - 1) && leftCollisionFlag1 == 1'b0)
+	else if(bgr_data_raw != 24'hFF3333 && (yADDRToCompare > yLoc1) && (yADDRToCompare < (yLoc1 + height)) && (xADDRToCompare == xLoc1 - 1) && leftCollisionFlag1 == 1'b0)
 		   player1_collisionLeft <= 1'b0;
 			
 	else if(yADDRToCompare > yLoc1 + height + 1)
 			leftCollisionFlag1 <= 1'b0;
 			
 			
-	//Player 0 Pellet Collisions
-	/*if(bgr_data_raw == 24'h9BFFFF && (yADDRToCompare > yLoc0 && yADDRToCompare < yLoc0 + height) && (xADDRToCompare > xLoc0 && xADDRToCompare < xLoc0 + width))
-		scoreRegPlayer0 <= scoreRegPlayer0 + 1;*/
 		
 	player0Digit0Offset <= scoreRegPlayer0 % 10;
 	player0Digit1Offset <= (scoreRegPlayer0 % 100) / 10;
 	player0Digit2Offset <= scoreRegPlayer0 / 100;
 	
-/*	
+	player1Digit0Offset <= scoreRegPlayer1 % 10;
+	player1Digit1Offset <= (scoreRegPlayer1 % 100) / 10;
+	player1Digit2Offset <= scoreRegPlayer1 / 100;
+	
+
 	pinkCounter <= pinkCounter + 1;
 
 	if(pinkCounter == 0 && pinkSig1 == 1)
@@ -529,7 +634,274 @@ always@(posedge procClock) begin
 	else if(xLocG2 == 186 && yLocG2 == 72) begin
 		pinkSig1 <= 1;
 		pinkSig4 <= 0;
-	end*/
+	end
+	
+	redCounter <= redCounter + 1;
+	
+	if(redCounter == 0 && redSig1 == 1)
+		xLocG1 = xLocG1 + 1;
+	else if(redCounter == 0 && redSig2 == 1)
+		yLocG1 = yLocG1 - 1;
+	else if(redCounter == 0 && redSig3 == 1)
+		xLocG1 = xLocG1 - 1;
+	else if(redCounter == 0 && redSig4 == 1)
+		yLocG1 = yLocG1 + 1;
+		
+	if(xLocG1 == 283 && yLocG1 == 409) begin
+		redSig1 <= 0;
+		redSig2 <= 1;
+	end
+	
+	else if(xLocG1 == 283 && yLocG1 == 369) begin
+		redSig2 <= 0;
+		redSig3 <= 1;
+	end
+	
+	else if(xLocG1 == 234 && yLocG1 == 369) begin
+		redSig3 <= 0;
+		redSig2 <= 1;
+	end
+	
+	else if(xLocG1 == 234 && yLocG1 == 326) begin
+		redSig2 <= 0;
+		redSig3 <= 1;
+	end
+	
+	else if(xLocG1 == 187 && yLocG1 == 326) begin
+		redSig3 <= 0;
+		redSig4 <= 1;
+	end
+	
+	else if(xLocG1 == 187 & yLocG1 == 369) begin
+		redSig4 <= 0;
+		redSig3 <= 1;
+	end
+	
+	else if (xLocG1 == 108 && yLocG1 == 369) begin
+		redSig3 <= 0;
+		redSig4 <= 1;
+	end
+	
+	else if (xLocG1 == 108 && yLocG1 == 409) begin
+		redSig4 <= 0;
+		redSig1 <= 1;
+	end
+	
+	orangeCounter <= orangeCounter + 1;
+	
+	if(orangeCounter == 0 && orangeSig1 == 1)
+		xLocG3 <= xLocG3 - 1;
+	else if(orangeCounter == 0 && orangeSig2 == 1)
+		yLocG3 <= yLocG3 - 1;
+	else if(orangeCounter == 0 && orangeSig3 == 1)
+		xLocG3 <= xLocG3 + 1;
+	else if(orangeCounter == 0 && orangeSig4 == 1)
+		yLocG3 <= yLocG3 + 1;
+		
+	if(xLocG3 == 332 && yLocG3 == 409) begin
+		orangeSig1 <= 0;
+		orangeSig2 <= 1;
+	end 
+	else if(xLocG3 == 332 && yLocG3 == 368) begin
+		orangeSig3 <= 1;
+		orangeSig2 <= 0;
+	end
+	else if(xLocG3 == 379 && yLocG3 == 368) begin
+		orangeSig2 <= 1;
+		orangeSig3 <= 0;
+	end
+	else if(xLocG3 == 379 && yLocG3 == 326) begin
+		orangeSig3 <= 1;
+		orangeSig2 <= 0;
+	end
+	else if(xLocG3 == 427 && yLocG3 == 326) begin
+		orangeSig4 <= 1;
+		orangeSig3 <= 0;
+	end
+	else if(xLocG3 == 427 && yLocG3 == 367) begin
+		orangeSig4 <= 0; 
+		orangeSig3 <= 1;
+	end
+	else if(xLocG3 == 508 && yLocG3 == 367) begin
+		orangeSig3 <= 0;
+		orangeSig4 <= 1;
+	end
+	else if(xLocG3 == 508 && yLocG3 == 409) begin
+		orangeSig1 <= 1;
+		orangeSig4 <= 0;
+	end
+	
+	blueCounter <= blueCounter + 1;
+	
+	
+	if(blueCounter == 0 && blueSig1 == 1)
+		xLocG0 <= xLocG0 + 1;
+	else if(blueCounter == 0 && blueSig2 == 1)
+		yLocG0 <= yLocG0 + 1;
+	else if(orangeCounter == 0 && blueSig3 == 1)
+		yLocG0 <= yLocG0 - 1;
+	else if(orangeCounter == 0 && blueSig4 == 1)
+		xLocG0 <= xLocG0 - 1;
+	
+	if(xLocG0 == 108 && yLocG0 == 18) begin
+		blueSig1 <= 1;
+		blueSig3 <= 0;
+	end
+	else if(xLocG0 == 283 && yLocG0 == 18) begin
+		blueSig1 <= 0;
+		blueSig2 <= 1;
+	end
+	else if(xLocG0 == 283 && yLocG0 == 74) begin
+		blueSig2 <= 0;
+		blueSig1 <= 1;
+	end
+	else if(xLocG0 == 332 && yLocG0 == 74) begin
+		blueSig3 <= 1;
+		blueSig1 <= 0;
+	end
+	else if(xLocG0 == 332 && yLocG0 == 21) begin
+		blueSig1 <= 1;
+		blueSig3 <= 0;
+	end
+	else if(xLocG0 == 507 && yLocG0 == 21) begin
+		blueSig2 <= 1;
+		blueSig1 <= 0;
+	end
+	else if(xLocG0 == 507 && yLocG0 == 75) begin
+		blueSig4 <= 1;
+		blueSig2 <= 0;
+	end
+	else if(xLocG0 == 108 && yLocG0 == 75) begin	
+		blueSig3 <= 1;
+		blueSig4 <= 0;
+	end
+	
+		 //Player 0 collision with pellet 0 
+        if(((xLoc0 +  width >= pellet0_x && xLoc0 + width <= pellet0_x + width) || 
+			   (xLoc0 >= pellet0_x && xLoc0 <= pellet0_x + width)) &&
+			  ((yLoc0 +  height >= pellet0_y && yLoc0 + height <= pellet0_y + height) ||
+			   (yLoc0 >= pellet0_y && yLoc0 <= pellet0_y + height))) begin
+					pellet0_x <= 32'b11111111111111111111111111111111;
+					pellet0_y <= 32'b11111111111111111111111111111111;
+					scoreRegPlayer0 <= scoreRegPlayer0 + 5;
+		  end	
+		  
+		 //Player 0 collision with pellet 1 
+        if(((xLoc0 +  width >= pellet1_x && xLoc0 + width <= pellet1_x + width) || 
+			   (xLoc0 >= pellet1_x && xLoc0 <= pellet1_x + width)) &&
+			  ((yLoc0 +  height >= pellet1_y && yLoc0 + height <= pellet1_y + height) ||
+			   (yLoc0 >= pellet1_y && yLoc0 <= pellet1_y + height))) begin
+					pellet1_x <= 32'b11111111111111111111111111111111;
+					pellet1_y <= 32'b11111111111111111111111111111111;
+					scoreRegPlayer0 <= scoreRegPlayer0 + 5;
+		  end	
+		  
+		 //Player 0 collision with pellet 2
+        if(((xLoc0 +  width >= pellet2_x && xLoc0 + width <= pellet2_x + width) || 
+			   (xLoc0 >= pellet2_x && xLoc0 <= pellet2_x + width)) &&
+			  ((yLoc0 +  height >= pellet2_y && yLoc0 + height <= pellet2_y + height) ||
+			   (yLoc0 >= pellet2_y && yLoc0 <= pellet2_y + height))) begin
+					pellet2_x <= 32'b11111111111111111111111111111111;
+					pellet2_y <= 32'b11111111111111111111111111111111;
+					scoreRegPlayer0 <= scoreRegPlayer0 + 5;
+		  end	
+		  
+		 //Player 0 collision with pellet 3
+        if(((xLoc0 +  width >= pellet3_x && xLoc0 + width <= pellet3_x + width) || 
+			   (xLoc0 >= pellet3_x && xLoc0 <= pellet3_x + width)) &&
+			  ((yLoc0 +  height >= pellet3_y && yLoc0 + height <= pellet3_y + height) ||
+			   (yLoc0 >= pellet3_y && yLoc0 <= pellet3_y + height))) begin
+					pellet3_x <= 32'b11111111111111111111111111111111;
+					pellet3_y <= 32'b11111111111111111111111111111111;
+					scoreRegPlayer0 <= scoreRegPlayer0 + 5;
+		  end	
+		  
+		 //Player 0 collision with pellet 0 
+        if(((xLoc0 +  width >= pellet4_x && xLoc0 + width <= pellet4_x + width) || 
+			   (xLoc0 >= pellet4_x && xLoc0 <= pellet4_x + width)) &&
+			  ((yLoc0 +  height >= pellet4_y && yLoc0 + height <= pellet4_y + height) ||
+			   (yLoc0 >= pellet4_y && yLoc0 <= pellet4_y + height))) begin
+					pellet4_x <= 32'b11111111111111111111111111111111;
+					pellet4_y <= 32'b11111111111111111111111111111111;
+					scoreRegPlayer0 <= scoreRegPlayer0 + 5;
+		  end	
+		  
+		 //Player 0 collision with pellet 5
+        if(((xLoc0 +  width >= pellet5_x && xLoc0 + width <= pellet5_x + width) || 
+			   (xLoc0 >= pellet5_x && xLoc0 <= pellet5_x + width)) &&
+			  ((yLoc0 +  height >= pellet5_y && yLoc0 + height <= pellet5_y + height) ||
+			   (yLoc0 >= pellet5_y && yLoc0 <= pellet5_y + height))) begin
+					pellet5_x <= 32'b11111111111111111111111111111111;
+					pellet5_y <= 32'b11111111111111111111111111111111;
+					scoreRegPlayer0 <= scoreRegPlayer0 + 5;
+		  end	
+		  
+		  
+		  
+		  
+		  
+		  
+		
+		 //Player 1 collision with pellet 0 
+        if(((xLoc1 +  width >= pellet0_x && xLoc1 + width <= pellet0_x + width) || 
+			   (xLoc1 >= pellet0_x && xLoc1 <= pellet0_x + width)) &&
+			  ((yLoc1 +  height >= pellet0_y && yLoc1 + height <= pellet0_y + height) ||
+			   (yLoc1 >= pellet0_y && yLoc1 <= pellet0_y + height))) begin
+					pellet0_x <= 32'b11111111111111111111111111111111;
+					pellet0_y <= 32'b11111111111111111111111111111111;
+					scoreRegPlayer1 <= scoreRegPlayer1 + 5;
+		  end	
+		  
+		 //Player 0 collision with pellet 1 
+        if(((xLoc1 +  width >= pellet1_x && xLoc1 + width <= pellet1_x + width) || 
+			   (xLoc1 >= pellet1_x && xLoc1 <= pellet1_x + width)) &&
+			  ((yLoc1 +  height >= pellet1_y && yLoc1 + height <= pellet1_y + height) ||
+			   (yLoc1 >= pellet1_y && yLoc1 <= pellet1_y + height))) begin
+					pellet1_x <= 32'b11111111111111111111111111111111;
+					pellet1_y <= 32'b11111111111111111111111111111111;
+					scoreRegPlayer1 <= scoreRegPlayer1 + 5;
+		  end	
+		  
+		 //Player 0 collision with pellet 2
+        if(((xLoc1 +  width >= pellet2_x && xLoc1 + width <= pellet2_x + width) || 
+			   (xLoc1 >= pellet2_x && xLoc1 <= pellet2_x + width)) &&
+			  ((yLoc1 +  height >= pellet2_y && yLoc1 + height <= pellet2_y + height) ||
+			   (yLoc1 >= pellet2_y && yLoc1 <= pellet2_y + height))) begin
+					pellet2_x <= 32'b11111111111111111111111111111111;
+					pellet2_y <= 32'b11111111111111111111111111111111;
+					scoreRegPlayer1 <= scoreRegPlayer1 + 5;
+		  end	
+		  
+		 //Player 0 collision with pellet 3
+        if(((xLoc1 +  width >= pellet3_x && xLoc1 + width <= pellet3_x + width) || 
+			   (xLoc1 >= pellet3_x && xLoc1 <= pellet3_x + width)) &&
+			  ((yLoc1 +  height >= pellet3_y && yLoc1 + height <= pellet3_y + height) ||
+			   (yLoc1 >= pellet3_y && yLoc1 <= pellet3_y + height))) begin
+					pellet3_x <= 32'b11111111111111111111111111111111;
+					pellet3_y <= 32'b11111111111111111111111111111111;
+					scoreRegPlayer0 <= scoreRegPlayer0 + 5;
+		  end	
+		  
+		 //Player 0 collision with pellet 0 
+        if(((xLoc1 +  width >= pellet4_x && xLoc1 + width <= pellet4_x + width) || 
+			   (xLoc1 >= pellet4_x && xLoc1 <= pellet4_x + width)) &&
+			  ((yLoc1 +  height >= pellet4_y && yLoc1 + height <= pellet4_y + height) ||
+			   (yLoc1 >= pellet4_y && yLoc1 <= pellet4_y + height))) begin
+					pellet4_x <= 32'b11111111111111111111111111111111;
+					pellet4_y <= 32'b11111111111111111111111111111111;
+					scoreRegPlayer1 <= scoreRegPlayer1 + 5;
+		  end	
+		  
+		 //Player 0 collision with pellet 5
+        if(((xLoc1 +  width >= pellet5_x && xLoc1 + width <= pellet5_x + width) || 
+			   (xLoc1 >= pellet5_x && xLoc1 <= pellet5_x + width)) &&
+			  ((yLoc1 +  height >= pellet5_y && yLoc1 + height <= pellet5_y + height) ||
+			   (yLoc1 >= pellet5_y && yLoc1 <= pellet5_y + height))) begin
+					pellet5_x <= 32'b11111111111111111111111111111111;
+					pellet5_y <= 32'b11111111111111111111111111111111;
+					scoreRegPlayer1 <= scoreRegPlayer1 + 5;
+		  end	
+	
 		
 		
 end
@@ -591,7 +963,7 @@ wire [1:0] scoreWirePlayer0Digit0;
 wire [23:0] score_data_rawDigit0;
 	
 digits_image_data scoreRenderer (
-	.address(ADDRinScorePlayer0Digit0 + player0Digit0Offset * 638),
+	.address(ADDRinScorePlayer0Digit0 + player0Digit0Offset * 720),
 	.clock(VGA_CLK_n),
 	.q(scoreWirePlayer0Digit0)
 	);
@@ -606,7 +978,7 @@ wire [1:0] scoreWirePlayer0Digit1;
 wire [23:0] score_data_rawDigit1;
 	
 digits_image_data scoreRenderer3 (
-	.address(ADDRinScorePlayer0Digit1 + player0Digit1Offset * 638),
+	.address(ADDRinScorePlayer0Digit1 + player0Digit1Offset * 720),
 	.clock(VGA_CLK_n),
 	.q(scoreWirePlayer0Digit1)
 	);
@@ -621,7 +993,7 @@ wire [1:0] scoreWirePlayer0Digit2;
 wire [23:0] score_data_rawDigit2;
 	
 digits_image_data scoreRenderer5 (
-	.address(ADDRinScorePlayer0Digit2 + player0Digit2Offset * 638),
+	.address(ADDRinScorePlayer0Digit2 + player0Digit2Offset * 720),
 	.clock(VGA_CLK_n),
 	.q(scoreWirePlayer0Digit2)
 	);
@@ -632,6 +1004,54 @@ digits_color_data scoreRenderer6 (
 	.q(score_data_rawDigit2)
 	);
 
+	
+	
+	
+wire [1:0] scoreWirePlayer1Digit0;
+wire [23:0] score_data_rawPlayer1Digit0;
+	
+digits_image_data scoreRenderer7 (
+	.address(ADDRinScorePlayer1Digit0 + player1Digit0Offset * 720),
+	.clock(VGA_CLK_n),
+	.q(scoreWirePlayer1Digit0)
+	);
+	
+digits_color_data scoreRenderer8 (
+	.address(scoreWirePlayer1Digit0),
+	.clock(iVGA_CLK),
+	.q(score_data_rawPlayer1Digit0)
+	);
+	
+wire [1:0] scoreWirePlayer1Digit1;
+wire [23:0] score_data_rawPlayer1Digit1;
+	
+digits_image_data scoreRenderer9 (
+	.address(ADDRinScorePlayer1Digit1 + player1Digit1Offset * 720),
+	.clock(VGA_CLK_n),
+	.q(scoreWirePlayer1Digit1)
+	);
+	
+digits_color_data scoreRenderer10 (
+	.address(scoreWirePlayer1Digit1),
+	.clock(iVGA_CLK),
+	.q(score_data_rawPlayer1Digit1)
+	);
+	
+wire [1:0] scoreWirePlayer1Digit2;
+wire [23:0] score_data_rawPlayer1Digit2;
+	
+digits_image_data scoreRenderer11 (
+	.address(ADDRinScorePlayer1Digit2 + player1Digit2Offset * 720),
+	.clock(VGA_CLK_n),
+	.q(scoreWirePlayer1Digit2)
+	);
+	
+digits_color_data scoreRenderer12 (
+	.address(scoreWirePlayer1Digit2),
+	.clock(iVGA_CLK),
+	.q(score_data_rawPlayer1Digit2)
+	);
+	
 
 //////Pacman Player 0 VGA Shite
 pacman_open_eye_right	poer (
@@ -882,6 +1302,21 @@ pink_index	pinki (
 	);	
 //////
 
+wire gameOverWire;
+wire [23:0] gameOverDataRaw;
+
+game_over_index gameOverScreen (
+	.address(ADDRinGameOver),
+	.clock(VGA_CLK_n),
+	.q(gameOverWire),
+	);
+	
+game_over_color gameOverScreen2(
+	.address(gameOverWire),
+	.clock(iVGA_CLK),
+	.q( gameOverDataRaw),
+	);
+
 always @(VGA_CLK_n) begin
 	// Updates Pacman Address for VGA
 	if((xADDR > player0_x) && (xADDR < player0_x + width) && (yADDR > player0_y) && (yADDR < player0_y + height))
@@ -897,36 +1332,34 @@ always @(VGA_CLK_n) begin
 	if((xADDR > xLocG3) && (xADDR < xLocG3 + width) && (yADDR > yLocG3) && (yADDR < yLocG3 + height))
 		pink_addr <= (yADDR-yLocG3) * width + xADDR-xLocG3;
 	
-	if (player0_dead == 1'b1) begin
-		if (player0_deathCount < 26'd4000000) begin 
-			player0_deathCount <= player0_deathCount + 26'd1;
-			pacman_ind <= pacman_d0;
-		end
-		else if (player0_deathCount < 26'd8000000) begin 
-			player0_deathCount <= player0_deathCount + 26'd1;
-			pacman_ind <= pacman_d1;
-		end
-		else if (player0_deathCount < 26'd12000000) begin 
-			player0_deathCount <= player0_deathCount + 26'd1;
-			pacman_ind <= pacman_d2;
-		end
-		else if (player0_deathCount < 26'd16000000) begin
-			player0_deathCount <= player0_deathCount + 26'd1;
-			pacman_ind <= pacman_d3;
-		end
-		else if (player0_deathCount < 26'd20000000) begin
-			player0_deathCount <= player0_deathCount + 26'd1;
-			pacman_ind <= pacman_d4;
-		end
-		else if (player0_deathCount < 26'd24000000) begin
-			player0_deathCount <= player0_deathCount + 26'd1;
-			pacman_ind <= pacman_d5;
-		end
-		else if (player0_deathCount < 26'd28000000) begin
-			player0_deathCount <= player0_deathCount + 26'd1;
-			pacman_ind <= pacman_d6;
-		end
-	end	
+	if (player0_deathCount < 26'd4000000 && player0_dead == 1) begin 
+		player0_deathCount <= player0_deathCount + 26'd1;
+		pacman_ind <= pacman_d0;
+	end
+	else if (player0_deathCount < 26'd8000000 && player0_dead == 1) begin 
+		player0_deathCount <= player0_deathCount + 26'd1;
+		pacman_ind <= pacman_d1;
+	end
+	else if (player0_deathCount < 26'd12000000 && player0_dead == 1) begin 
+		player0_deathCount <= player0_deathCount + 26'd1;
+		pacman_ind <= pacman_d2;
+	end
+	else if (player0_deathCount < 26'd16000000 && player0_dead == 1) begin
+		player0_deathCount <= player0_deathCount + 26'd1;
+		pacman_ind <= pacman_d3;
+	end
+	else if (player0_deathCount < 26'd20000000 && player0_dead == 1) begin
+		player0_deathCount <= player0_deathCount + 26'd1;
+		pacman_ind <= pacman_d4;
+	end
+	else if (player0_deathCount < 26'd24000000 && player0_dead == 1) begin
+		player0_deathCount <= player0_deathCount + 26'd1;
+		pacman_ind <= pacman_d5;
+	end
+	else if (player0_deathCount < 26'd28000000 && player0_dead == 1) begin
+		player0_deathCount <= player0_deathCount + 26'd1;
+		pacman_ind <= pacman_d6;
+	end
 	else if ((player0_direction == 2'b00) && (pacman_mouth == 1'b1)) pacman_ind <= pacman_or;
 	else if ((player0_direction == 2'b01) && (pacman_mouth == 1'b1)) pacman_ind <= pacman_od;
 	else if ((player0_direction == 2'b10) && (pacman_mouth == 1'b1)) pacman_ind <= pacman_ol;
@@ -966,18 +1399,15 @@ always @(VGA_CLK_n) begin
 	else if ((player1_x <= xLocG3) && (player1_y > yLocG3)) pink_ind <= pink_SW;
 	else if ((player1_x > xLocG3) && (player1_y > yLocG3)) pink_ind <= pink_SE;
 		
+	pacman_counter <= pacman_counter + 1;
 	
 	if (pacman_counter == 0 && pacman_mouth == 1) begin
 		pacman_mouth <= 0;
-		pacman_counter <= 1;
 	end
 	else if(pacman_counter == 0 && pacman_mouth == 0) begin
 		pacman_mouth <= 1;
-		pacman_counter <= 1;
 	end
-	else begin
-		pacman_counter <= pacman_counter + 1;
-	end
+
 	
 end
 	

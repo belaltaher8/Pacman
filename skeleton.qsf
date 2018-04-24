@@ -189,6 +189,15 @@ set_location_assignment PIN_AD15 -to JoyE_0
 set_location_assignment PIN_AE15 -to JoyN_0
 set_location_assignment PIN_AD21 -to JoyS_0
 set_location_assignment PIN_AB21 -to JoyW_0
+set_global_assignment -name MIF_FILE game_over_index.mif
+set_global_assignment -name MIF_FILE game_over.mif
+set_global_assignment -name QIP_FILE img_index.qip
+set_global_assignment -name QIP_FILE img_data.qip
+set_global_assignment -name QIP_FILE ghost_NE.qip
+set_global_assignment -name MIF_FILE you_win_index.mif
+set_global_assignment -name MIF_FILE you_win.mif
+set_global_assignment -name MIF_FILE color_data_digits.mif
+set_global_assignment -name MIF_FILE image_data_digits.mif
 set_global_assignment -name MIF_FILE startscreen_color.mif
 set_global_assignment -name MIF_FILE start_screen.mif
 set_global_assignment -name MIF_FILE pacman_die3.mif
@@ -319,11 +328,9 @@ set_global_assignment -name VERILOG_FILE processor.v
 set_global_assignment -name VERILOG_FILE pll.v
 set_global_assignment -name QIP_FILE pll.qip
 set_global_assignment -name SOURCE_FILE pll.cmp
-set_global_assignment -name VERILOG_FILE imem.v
 set_global_assignment -name QIP_FILE imem.qip
 set_global_assignment -name SOURCE_FILE imem.cmp
 set_global_assignment -name VERILOG_FILE Hexadecimal_To_Seven_Segment.v
-set_global_assignment -name VERILOG_FILE dmem.v
 set_global_assignment -name QIP_FILE dmem.qip
 set_global_assignment -name SOURCE_FILE dmem.cmp
 set_global_assignment -name VERILOG_FILE Altera_UP_PS2_Data_In.v
@@ -370,4 +377,6 @@ set_global_assignment -name VERILOG_FILE pacman_die5.v
 set_global_assignment -name VERILOG_FILE pacman_die6.v
 set_global_assignment -name VERILOG_FILE startscreen_index.v
 set_global_assignment -name VERILOG_FILE start_screen.v
+set_global_assignment -name VERILOG_FILE game_over_color.v
+set_global_assignment -name VERILOG_FILE game_over_index.v
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

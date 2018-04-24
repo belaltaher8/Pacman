@@ -107,8 +107,7 @@ module skeleton(resetn,
 											.player1_collisionUp(player1_collisionUp),
 											.player1_collisionDown(player1_collisionDown),
 											.player1_collisionRight(player1_collisionRight),
-											.player1_collisionLeft(player1_collisionLeft),
-											.screenReg(screenReg),
+											.player1_collisionLeft(player1_collisionLeft)
                                  );
 	
 	initial begin

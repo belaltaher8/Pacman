@@ -49,8 +49,8 @@ module img_data (
 	
 	input	  clock;
 	
-	output	[2:0]  q;
-	output   [2:0]  q_b;
+	output	[1:0]  q;
+	output   [1:0]  q_b;
 	
 `ifndef ALTERA_RESERVED_QIS
 // synopsys translate_off
@@ -121,11 +121,11 @@ module img_data (
 		
 		altsyncram_component.ram_block_type = "M9K",
 		altsyncram_component.widthad_a = 19,
-		altsyncram_component.width_a = 3,
+		altsyncram_component.width_a = 2,
 		altsyncram_component.width_byteena_a = 1,
 		
 		altsyncram_component.widthad_b = 19,
-		altsyncram_component.width_b = 3,
+		altsyncram_component.width_b = 2,
 		altsyncram_component.width_byteena_b = 1,
 		altsyncram_component.wrcontrol_wraddress_reg_b = "CLOCK0";
 		
